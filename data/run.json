@@ -1,0 +1,16 @@
+{
+	"draft": {
+		"picks": 6,
+		"choices": 3,
+		"level": 1,
+		"tier_weights": {"F": 15, "E": 30, "D": 30, "C": 18, "B": 6, "A": 1}
+	},
+	"starting_roster": [
+		{"general_id": "guan_yu", "tier": "C", "level": 1},
+		{"general_id": "zhang_fei", "tier": "C", "level": 1},
+		{"general_id": "liu_bei", "tier": "C", "level": 1},
+		{"general_id": "hua_tuo", "tier": "D", "level": 1},
+		{"general_id": "diao_chan", "tier": "D", "level": 1},
+		{"general_id": "zhang_jue", "tier": "E", "level": 1}
+	]
+}

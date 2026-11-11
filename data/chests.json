@@ -1,0 +1,10 @@
+{
+	"tier_offset_weights": [80, 18, 2],
+	"year_end_chest": "imperial_gift",
+	"chests": [
+		{"id": "supply_crate", "name": "군량 상자", "scope": "roster", "card_count": 10},
+		{"id": "imperial_gift", "name": "조정 하사품", "scope": "roster", "card_count": 20},
+		{"id": "war_merit", "name": "전공 상자", "scope": "active", "card_count": 12},
+		{"id": "secret_manual", "name": "명장 비전서", "scope": "single", "card_count": 8}
+	]
+}

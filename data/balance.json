@@ -1,0 +1,50 @@
+{
+	"roster": {
+		"active_slots": 6,
+		"reserve_slots_base": 2,
+		"reserve_slots_max": 5,
+		"release_last_reserve_on_shrink": true,
+		"reserve_rest_heal_ratio": 0.0
+	},
+	"level": {
+		"max_level": 50,
+		"exp_per_level_factor": 20
+	},
+	"merge": {
+		"cards_per_promotion": 3
+	},
+	"inheritance": {
+		"ratio": 0.75
+	},
+	"run": {
+		"start_year": 184,
+		"rounds_per_year": 10,
+		"expedition_choices": 3,
+		"special_expedition_chance": 0.3,
+		"defeat_ends_run": true
+	},
+	"reward": {
+		"choices": 3,
+		"exp_choices": 1,
+		"exp_per_enemy_level": 10,
+		"card_level_ratio": 0.8
+	},
+	"healer": {
+		"stacking": true,
+		"heal_ratio": 0.3
+	},
+	"reserve_effect": {
+		"late_game_allies_alive_at_most": 2
+	},
+	"battle": {
+		"front_row_size": 3,
+		"back_row_size": 3,
+		"enemy_count_min": 3,
+		"enemy_count_max": 7,
+		"basic_attack_power": 1.0,
+		"defense_constant": 50,
+		"damage_variance": 0.1,
+		"min_damage": 1,
+		"round_limit": 100
+	}
+}

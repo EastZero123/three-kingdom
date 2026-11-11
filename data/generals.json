@@ -1,0 +1,6214 @@
+{
+	"generals": [
+		{
+			"id": "zhou_cang",
+			"name": "주창",
+			"faction": "yellow_turban",
+			"role": "warrior",
+			"tiers": {
+				"F": {
+					"title": "황건 잔당",
+					"era": "황건적의 난에 휩쓸려 싸우던 무명 시절",
+					"base_stats": {
+						"hp": 70,
+						"attack": 11,
+						"defense": 8,
+						"speed": 9,
+						"intellect": 5
+					},
+					"growth": {
+						"hp": 3,
+						"attack": 0.5,
+						"defense": 0.4,
+						"speed": 0.2,
+						"intellect": 0.1
+					},
+					"skill_ids": [
+						"bandit_ambush"
+					],
+					"reserve_effect": {
+						"name": "잔당의 근성",
+						"description": "출전 장수의 체력 +2%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "hp",
+							"value": 2
+						}
+					}
+				},
+				"E": {
+					"title": "와우산 두령",
+					"era": "황건이 무너진 뒤 와우산에서 산적 무리를 이끌던 시절",
+					"base_stats": {
+						"hp": 92,
+						"attack": 15,
+						"defense": 11,
+						"speed": 10,
+						"intellect": 6
+					},
+					"growth": {
+						"hp": 3.6,
+						"attack": 0.6,
+						"defense": 0.5,
+						"speed": 0.2,
+						"intellect": 0.1
+					},
+					"skill_ids": [
+						"bandit_ambush"
+					],
+					"reserve_effect": {
+						"name": "산채의 망보기",
+						"description": "출전 장수의 속도 +3%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "speed",
+							"value": 3
+						}
+					}
+				},
+				"D": {
+					"title": "관우의 부장",
+					"era": "관우를 만나 그의 언월도를 메고 따르던 시절",
+					"base_stats": {
+						"hp": 120,
+						"attack": 19,
+						"defense": 15,
+						"speed": 11,
+						"intellect": 7
+					},
+					"growth": {
+						"hp": 4.2,
+						"attack": 0.7,
+						"defense": 0.6,
+						"speed": 0.2,
+						"intellect": 0.1
+					},
+					"skill_ids": [
+						"bandit_ambush",
+						"loyal_guard"
+					],
+					"reserve_effect": {
+						"name": "충직한 수행",
+						"description": "출전 장수의 방어 +4%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "defense",
+							"value": 4
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "zhang_jue",
+			"name": "장각",
+			"faction": "yellow_turban",
+			"role": "strategist",
+			"tiers": {
+				"E": {
+					"title": "태평도 교주",
+					"era": "부적과 주문으로 병을 고친다며 신도를 모으던 포교 시절",
+					"base_stats": {
+						"hp": 80,
+						"attack": 8,
+						"defense": 8,
+						"speed": 9,
+						"intellect": 16
+					},
+					"growth": {
+						"hp": 3,
+						"attack": 0.2,
+						"defense": 0.3,
+						"speed": 0.2,
+						"intellect": 0.7
+					},
+					"skill_ids": [
+						"fanatic_fervor"
+					],
+					"reserve_effect": {
+						"name": "포교",
+						"description": "출전 장수의 지략 +3%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "intellect",
+							"value": 3
+						}
+					}
+				},
+				"D": {
+					"title": "대현량사",
+					"era": "수십만 신도를 36방으로 조직하던 봉기 직전",
+					"base_stats": {
+						"hp": 100,
+						"attack": 10,
+						"defense": 10,
+						"speed": 10,
+						"intellect": 21
+					},
+					"growth": {
+						"hp": 3.5,
+						"attack": 0.2,
+						"defense": 0.4,
+						"speed": 0.2,
+						"intellect": 0.9
+					},
+					"skill_ids": [
+						"fanatic_fervor",
+						"yellow_sky_thunder"
+					],
+					"reserve_effect": {
+						"name": "36방의 조직",
+						"description": "출전 장수의 체력 +4%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "hp",
+							"value": 4
+						}
+					}
+				},
+				"C": {
+					"title": "천공장군",
+					"era": "184년 누런 두건을 두르고 봉기를 일으킨 시기",
+					"base_stats": {
+						"hp": 125,
+						"attack": 12,
+						"defense": 13,
+						"speed": 11,
+						"intellect": 27
+					},
+					"growth": {
+						"hp": 4,
+						"attack": 0.3,
+						"defense": 0.5,
+						"speed": 0.2,
+						"intellect": 1.1
+					},
+					"skill_ids": [
+						"fanatic_fervor",
+						"yellow_sky_thunder"
+					],
+					"reserve_effect": {
+						"name": "창천은 이미 죽었다",
+						"description": "전투 5턴째부터 출전 장수의 공격 +8%",
+						"mode": "conditional",
+						"condition": {
+							"kind": "battle_turn_at_least",
+							"value": 5
+						},
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 8
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "cheng_yuanzhi",
+			"name": "정원지",
+			"faction": "yellow_turban",
+			"role": "warrior",
+			"tiers": {
+				"F": {
+					"title": "황건 소두목",
+					"era": "황건 무리의 작은 패거리를 이끌던 시절",
+					"base_stats": {
+						"hp": 72,
+						"attack": 12,
+						"defense": 7,
+						"speed": 8,
+						"intellect": 5
+					},
+					"growth": {
+						"hp": 3,
+						"attack": 0.5,
+						"defense": 0.3,
+						"speed": 0.2,
+						"intellect": 0.1
+					},
+					"skill_ids": [
+						"bandit_ambush"
+					],
+					"reserve_effect": {
+						"name": "패거리의 기세",
+						"description": "출전 장수의 공격 +2%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 2
+						}
+					}
+				},
+				"E": {
+					"title": "황건 부장",
+					"era": "여러 방의 무리를 모아 세를 불리던 시절",
+					"base_stats": {
+						"hp": 94,
+						"attack": 16,
+						"defense": 10,
+						"speed": 9,
+						"intellect": 6
+					},
+					"growth": {
+						"hp": 3.6,
+						"attack": 0.6,
+						"defense": 0.4,
+						"speed": 0.2,
+						"intellect": 0.1
+					},
+					"skill_ids": [
+						"bandit_ambush"
+					],
+					"reserve_effect": {
+						"name": "무리의 기세",
+						"description": "출전 장수의 공격 +3%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 3
+						}
+					}
+				},
+				"D": {
+					"title": "탁군 침공 대장",
+					"era": "5만 무리를 이끌고 탁군으로 쳐들어간 시기",
+					"base_stats": {
+						"hp": 122,
+						"attack": 20,
+						"defense": 13,
+						"speed": 10,
+						"intellect": 7
+					},
+					"growth": {
+						"hp": 4.2,
+						"attack": 0.7,
+						"defense": 0.5,
+						"speed": 0.2,
+						"intellect": 0.1
+					},
+					"skill_ids": [
+						"bandit_ambush"
+					],
+					"reserve_effect": {
+						"name": "대군의 위압",
+						"description": "출전 장수의 공격 +4%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 4
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "deng_mao",
+			"name": "등무",
+			"faction": "yellow_turban",
+			"role": "defender",
+			"tiers": {
+				"F": {
+					"title": "황건 졸개",
+					"era": "황건 무리에 막 들어온 시절",
+					"base_stats": {
+						"hp": 74,
+						"attack": 9,
+						"defense": 10,
+						"speed": 8,
+						"intellect": 5
+					},
+					"growth": {
+						"hp": 3.2,
+						"attack": 0.4,
+						"defense": 0.5,
+						"speed": 0.2,
+						"intellect": 0.1
+					},
+					"skill_ids": [
+						"loyal_guard"
+					],
+					"reserve_effect": {
+						"name": "방패막이",
+						"description": "출전 장수의 방어 +2%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "defense",
+							"value": 2
+						}
+					}
+				},
+				"E": {
+					"title": "황건 선봉",
+					"era": "앞장서 싸우며 이름을 알리던 시절",
+					"base_stats": {
+						"hp": 96,
+						"attack": 12,
+						"defense": 13,
+						"speed": 9,
+						"intellect": 6
+					},
+					"growth": {
+						"hp": 3.8,
+						"attack": 0.5,
+						"defense": 0.6,
+						"speed": 0.2,
+						"intellect": 0.1
+					},
+					"skill_ids": [
+						"loyal_guard"
+					],
+					"reserve_effect": {
+						"name": "선봉의 방패",
+						"description": "출전 장수의 방어 +3%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "defense",
+							"value": 3
+						}
+					}
+				},
+				"D": {
+					"title": "정원지의 부장",
+					"era": "정원지의 부장으로 탁군 싸움에 나선 시기",
+					"base_stats": {
+						"hp": 124,
+						"attack": 15,
+						"defense": 17,
+						"speed": 10,
+						"intellect": 7
+					},
+					"growth": {
+						"hp": 4.4,
+						"attack": 0.6,
+						"defense": 0.7,
+						"speed": 0.2,
+						"intellect": 0.1
+					},
+					"skill_ids": [
+						"loyal_guard",
+						"bandit_ambush"
+					],
+					"reserve_effect": {
+						"name": "부장의 방패",
+						"description": "출전 장수의 방어 +4%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "defense",
+							"value": 4
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "zhang_bao",
+			"name": "장보",
+			"faction": "yellow_turban",
+			"role": "strategist",
+			"tiers": {
+				"E": {
+					"title": "태평도 포교사",
+					"era": "형 장각을 도와 신도를 모으던 시절",
+					"base_stats": {
+						"hp": 78,
+						"attack": 8,
+						"defense": 8,
+						"speed": 10,
+						"intellect": 15
+					},
+					"growth": {
+						"hp": 3,
+						"attack": 0.2,
+						"defense": 0.3,
+						"speed": 0.2,
+						"intellect": 0.6
+					},
+					"skill_ids": [
+						"yellow_sky_thunder"
+					],
+					"reserve_effect": {
+						"name": "부적",
+						"description": "출전 장수의 지략 +2%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "intellect",
+							"value": 2
+						}
+					}
+				},
+				"D": {
+					"title": "봉기의 부장",
+					"era": "봉기 준비를 맡아 무리를 조직하던 시기",
+					"base_stats": {
+						"hp": 98,
+						"attack": 10,
+						"defense": 10,
+						"speed": 11,
+						"intellect": 20
+					},
+					"growth": {
+						"hp": 3.5,
+						"attack": 0.2,
+						"defense": 0.4,
+						"speed": 0.2,
+						"intellect": 0.8
+					},
+					"skill_ids": [
+						"yellow_sky_thunder"
+					],
+					"reserve_effect": {
+						"name": "요술 수련",
+						"description": "출전 장수의 지략 +3%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "intellect",
+							"value": 3
+						}
+					}
+				},
+				"C": {
+					"title": "지공장군",
+					"era": "지공장군을 칭하고 요술로 관군을 괴롭힌 시기",
+					"base_stats": {
+						"hp": 122,
+						"attack": 12,
+						"defense": 12,
+						"speed": 12,
+						"intellect": 26
+					},
+					"growth": {
+						"hp": 4,
+						"attack": 0.3,
+						"defense": 0.5,
+						"speed": 0.2,
+						"intellect": 1
+					},
+					"skill_ids": [
+						"yellow_sky_thunder"
+					],
+					"reserve_effect": {
+						"name": "검은 안개",
+						"description": "출전 장수의 지략 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "intellect",
+							"value": 5
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "zhang_liang",
+			"name": "장량",
+			"faction": "yellow_turban",
+			"role": "warrior",
+			"tiers": {
+				"E": {
+					"title": "태평도 호법",
+					"era": "형들을 지키며 신도 무리를 단속하던 시절",
+					"base_stats": {
+						"hp": 88,
+						"attack": 14,
+						"defense": 10,
+						"speed": 9,
+						"intellect": 8
+					},
+					"growth": {
+						"hp": 3.4,
+						"attack": 0.5,
+						"defense": 0.4,
+						"speed": 0.2,
+						"intellect": 0.2
+					},
+					"skill_ids": [
+						"bandit_ambush"
+					],
+					"reserve_effect": {
+						"name": "호법",
+						"description": "출전 장수의 체력 +2%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "hp",
+							"value": 2
+						}
+					}
+				},
+				"D": {
+					"title": "봉기의 선봉",
+					"era": "봉기 초기에 앞장서 고을을 치던 시기",
+					"base_stats": {
+						"hp": 112,
+						"attack": 18,
+						"defense": 13,
+						"speed": 10,
+						"intellect": 10
+					},
+					"growth": {
+						"hp": 4,
+						"attack": 0.6,
+						"defense": 0.5,
+						"speed": 0.2,
+						"intellect": 0.2
+					},
+					"skill_ids": [
+						"bandit_ambush"
+					],
+					"reserve_effect": {
+						"name": "선봉의 함성",
+						"description": "출전 장수의 체력 +3%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "hp",
+							"value": 3
+						}
+					}
+				},
+				"C": {
+					"title": "인공장군",
+					"era": "인공장군을 칭하고 광종에서 끝까지 버틴 시기",
+					"base_stats": {
+						"hp": 140,
+						"attack": 22,
+						"defense": 17,
+						"speed": 12,
+						"intellect": 13
+					},
+					"growth": {
+						"hp": 4.6,
+						"attack": 0.8,
+						"defense": 0.6,
+						"speed": 0.2,
+						"intellect": 0.3
+					},
+					"skill_ids": [
+						"bandit_ambush",
+						"fanatic_fervor"
+					],
+					"reserve_effect": {
+						"name": "광종의 항전",
+						"description": "아군이 3명 이하로 남으면 출전 장수의 공격 +8%",
+						"mode": "conditional",
+						"condition": {
+							"kind": "allies_alive_at_most",
+							"value": 3
+						},
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 8
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "liu_bei",
+			"name": "유비",
+			"faction": "shu",
+			"role": "support",
+			"tiers": {
+				"C": {
+					"title": "의용군 대장",
+					"era": "관우·장비와 함께 의병을 일으켜 황건적과 싸우던 시절",
+					"base_stats": {
+						"hp": 150,
+						"attack": 18,
+						"defense": 18,
+						"speed": 13,
+						"intellect": 17
+					},
+					"growth": {
+						"hp": 4.6,
+						"attack": 0.6,
+						"defense": 0.7,
+						"speed": 0.2,
+						"intellect": 0.6
+					},
+					"skill_ids": [
+						"rally_volunteers"
+					],
+					"reserve_effect": {
+						"name": "도원의 맹세",
+						"description": "출전 장수의 공격 +4%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 4
+						}
+					}
+				},
+				"B": {
+					"title": "서주목",
+					"era": "도겸에게 서주를 물려받아 다스리던 시절",
+					"base_stats": {
+						"hp": 185,
+						"attack": 23,
+						"defense": 24,
+						"speed": 15,
+						"intellect": 22
+					},
+					"growth": {
+						"hp": 5.4,
+						"attack": 0.7,
+						"defense": 0.9,
+						"speed": 0.3,
+						"intellect": 0.7
+					},
+					"skill_ids": [
+						"rally_volunteers",
+						"benevolent_command"
+					],
+					"reserve_effect": {
+						"name": "인덕",
+						"description": "출전 장수의 방어 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "defense",
+							"value": 6
+						}
+					}
+				},
+				"A": {
+					"title": "한중왕",
+					"era": "조조를 물리치고 한중을 차지해 왕위에 오른 전성기",
+					"base_stats": {
+						"hp": 230,
+						"attack": 29,
+						"defense": 30,
+						"speed": 17,
+						"intellect": 28
+					},
+					"growth": {
+						"hp": 6.4,
+						"attack": 0.9,
+						"defense": 1.1,
+						"speed": 0.3,
+						"intellect": 0.9
+					},
+					"skill_ids": [
+						"benevolent_command",
+						"hanzhong_banner"
+					],
+					"reserve_effect": {
+						"name": "한실 부흥의 뜻",
+						"description": "출전 장수의 체력 +8%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "hp",
+							"value": 8
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "guan_yu",
+			"name": "관우",
+			"faction": "shu",
+			"role": "warrior",
+			"tiers": {
+				"C": {
+					"title": "마궁수",
+					"era": "반동탁 연합군에서 술이 식기 전에 화웅을 벤 시절",
+					"base_stats": {
+						"hp": 150,
+						"attack": 25,
+						"defense": 18,
+						"speed": 14,
+						"intellect": 13
+					},
+					"growth": {
+						"hp": 4.6,
+						"attack": 0.9,
+						"defense": 0.6,
+						"speed": 0.3,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"green_dragon_slash"
+					],
+					"reserve_effect": {
+						"name": "식지 않은 술",
+						"description": "적이 5명 이하로 남으면 출전 장수의 공격 +5%",
+						"mode": "conditional",
+						"condition": {
+							"kind": "enemies_alive_at_most",
+							"value": 5
+						},
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "한수정후",
+					"era": "조조를 떠나 다섯 관문을 지나 유비에게 돌아가던 천리행 시절",
+					"base_stats": {
+						"hp": 185,
+						"attack": 32,
+						"defense": 23,
+						"speed": 16,
+						"intellect": 16
+					},
+					"growth": {
+						"hp": 5.4,
+						"attack": 1.1,
+						"defense": 0.8,
+						"speed": 0.3,
+						"intellect": 0.5
+					},
+					"skill_ids": [
+						"green_dragon_slash"
+					],
+					"reserve_effect": {
+						"name": "천리행의 의리",
+						"description": "출전 장수의 공격 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 6
+						}
+					}
+				},
+				"A": {
+					"title": "전장군",
+					"era": "형주를 지키며 번성에서 칠군을 수몰시켜 위세를 떨친 시기",
+					"base_stats": {
+						"hp": 230,
+						"attack": 41,
+						"defense": 29,
+						"speed": 18,
+						"intellect": 21
+					},
+					"growth": {
+						"hp": 6.4,
+						"attack": 1.4,
+						"defense": 1,
+						"speed": 0.3,
+						"intellect": 0.6
+					},
+					"skill_ids": [
+						"green_dragon_slash",
+						"flood_seven_armies"
+					],
+					"reserve_effect": {
+						"name": "화하를 뒤흔든 위세",
+						"description": "출전 장수의 공격 +8%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 8
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "zhang_fei",
+			"name": "장비",
+			"faction": "shu",
+			"role": "warrior",
+			"tiers": {
+				"C": {
+					"title": "의용군 선봉",
+					"era": "탁현에서 유비·관우와 의병을 일으킨 시절",
+					"base_stats": {
+						"hp": 160,
+						"attack": 24,
+						"defense": 17,
+						"speed": 13,
+						"intellect": 9
+					},
+					"growth": {
+						"hp": 5,
+						"attack": 0.9,
+						"defense": 0.6,
+						"speed": 0.2,
+						"intellect": 0.2
+					},
+					"skill_ids": [
+						"serpent_spear"
+					],
+					"reserve_effect": {
+						"name": "선봉의 기세",
+						"description": "출전 장수의 속도 +4%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "speed",
+							"value": 4
+						}
+					}
+				},
+				"B": {
+					"title": "장판교의 맹장",
+					"era": "장판교에서 홀로 조조의 대군을 막아선 시기",
+					"base_stats": {
+						"hp": 200,
+						"attack": 31,
+						"defense": 22,
+						"speed": 15,
+						"intellect": 11
+					},
+					"growth": {
+						"hp": 6,
+						"attack": 1.1,
+						"defense": 0.8,
+						"speed": 0.3,
+						"intellect": 0.3
+					},
+					"skill_ids": [
+						"serpent_spear",
+						"changban_roar"
+					],
+					"reserve_effect": {
+						"name": "다리 위의 호통",
+						"description": "아군이 3명 이하로 남으면 출전 장수의 방어 +12%",
+						"mode": "conditional",
+						"condition": {
+							"kind": "allies_alive_at_most",
+							"value": 3
+						},
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "defense",
+							"value": 12
+						}
+					}
+				},
+				"A": {
+					"title": "파서 태수",
+					"era": "파서에서 계책으로 장합을 격파하던 시기",
+					"base_stats": {
+						"hp": 250,
+						"attack": 39,
+						"defense": 28,
+						"speed": 17,
+						"intellect": 16
+					},
+					"growth": {
+						"hp": 7,
+						"attack": 1.4,
+						"defense": 1,
+						"speed": 0.3,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"serpent_spear",
+						"changban_roar"
+					],
+					"reserve_effect": {
+						"name": "만인지적",
+						"description": "출전 장수의 체력 +8%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "hp",
+							"value": 8
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "cao_cao",
+			"name": "조조",
+			"faction": "wei",
+			"role": "strategist",
+			"tiers": {
+				"B": {
+					"title": "분무장군",
+					"era": "진류에서 군사를 일으켜 반동탁 연합에 참여한 시절",
+					"base_stats": {
+						"hp": 175,
+						"attack": 25,
+						"defense": 21,
+						"speed": 17,
+						"intellect": 27
+					},
+					"growth": {
+						"hp": 5,
+						"attack": 0.8,
+						"defense": 0.7,
+						"speed": 0.4,
+						"intellect": 1
+					},
+					"skill_ids": [
+						"cavalry_raid"
+					],
+					"reserve_effect": {
+						"name": "거병의 격문",
+						"description": "출전 장수의 속도 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "speed",
+							"value": 5
+						}
+					}
+				},
+				"A": {
+					"title": "사공",
+					"era": "관도에서 원소의 대군을 꺾고 중원을 손에 넣은 시기",
+					"base_stats": {
+						"hp": 220,
+						"attack": 31,
+						"defense": 27,
+						"speed": 19,
+						"intellect": 35
+					},
+					"growth": {
+						"hp": 6,
+						"attack": 1,
+						"defense": 0.9,
+						"speed": 0.4,
+						"intellect": 1.3
+					},
+					"skill_ids": [
+						"cavalry_raid",
+						"burn_supplies"
+					],
+					"reserve_effect": {
+						"name": "관도의 결단",
+						"description": "출전 장수의 지략 +8%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "intellect",
+							"value": 8
+						}
+					}
+				},
+				"S": {
+					"title": "위왕",
+					"era": "북방을 통일하고 위왕에 올라 천하의 인재를 불러 모은 정점",
+					"base_stats": {
+						"hp": 275,
+						"attack": 39,
+						"defense": 34,
+						"speed": 22,
+						"intellect": 46
+					},
+					"growth": {
+						"hp": 7.2,
+						"attack": 1.2,
+						"defense": 1.1,
+						"speed": 0.5,
+						"intellect": 1.6
+					},
+					"skill_ids": [
+						"burn_supplies",
+						"wei_king_decree"
+					],
+					"reserve_effect": {
+						"name": "구현령",
+						"description": "보유효과 슬롯 +1",
+						"mode": "passive",
+						"effect": {
+							"kind": "reserve_slot_bonus",
+							"value": 1
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "sun_quan",
+			"name": "손권",
+			"faction": "wu",
+			"role": "defender",
+			"tiers": {
+				"C": {
+					"title": "토로장군",
+					"era": "형 손책의 뒤를 이어 어린 나이에 강동을 물려받은 시절",
+					"base_stats": {
+						"hp": 155,
+						"attack": 18,
+						"defense": 22,
+						"speed": 13,
+						"intellect": 17
+					},
+					"growth": {
+						"hp": 4.8,
+						"attack": 0.6,
+						"defense": 0.8,
+						"speed": 0.2,
+						"intellect": 0.6
+					},
+					"skill_ids": [
+						"jiangdong_defense"
+					],
+					"reserve_effect": {
+						"name": "강동의 기반",
+						"description": "출전 장수의 방어 +4%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "defense",
+							"value": 4
+						}
+					}
+				},
+				"B": {
+					"title": "강동의 주인",
+					"era": "항복론을 물리치고 적벽에서 조조와 맞서기로 결단한 시기",
+					"base_stats": {
+						"hp": 195,
+						"attack": 23,
+						"defense": 28,
+						"speed": 15,
+						"intellect": 22
+					},
+					"growth": {
+						"hp": 5.6,
+						"attack": 0.7,
+						"defense": 1,
+						"speed": 0.3,
+						"intellect": 0.8
+					},
+					"skill_ids": [
+						"jiangdong_defense",
+						"resolve_for_war"
+					],
+					"reserve_effect": {
+						"name": "장강의 험지",
+						"description": "출전 장수의 방어 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "defense",
+							"value": 6
+						}
+					}
+				},
+				"A": {
+					"title": "오 황제",
+					"era": "황제를 칭하고 오나라를 세운 시기",
+					"base_stats": {
+						"hp": 245,
+						"attack": 29,
+						"defense": 36,
+						"speed": 17,
+						"intellect": 28
+					},
+					"growth": {
+						"hp": 6.6,
+						"attack": 0.9,
+						"defense": 1.3,
+						"speed": 0.3,
+						"intellect": 1
+					},
+					"skill_ids": [
+						"resolve_for_war",
+						"steady_rule"
+					],
+					"reserve_effect": {
+						"name": "인재를 믿고 맡기다",
+						"description": "출전 장수의 체력 +8%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "hp",
+							"value": 8
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "lu_bu",
+			"name": "여포",
+			"faction": "lu_bu",
+			"role": "warrior",
+			"tiers": {
+				"B": {
+					"title": "주부",
+					"era": "병주자사 정원의 휘하에서 무용을 떨치던 시절",
+					"base_stats": {
+						"hp": 190,
+						"attack": 35,
+						"defense": 21,
+						"speed": 19,
+						"intellect": 9
+					},
+					"growth": {
+						"hp": 5.6,
+						"attack": 1.3,
+						"defense": 0.7,
+						"speed": 0.4,
+						"intellect": 0.2
+					},
+					"skill_ids": [
+						"halberd_sweep"
+					],
+					"reserve_effect": {
+						"name": "병주의 기병",
+						"description": "출전 장수의 속도 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "speed",
+							"value": 5
+						}
+					}
+				},
+				"A": {
+					"title": "기도위",
+					"era": "동탁의 양자가 되어 호뢰관에서 세 영웅과 겨룬 시기",
+					"base_stats": {
+						"hp": 240,
+						"attack": 45,
+						"defense": 27,
+						"speed": 22,
+						"intellect": 11
+					},
+					"growth": {
+						"hp": 6.6,
+						"attack": 1.6,
+						"defense": 0.9,
+						"speed": 0.5,
+						"intellect": 0.2
+					},
+					"skill_ids": [
+						"halberd_sweep",
+						"peerless_charge"
+					],
+					"reserve_effect": {
+						"name": "호뢰관의 위용",
+						"description": "출전 장수의 공격 +8%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 8
+						}
+					}
+				},
+				"S": {
+					"title": "비장",
+					"era": "연주와 서주를 휩쓸며 천하제일의 무용을 떨친 정점",
+					"base_stats": {
+						"hp": 300,
+						"attack": 58,
+						"defense": 34,
+						"speed": 25,
+						"intellect": 13
+					},
+					"growth": {
+						"hp": 7.8,
+						"attack": 2,
+						"defense": 1.1,
+						"speed": 0.6,
+						"intellect": 0.3
+					},
+					"skill_ids": [
+						"halberd_sweep",
+						"peerless_charge"
+					],
+					"reserve_effect": {
+						"name": "인중여포",
+						"description": "출전 장수의 공격 +12%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 12
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "diao_chan",
+			"name": "초선",
+			"faction": "han",
+			"role": "support",
+			"tiers": {
+				"D": {
+					"title": "왕윤의 가기",
+					"era": "사도 왕윤의 집에서 노래와 춤을 익히던 시절",
+					"base_stats": {
+						"hp": 95,
+						"attack": 9,
+						"defense": 10,
+						"speed": 15,
+						"intellect": 17
+					},
+					"growth": {
+						"hp": 3.2,
+						"attack": 0.2,
+						"defense": 0.3,
+						"speed": 0.4,
+						"intellect": 0.7
+					},
+					"skill_ids": [
+						"charm"
+					],
+					"reserve_effect": {
+						"name": "달을 가린 미모",
+						"description": "출전 장수의 속도 +3%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "speed",
+							"value": 3
+						}
+					}
+				},
+				"C": {
+					"title": "연환계의 미끼",
+					"era": "동탁과 여포 사이에 들어가 연환계를 시작한 시기",
+					"base_stats": {
+						"hp": 120,
+						"attack": 11,
+						"defense": 13,
+						"speed": 17,
+						"intellect": 23
+					},
+					"growth": {
+						"hp": 3.8,
+						"attack": 0.2,
+						"defense": 0.4,
+						"speed": 0.5,
+						"intellect": 0.9
+					},
+					"skill_ids": [
+						"charm",
+						"sow_discord"
+					],
+					"reserve_effect": {
+						"name": "엇갈린 약속",
+						"description": "출전 장수의 지략 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "intellect",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "봉의정의 여인",
+					"era": "봉의정에서 여포와 동탁을 끝내 갈라놓은 시기",
+					"base_stats": {
+						"hp": 150,
+						"attack": 13,
+						"defense": 16,
+						"speed": 20,
+						"intellect": 30
+					},
+					"growth": {
+						"hp": 4.4,
+						"attack": 0.3,
+						"defense": 0.5,
+						"speed": 0.5,
+						"intellect": 1.1
+					},
+					"skill_ids": [
+						"charm",
+						"sow_discord"
+					],
+					"reserve_effect": {
+						"name": "이간의 완성",
+						"description": "적이 3명 이하로 남으면 출전 장수의 공격 +10%",
+						"mode": "conditional",
+						"condition": {
+							"kind": "enemies_alive_at_most",
+							"value": 3
+						},
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 10
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "hua_tuo",
+			"name": "화타",
+			"faction": "none",
+			"role": "healer",
+			"tiers": {
+				"D": {
+					"title": "떠돌이 의원",
+					"era": "여러 고을을 돌며 백성을 치료하던 시절",
+					"base_stats": {
+						"hp": 100,
+						"attack": 8,
+						"defense": 12,
+						"speed": 12,
+						"intellect": 18
+					},
+					"growth": {
+						"hp": 3.4,
+						"attack": 0.2,
+						"defense": 0.4,
+						"speed": 0.3,
+						"intellect": 0.7
+					},
+					"skill_ids": [
+						"herbal_tonic"
+					],
+					"reserve_effect": {
+						"name": "응급 처치",
+						"description": "최후반부에 출전 장수의 방어 +10%",
+						"mode": "conditional",
+						"condition": {
+							"kind": "late_game"
+						},
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "defense",
+							"value": 10
+						}
+					}
+				},
+				"C": {
+					"title": "마비산의 창안자",
+					"era": "마비산을 만들어 배를 가르는 수술을 하던 시기",
+					"base_stats": {
+						"hp": 125,
+						"attack": 10,
+						"defense": 15,
+						"speed": 13,
+						"intellect": 24
+					},
+					"growth": {
+						"hp": 4,
+						"attack": 0.2,
+						"defense": 0.5,
+						"speed": 0.3,
+						"intellect": 0.9
+					},
+					"skill_ids": [
+						"herbal_tonic",
+						"mafeisan"
+					],
+					"reserve_effect": {
+						"name": "오금희",
+						"description": "최후반부에 출전 장수의 방어 +15%",
+						"mode": "conditional",
+						"condition": {
+							"kind": "late_game"
+						},
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "defense",
+							"value": 15
+						}
+					}
+				},
+				"B": {
+					"title": "신의",
+					"era": "관우의 팔뼈를 긁어 독을 치료했다는 일화의 시기",
+					"base_stats": {
+						"hp": 155,
+						"attack": 12,
+						"defense": 19,
+						"speed": 15,
+						"intellect": 31
+					},
+					"growth": {
+						"hp": 4.6,
+						"attack": 0.3,
+						"defense": 0.6,
+						"speed": 0.3,
+						"intellect": 1.1
+					},
+					"skill_ids": [
+						"herbal_tonic",
+						"mafeisan"
+					],
+					"reserve_effect": {
+						"name": "뼈를 긁는 의술",
+						"description": "최후반부에 출전 장수의 방어 +20%",
+						"mode": "conditional",
+						"condition": {
+							"kind": "late_game"
+						},
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "defense",
+							"value": 20
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "dong_zhuo",
+			"name": "동탁",
+			"faction": "dong_zhuo",
+			"role": "warrior",
+			"tiers": {
+				"B": {
+					"title": "태사",
+					"era": "초선을 사이에 두고 양자 여포와 갈등하던 시기",
+					"base_stats": {
+						"hp": 210,
+						"attack": 29,
+						"defense": 24,
+						"speed": 12,
+						"intellect": 15
+					},
+					"growth": {
+						"hp": 6.2,
+						"attack": 1,
+						"defense": 0.8,
+						"speed": 0.2,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"tyrant_strike"
+					],
+					"reserve_effect": {
+						"name": "흔들리는 권좌",
+						"description": "출전 장수의 체력 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "hp",
+							"value": 5
+						}
+					}
+				},
+				"A": {
+					"title": "전장군",
+					"era": "서량 철기를 이끌고 낙양에 들어와 조정을 장악한 시기",
+					"base_stats": {
+						"hp": 265,
+						"attack": 37,
+						"defense": 30,
+						"speed": 14,
+						"intellect": 19
+					},
+					"growth": {
+						"hp": 7.4,
+						"attack": 1.3,
+						"defense": 1,
+						"speed": 0.2,
+						"intellect": 0.5
+					},
+					"skill_ids": [
+						"tyrant_strike",
+						"xiliang_cavalry"
+					],
+					"reserve_effect": {
+						"name": "서량의 위세",
+						"description": "출전 장수의 공격 +7%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 7
+						}
+					}
+				},
+				"S": {
+					"title": "상국",
+					"era": "헌제를 세우고 상국이 되어 권력을 쥔 정점",
+					"base_stats": {
+						"hp": 330,
+						"attack": 47,
+						"defense": 38,
+						"speed": 16,
+						"intellect": 24
+					},
+					"growth": {
+						"hp": 8.8,
+						"attack": 1.6,
+						"defense": 1.2,
+						"speed": 0.3,
+						"intellect": 0.6
+					},
+					"skill_ids": [
+						"xiliang_cavalry",
+						"reign_of_terror"
+					],
+					"reserve_effect": {
+						"name": "천자를 낀 권세",
+						"description": "출전 장수의 체력 +12%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "hp",
+							"value": 12
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "zhuge_liang",
+			"name": "제갈량",
+			"faction": "shu",
+			"role": "strategist",
+			"tiers": {
+				"B": {
+					"title": "와룡",
+					"era": "융중의 초가에서 유비의 세 번째 방문을 맞은 시기",
+					"base_stats": {
+						"hp": 160,
+						"attack": 12,
+						"defense": 18,
+						"speed": 16,
+						"intellect": 34
+					},
+					"growth": {
+						"hp": 4.6,
+						"attack": 0.3,
+						"defense": 0.6,
+						"speed": 0.4,
+						"intellect": 1.3
+					},
+					"skill_ids": [
+						"longzhong_plan"
+					],
+					"reserve_effect": {
+						"name": "천하삼분지계",
+						"description": "출전 장수의 지략 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "intellect",
+							"value": 6
+						}
+					}
+				},
+				"A": {
+					"title": "군사중랑장",
+					"era": "손권을 설득하고 적벽에서 동남풍을 빌린 시기",
+					"base_stats": {
+						"hp": 200,
+						"attack": 14,
+						"defense": 23,
+						"speed": 18,
+						"intellect": 44
+					},
+					"growth": {
+						"hp": 5.4,
+						"attack": 0.3,
+						"defense": 0.8,
+						"speed": 0.4,
+						"intellect": 1.6
+					},
+					"skill_ids": [
+						"longzhong_plan",
+						"southeast_wind"
+					],
+					"reserve_effect": {
+						"name": "칠성단의 기도",
+						"description": "전투 4턴째부터 출전 장수의 지략 +12%",
+						"mode": "conditional",
+						"condition": {
+							"kind": "battle_turn_at_least",
+							"value": 4
+						},
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "intellect",
+							"value": 12
+						}
+					}
+				},
+				"S": {
+					"title": "승상",
+					"era": "촉한의 승상으로 출사표를 올리고 북벌에 나선 정점",
+					"base_stats": {
+						"hp": 250,
+						"attack": 17,
+						"defense": 29,
+						"speed": 21,
+						"intellect": 58
+					},
+					"growth": {
+						"hp": 6.4,
+						"attack": 0.4,
+						"defense": 1,
+						"speed": 0.5,
+						"intellect": 2
+					},
+					"skill_ids": [
+						"southeast_wind",
+						"eight_formations"
+					],
+					"reserve_effect": {
+						"name": "출사표",
+						"description": "출전 장수의 지략 +12%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "intellect",
+							"value": 12
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "xiahou_dun",
+			"name": "하후돈",
+			"faction": "wei",
+			"role": "warrior",
+			"tiers": {
+				"C": {
+					"title": "별부사마",
+					"era": "거병 초기부터 조조를 따르던 시절",
+					"base_stats": {
+						"hp": 155,
+						"attack": 25,
+						"defense": 18,
+						"speed": 14,
+						"intellect": 11
+					},
+					"growth": {
+						"hp": 4.7,
+						"attack": 0.9,
+						"defense": 0.6,
+						"speed": 0.3,
+						"intellect": 0.3
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_rampage"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "외눈의 맹장",
+					"era": "여포군과 싸우다 화살에 한쪽 눈을 잃은 시기",
+					"base_stats": {
+						"hp": 193,
+						"attack": 31,
+						"defense": 22,
+						"speed": 18,
+						"intellect": 14
+					},
+					"growth": {
+						"hp": 5.6,
+						"attack": 1.1,
+						"defense": 0.7,
+						"speed": 0.4,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_rampage"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 6
+						}
+					}
+				},
+				"A": {
+					"title": "대장군",
+					"era": "위의 대장군에 오른 말년",
+					"base_stats": {
+						"hp": 239,
+						"attack": 38,
+						"defense": 27,
+						"speed": 22,
+						"intellect": 18
+					},
+					"growth": {
+						"hp": 6.5,
+						"attack": 1.3,
+						"defense": 0.9,
+						"speed": 0.4,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_fury",
+						"g_rampage"
+					],
+					"reserve_effect": {
+						"name": "만부부당",
+						"description": "출전 장수의 공격 +8%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 8
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "xiahou_yuan",
+			"name": "하후연",
+			"faction": "wei",
+			"role": "warrior",
+			"tiers": {
+				"C": {
+					"title": "별부사마",
+					"era": "조조의 군량을 대며 따르던 시절",
+					"base_stats": {
+						"hp": 150,
+						"attack": 24,
+						"defense": 17,
+						"speed": 14,
+						"intellect": 11
+					},
+					"growth": {
+						"hp": 4.6,
+						"attack": 0.9,
+						"defense": 0.6,
+						"speed": 0.3,
+						"intellect": 0.3
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_flank"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "전군교위",
+					"era": "빠른 행군으로 이름을 떨친 시기",
+					"base_stats": {
+						"hp": 188,
+						"attack": 30,
+						"defense": 21,
+						"speed": 18,
+						"intellect": 14
+					},
+					"growth": {
+						"hp": 5.4,
+						"attack": 1.1,
+						"defense": 0.7,
+						"speed": 0.4,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_flank"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 6
+						}
+					}
+				},
+				"A": {
+					"title": "정서장군",
+					"era": "한중을 지키던 서방 사령관 시기",
+					"base_stats": {
+						"hp": 233,
+						"attack": 37,
+						"defense": 26,
+						"speed": 22,
+						"intellect": 17
+					},
+					"growth": {
+						"hp": 6.3,
+						"attack": 1.2,
+						"defense": 0.8,
+						"speed": 0.4,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_fury",
+						"g_flank"
+					],
+					"reserve_effect": {
+						"name": "만부부당",
+						"description": "출전 장수의 공격 +8%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 8
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "zhang_liao",
+			"name": "장료",
+			"faction": "wei",
+			"role": "warrior",
+			"tiers": {
+				"B": {
+					"title": "여포의 기병장",
+					"era": "여포 휘하에서 기병을 이끌던 시절",
+					"base_stats": {
+						"hp": 197,
+						"attack": 32,
+						"defense": 22,
+						"speed": 18,
+						"intellect": 14
+					},
+					"growth": {
+						"hp": 5.7,
+						"attack": 1.1,
+						"defense": 0.7,
+						"speed": 0.4,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_rampage"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 6
+						}
+					}
+				},
+				"A": {
+					"title": "탕구장군",
+					"era": "조조에 귀순해 백랑산에서 공을 세운 시기",
+					"base_stats": {
+						"hp": 244,
+						"attack": 39,
+						"defense": 28,
+						"speed": 23,
+						"intellect": 18
+					},
+					"growth": {
+						"hp": 6.7,
+						"attack": 1.3,
+						"defense": 0.9,
+						"speed": 0.4,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_fury",
+						"g_rampage"
+					],
+					"reserve_effect": {
+						"name": "만부부당",
+						"description": "출전 장수의 공격 +8%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 8
+						}
+					}
+				},
+				"S": {
+					"title": "합비의 수호자",
+					"era": "8백 기병으로 손권의 대군을 꺾은 정점",
+					"base_stats": {
+						"hp": 299,
+						"attack": 48,
+						"defense": 34,
+						"speed": 28,
+						"intellect": 22
+					},
+					"growth": {
+						"hp": 7.7,
+						"attack": 1.5,
+						"defense": 1,
+						"speed": 0.5,
+						"intellect": 0.5
+					},
+					"skill_ids": [
+						"g_fury",
+						"g_rampage"
+					],
+					"reserve_effect": {
+						"name": "만부부당",
+						"description": "출전 장수의 공격 +10%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 10
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "xu_huang",
+			"name": "서황",
+			"faction": "wei",
+			"role": "warrior",
+			"tiers": {
+				"C": {
+					"title": "양봉의 부장",
+					"era": "헌제를 호위하던 양봉 휘하 시절",
+					"base_stats": {
+						"hp": 150,
+						"attack": 24,
+						"defense": 17,
+						"speed": 14,
+						"intellect": 11
+					},
+					"growth": {
+						"hp": 4.6,
+						"attack": 0.9,
+						"defense": 0.6,
+						"speed": 0.3,
+						"intellect": 0.3
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_rampage"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "조조의 장수",
+					"era": "관도와 형주 전선에서 활약한 시기",
+					"base_stats": {
+						"hp": 188,
+						"attack": 30,
+						"defense": 21,
+						"speed": 18,
+						"intellect": 14
+					},
+					"growth": {
+						"hp": 5.4,
+						"attack": 1.1,
+						"defense": 0.7,
+						"speed": 0.4,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_rampage"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 6
+						}
+					}
+				},
+				"A": {
+					"title": "평구장군",
+					"era": "번성에서 관우의 포위를 풀어 낸 시기",
+					"base_stats": {
+						"hp": 233,
+						"attack": 37,
+						"defense": 26,
+						"speed": 22,
+						"intellect": 17
+					},
+					"growth": {
+						"hp": 6.3,
+						"attack": 1.2,
+						"defense": 0.8,
+						"speed": 0.4,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_fury",
+						"g_rampage"
+					],
+					"reserve_effect": {
+						"name": "만부부당",
+						"description": "출전 장수의 공격 +8%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 8
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "zhang_he",
+			"name": "장합",
+			"faction": "wei",
+			"role": "warrior",
+			"tiers": {
+				"C": {
+					"title": "한복의 군사마",
+					"era": "기주목 한복 휘하 시절",
+					"base_stats": {
+						"hp": 150,
+						"attack": 24,
+						"defense": 17,
+						"speed": 14,
+						"intellect": 11
+					},
+					"growth": {
+						"hp": 4.6,
+						"attack": 0.9,
+						"defense": 0.6,
+						"speed": 0.3,
+						"intellect": 0.3
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_rampage"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "원소의 장수",
+					"era": "원소 아래에서 공손찬과 싸운 시기",
+					"base_stats": {
+						"hp": 188,
+						"attack": 30,
+						"defense": 21,
+						"speed": 18,
+						"intellect": 14
+					},
+					"growth": {
+						"hp": 5.4,
+						"attack": 1.1,
+						"defense": 0.7,
+						"speed": 0.4,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_rampage"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 6
+						}
+					}
+				},
+				"A": {
+					"title": "정서거기장군",
+					"era": "가정에서 마속을 무찌른 시기",
+					"base_stats": {
+						"hp": 233,
+						"attack": 37,
+						"defense": 26,
+						"speed": 22,
+						"intellect": 17
+					},
+					"growth": {
+						"hp": 6.3,
+						"attack": 1.2,
+						"defense": 0.8,
+						"speed": 0.4,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_fury",
+						"g_rampage"
+					],
+					"reserve_effect": {
+						"name": "만부부당",
+						"description": "출전 장수의 공격 +8%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 8
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "yue_jin",
+			"name": "악진",
+			"faction": "wei",
+			"role": "warrior",
+			"tiers": {
+				"D": {
+					"title": "장하의 기수",
+					"era": "조조 휘하에서 늘 선봉을 자처하던 시절",
+					"base_stats": {
+						"hp": 117,
+						"attack": 19,
+						"defense": 13,
+						"speed": 11,
+						"intellect": 9
+					},
+					"growth": {
+						"hp": 4,
+						"attack": 0.8,
+						"defense": 0.5,
+						"speed": 0.3,
+						"intellect": 0.3
+					},
+					"skill_ids": [
+						"g_charge"
+					],
+					"reserve_effect": {
+						"name": "투지",
+						"description": "출전 장수의 공격 +4%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 4
+						}
+					}
+				},
+				"C": {
+					"title": "절충교위",
+					"era": "관도 전투에서 순우경을 벤 시기",
+					"base_stats": {
+						"hp": 150,
+						"attack": 24,
+						"defense": 17,
+						"speed": 14,
+						"intellect": 11
+					},
+					"growth": {
+						"hp": 4.6,
+						"attack": 0.9,
+						"defense": 0.6,
+						"speed": 0.3,
+						"intellect": 0.3
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_flank"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "우장군",
+					"era": "합비를 지키던 시기",
+					"base_stats": {
+						"hp": 188,
+						"attack": 30,
+						"defense": 21,
+						"speed": 18,
+						"intellect": 14
+					},
+					"growth": {
+						"hp": 5.4,
+						"attack": 1.1,
+						"defense": 0.7,
+						"speed": 0.4,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_flank"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 6
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "yu_jin",
+			"name": "우금",
+			"faction": "wei",
+			"role": "defender",
+			"tiers": {
+				"C": {
+					"title": "포신의 도위",
+					"era": "포신 휘하에서 조조와 만난 시절",
+					"base_stats": {
+						"hp": 160,
+						"attack": 18,
+						"defense": 23,
+						"speed": 12,
+						"intellect": 14
+					},
+					"growth": {
+						"hp": 5,
+						"attack": 0.6,
+						"defense": 0.9,
+						"speed": 0.2,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_bash",
+						"g_shield_wall"
+					],
+					"reserve_effect": {
+						"name": "철벽",
+						"description": "출전 장수의 방어 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "defense",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "평로교위",
+					"era": "군기가 엄하기로 이름난 시기",
+					"base_stats": {
+						"hp": 200,
+						"attack": 23,
+						"defense": 29,
+						"speed": 15,
+						"intellect": 18
+					},
+					"growth": {
+						"hp": 5.9,
+						"attack": 0.7,
+						"defense": 1,
+						"speed": 0.2,
+						"intellect": 0.5
+					},
+					"skill_ids": [
+						"g_bash",
+						"g_shield_wall"
+					],
+					"reserve_effect": {
+						"name": "철벽",
+						"description": "출전 장수의 방어 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "defense",
+							"value": 6
+						}
+					}
+				},
+				"A": {
+					"title": "좌장군",
+					"era": "번성 구원에 나서기 전 위의 중진 시기",
+					"base_stats": {
+						"hp": 248,
+						"attack": 28,
+						"defense": 36,
+						"speed": 19,
+						"intellect": 22
+					},
+					"growth": {
+						"hp": 6.9,
+						"attack": 0.8,
+						"defense": 1.2,
+						"speed": 0.3,
+						"intellect": 0.6
+					},
+					"skill_ids": [
+						"g_hold_line",
+						"g_shield_wall"
+					],
+					"reserve_effect": {
+						"name": "금성탕지",
+						"description": "출전 장수의 방어 +8%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "defense",
+							"value": 8
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "dian_wei",
+			"name": "전위",
+			"faction": "wei",
+			"role": "warrior",
+			"tiers": {
+				"D": {
+					"title": "이름 없는 장사",
+					"era": "장막 휘하의 사졸이던 시절",
+					"base_stats": {
+						"hp": 126,
+						"attack": 20,
+						"defense": 14,
+						"speed": 12,
+						"intellect": 9
+					},
+					"growth": {
+						"hp": 4.3,
+						"attack": 0.8,
+						"defense": 0.6,
+						"speed": 0.3,
+						"intellect": 0.3
+					},
+					"skill_ids": [
+						"g_charge"
+					],
+					"reserve_effect": {
+						"name": "투지",
+						"description": "출전 장수의 공격 +4%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 4
+						}
+					}
+				},
+				"C": {
+					"title": "조조의 호위",
+					"era": "쌍철극을 들고 조조를 지키던 시절",
+					"base_stats": {
+						"hp": 162,
+						"attack": 26,
+						"defense": 18,
+						"speed": 15,
+						"intellect": 12
+					},
+					"growth": {
+						"hp": 5,
+						"attack": 1,
+						"defense": 0.6,
+						"speed": 0.3,
+						"intellect": 0.3
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_rampage"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "교위 전위",
+					"era": "완성에서 조조를 지키다 전사한 최후",
+					"base_stats": {
+						"hp": 203,
+						"attack": 32,
+						"defense": 23,
+						"speed": 19,
+						"intellect": 15
+					},
+					"growth": {
+						"hp": 5.9,
+						"attack": 1.1,
+						"defense": 0.8,
+						"speed": 0.4,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_rampage"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 6
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "xu_chu",
+			"name": "허저",
+			"faction": "wei",
+			"role": "warrior",
+			"tiers": {
+				"D": {
+					"title": "초현의 장사",
+					"era": "도적에게서 고을을 지켜 낸 시절",
+					"base_stats": {
+						"hp": 122,
+						"attack": 19,
+						"defense": 14,
+						"speed": 11,
+						"intellect": 9
+					},
+					"growth": {
+						"hp": 4.2,
+						"attack": 0.8,
+						"defense": 0.5,
+						"speed": 0.3,
+						"intellect": 0.3
+					},
+					"skill_ids": [
+						"g_charge"
+					],
+					"reserve_effect": {
+						"name": "투지",
+						"description": "출전 장수의 공격 +4%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 4
+						}
+					}
+				},
+				"C": {
+					"title": "호위대장",
+					"era": "조조의 호위를 맡은 시기",
+					"base_stats": {
+						"hp": 156,
+						"attack": 25,
+						"defense": 18,
+						"speed": 15,
+						"intellect": 11
+					},
+					"growth": {
+						"hp": 4.8,
+						"attack": 0.9,
+						"defense": 0.6,
+						"speed": 0.3,
+						"intellect": 0.3
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_rampage"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "호치",
+					"era": "마초와 맨몸으로 맞선 시기",
+					"base_stats": {
+						"hp": 195,
+						"attack": 31,
+						"defense": 22,
+						"speed": 18,
+						"intellect": 14
+					},
+					"growth": {
+						"hp": 5.6,
+						"attack": 1.1,
+						"defense": 0.7,
+						"speed": 0.4,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_rampage"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 6
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "cao_ren",
+			"name": "조인",
+			"faction": "wei",
+			"role": "defender",
+			"tiers": {
+				"C": {
+					"title": "별부사마",
+					"era": "종형 조조를 따라 거병한 시절",
+					"base_stats": {
+						"hp": 160,
+						"attack": 18,
+						"defense": 23,
+						"speed": 12,
+						"intellect": 14
+					},
+					"growth": {
+						"hp": 5,
+						"attack": 0.6,
+						"defense": 0.9,
+						"speed": 0.2,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_bash",
+						"g_shield_wall"
+					],
+					"reserve_effect": {
+						"name": "철벽",
+						"description": "출전 장수의 방어 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "defense",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "정남장군",
+					"era": "강릉에서 주유와 맞선 시기",
+					"base_stats": {
+						"hp": 200,
+						"attack": 23,
+						"defense": 29,
+						"speed": 15,
+						"intellect": 18
+					},
+					"growth": {
+						"hp": 5.9,
+						"attack": 0.7,
+						"defense": 1,
+						"speed": 0.2,
+						"intellect": 0.5
+					},
+					"skill_ids": [
+						"g_bash",
+						"g_shield_wall"
+					],
+					"reserve_effect": {
+						"name": "철벽",
+						"description": "출전 장수의 방어 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "defense",
+							"value": 6
+						}
+					}
+				},
+				"A": {
+					"title": "대장군",
+					"era": "번성을 끝까지 지켜 낸 시기",
+					"base_stats": {
+						"hp": 248,
+						"attack": 28,
+						"defense": 36,
+						"speed": 19,
+						"intellect": 22
+					},
+					"growth": {
+						"hp": 6.9,
+						"attack": 0.8,
+						"defense": 1.2,
+						"speed": 0.3,
+						"intellect": 0.6
+					},
+					"skill_ids": [
+						"g_hold_line",
+						"g_shield_wall"
+					],
+					"reserve_effect": {
+						"name": "금성탕지",
+						"description": "출전 장수의 방어 +8%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "defense",
+							"value": 8
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "guo_jia",
+			"name": "곽가",
+			"faction": "wei",
+			"role": "strategist",
+			"tiers": {
+				"C": {
+					"title": "사공군좨주",
+					"era": "순욱의 추천으로 조조에게 발탁된 시기",
+					"base_stats": {
+						"hp": 135,
+						"attack": 12,
+						"defense": 16,
+						"speed": 15,
+						"intellect": 27
+					},
+					"growth": {
+						"hp": 4.2,
+						"attack": 0.3,
+						"defense": 0.5,
+						"speed": 0.3,
+						"intellect": 1
+					},
+					"skill_ids": [
+						"g_rockfall",
+						"g_confuse"
+					],
+					"reserve_effect": {
+						"name": "책략",
+						"description": "출전 장수의 지략 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "intellect",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "귀재",
+					"era": "원소의 패배와 북방 평정을 꿰뚫어 본 시기",
+					"base_stats": {
+						"hp": 169,
+						"attack": 16,
+						"defense": 20,
+						"speed": 18,
+						"intellect": 34
+					},
+					"growth": {
+						"hp": 4.9,
+						"attack": 0.4,
+						"defense": 0.6,
+						"speed": 0.4,
+						"intellect": 1.2
+					},
+					"skill_ids": [
+						"g_rockfall",
+						"g_confuse"
+					],
+					"reserve_effect": {
+						"name": "책략",
+						"description": "출전 장수의 지략 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "intellect",
+							"value": 6
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "xun_yu",
+			"name": "순욱",
+			"faction": "wei",
+			"role": "strategist",
+			"tiers": {
+				"C": {
+					"title": "사마",
+					"era": "원소를 떠나 조조에게 간 시절",
+					"base_stats": {
+						"hp": 130,
+						"attack": 12,
+						"defense": 15,
+						"speed": 14,
+						"intellect": 26
+					},
+					"growth": {
+						"hp": 4,
+						"attack": 0.3,
+						"defense": 0.5,
+						"speed": 0.3,
+						"intellect": 1
+					},
+					"skill_ids": [
+						"g_rockfall",
+						"g_fire_attack"
+					],
+					"reserve_effect": {
+						"name": "책략",
+						"description": "출전 장수의 지략 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "intellect",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "상서령",
+					"era": "허도를 지키며 조조의 후방을 맡은 시기",
+					"base_stats": {
+						"hp": 163,
+						"attack": 15,
+						"defense": 19,
+						"speed": 18,
+						"intellect": 33
+					},
+					"growth": {
+						"hp": 4.7,
+						"attack": 0.4,
+						"defense": 0.6,
+						"speed": 0.4,
+						"intellect": 1.2
+					},
+					"skill_ids": [
+						"g_rockfall",
+						"g_fire_attack"
+					],
+					"reserve_effect": {
+						"name": "책략",
+						"description": "출전 장수의 지략 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "intellect",
+							"value": 6
+						}
+					}
+				},
+				"A": {
+					"title": "왕좌지재",
+					"era": "조정과 인재 추천을 도맡은 시기",
+					"base_stats": {
+						"hp": 202,
+						"attack": 19,
+						"defense": 23,
+						"speed": 22,
+						"intellect": 40
+					},
+					"growth": {
+						"hp": 5.5,
+						"attack": 0.4,
+						"defense": 0.7,
+						"speed": 0.4,
+						"intellect": 1.4
+					},
+					"skill_ids": [
+						"g_grand_plan",
+						"g_fire_attack"
+					],
+					"reserve_effect": {
+						"name": "신산귀모",
+						"description": "출전 장수의 지략 +8%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "intellect",
+							"value": 8
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "sima_yi",
+			"name": "사마의",
+			"faction": "wei",
+			"role": "strategist",
+			"tiers": {
+				"B": {
+					"title": "문학연",
+					"era": "조조의 부름을 받아 출사한 시기",
+					"base_stats": {
+						"hp": 171,
+						"attack": 16,
+						"defense": 20,
+						"speed": 18,
+						"intellect": 34
+					},
+					"growth": {
+						"hp": 5,
+						"attack": 0.4,
+						"defense": 0.6,
+						"speed": 0.4,
+						"intellect": 1.2
+					},
+					"skill_ids": [
+						"g_rockfall",
+						"g_confuse"
+					],
+					"reserve_effect": {
+						"name": "책략",
+						"description": "출전 장수의 지략 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "intellect",
+							"value": 6
+						}
+					}
+				},
+				"A": {
+					"title": "대도독",
+					"era": "제갈량의 북벌을 막아 낸 시기",
+					"base_stats": {
+						"hp": 212,
+						"attack": 20,
+						"defense": 24,
+						"speed": 23,
+						"intellect": 42
+					},
+					"growth": {
+						"hp": 5.8,
+						"attack": 0.4,
+						"defense": 0.7,
+						"speed": 0.4,
+						"intellect": 1.4
+					},
+					"skill_ids": [
+						"g_grand_plan",
+						"g_confuse"
+					],
+					"reserve_effect": {
+						"name": "신산귀모",
+						"description": "출전 장수의 지략 +8%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "intellect",
+							"value": 8
+						}
+					}
+				},
+				"S": {
+					"title": "태부",
+					"era": "고평릉의 변으로 권력을 쥔 정점",
+					"base_stats": {
+						"hp": 259,
+						"attack": 24,
+						"defense": 30,
+						"speed": 28,
+						"intellect": 52
+					},
+					"growth": {
+						"hp": 6.7,
+						"attack": 0.5,
+						"defense": 0.8,
+						"speed": 0.5,
+						"intellect": 1.7
+					},
+					"skill_ids": [
+						"g_grand_plan",
+						"g_confuse"
+					],
+					"reserve_effect": {
+						"name": "인재 등용",
+						"description": "보유효과 슬롯 +1",
+						"mode": "passive",
+						"effect": {
+							"kind": "reserve_slot_bonus",
+							"value": 1
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "jia_xu",
+			"name": "가후",
+			"faction": "wei",
+			"role": "strategist",
+			"tiers": {
+				"C": {
+					"title": "토로교위",
+					"era": "이각·곽사에게 장안 공략을 권한 시기",
+					"base_stats": {
+						"hp": 130,
+						"attack": 12,
+						"defense": 15,
+						"speed": 14,
+						"intellect": 26
+					},
+					"growth": {
+						"hp": 4,
+						"attack": 0.3,
+						"defense": 0.5,
+						"speed": 0.3,
+						"intellect": 1
+					},
+					"skill_ids": [
+						"g_rockfall",
+						"g_fire_attack"
+					],
+					"reserve_effect": {
+						"name": "책략",
+						"description": "출전 장수의 지략 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "intellect",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "장수의 모사",
+					"era": "완성에서 조조를 궁지에 몬 시기",
+					"base_stats": {
+						"hp": 163,
+						"attack": 15,
+						"defense": 19,
+						"speed": 18,
+						"intellect": 33
+					},
+					"growth": {
+						"hp": 4.7,
+						"attack": 0.4,
+						"defense": 0.6,
+						"speed": 0.4,
+						"intellect": 1.2
+					},
+					"skill_ids": [
+						"g_rockfall",
+						"g_fire_attack"
+					],
+					"reserve_effect": {
+						"name": "책략",
+						"description": "출전 장수의 지략 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "intellect",
+							"value": 6
+						}
+					}
+				},
+				"A": {
+					"title": "태위",
+					"era": "위 조정의 원로가 된 시기",
+					"base_stats": {
+						"hp": 202,
+						"attack": 19,
+						"defense": 23,
+						"speed": 22,
+						"intellect": 40
+					},
+					"growth": {
+						"hp": 5.5,
+						"attack": 0.4,
+						"defense": 0.7,
+						"speed": 0.4,
+						"intellect": 1.4
+					},
+					"skill_ids": [
+						"g_grand_plan",
+						"g_fire_attack"
+					],
+					"reserve_effect": {
+						"name": "신산귀모",
+						"description": "출전 장수의 지략 +8%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "intellect",
+							"value": 8
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "cao_pi",
+			"name": "조비",
+			"faction": "wei",
+			"role": "support",
+			"tiers": {
+				"B": {
+					"title": "오관중랑장",
+					"era": "부승상으로 아버지를 보좌한 시기",
+					"base_stats": {
+						"hp": 175,
+						"attack": 19,
+						"defense": 21,
+						"speed": 20,
+						"intellect": 25
+					},
+					"growth": {
+						"hp": 5,
+						"attack": 0.5,
+						"defense": 0.7,
+						"speed": 0.5,
+						"intellect": 0.8
+					},
+					"skill_ids": [
+						"g_encourage",
+						"g_hasten"
+					],
+					"reserve_effect": {
+						"name": "기세",
+						"description": "출전 장수의 속도 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "speed",
+							"value": 6
+						}
+					}
+				},
+				"A": {
+					"title": "위 문제",
+					"era": "한의 선양을 받아 위를 세운 시기",
+					"base_stats": {
+						"hp": 217,
+						"attack": 23,
+						"defense": 26,
+						"speed": 25,
+						"intellect": 31
+					},
+					"growth": {
+						"hp": 5.8,
+						"attack": 0.6,
+						"defense": 0.8,
+						"speed": 0.6,
+						"intellect": 1
+					},
+					"skill_ids": [
+						"g_command",
+						"g_hasten"
+					],
+					"reserve_effect": {
+						"name": "천하의 명망",
+						"description": "출전 장수의 속도 +8%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "speed",
+							"value": 8
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "zhao_yun",
+			"name": "조운",
+			"faction": "shu",
+			"role": "warrior",
+			"tiers": {
+				"C": {
+					"title": "공손찬의 부장",
+					"era": "공손찬 휘하에서 유비를 만난 시절",
+					"base_stats": {
+						"hp": 159,
+						"attack": 25,
+						"defense": 18,
+						"speed": 15,
+						"intellect": 12
+					},
+					"growth": {
+						"hp": 4.9,
+						"attack": 1,
+						"defense": 0.6,
+						"speed": 0.3,
+						"intellect": 0.3
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_rampage"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "장판의 단기",
+					"era": "장판에서 홀로 아두를 구해 낸 시기",
+					"base_stats": {
+						"hp": 199,
+						"attack": 32,
+						"defense": 23,
+						"speed": 19,
+						"intellect": 15
+					},
+					"growth": {
+						"hp": 5.8,
+						"attack": 1.1,
+						"defense": 0.8,
+						"speed": 0.4,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_rampage"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 6
+						}
+					}
+				},
+				"A": {
+					"title": "진군장군",
+					"era": "노년에도 북벌의 선봉에 선 시기",
+					"base_stats": {
+						"hp": 246,
+						"attack": 39,
+						"defense": 28,
+						"speed": 23,
+						"intellect": 18
+					},
+					"growth": {
+						"hp": 6.7,
+						"attack": 1.3,
+						"defense": 0.9,
+						"speed": 0.4,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_fury",
+						"g_rampage"
+					],
+					"reserve_effect": {
+						"name": "만부부당",
+						"description": "출전 장수의 공격 +8%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 8
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "ma_chao",
+			"name": "마초",
+			"faction": "shu",
+			"role": "warrior",
+			"tiers": {
+				"C": {
+					"title": "서량의 젊은 장수",
+					"era": "아버지 마등 휘하에서 싸우던 시절",
+					"base_stats": {
+						"hp": 158,
+						"attack": 25,
+						"defense": 18,
+						"speed": 15,
+						"intellect": 12
+					},
+					"growth": {
+						"hp": 4.8,
+						"attack": 0.9,
+						"defense": 0.6,
+						"speed": 0.3,
+						"intellect": 0.3
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_flank"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "서량의 맹주",
+					"era": "동관에서 조조를 궁지에 몬 시기",
+					"base_stats": {
+						"hp": 197,
+						"attack": 32,
+						"defense": 22,
+						"speed": 18,
+						"intellect": 14
+					},
+					"growth": {
+						"hp": 5.7,
+						"attack": 1.1,
+						"defense": 0.7,
+						"speed": 0.4,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_flank"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 6
+						}
+					}
+				},
+				"A": {
+					"title": "표기장군",
+					"era": "유비에게 귀순해 촉의 중진이 된 시기",
+					"base_stats": {
+						"hp": 244,
+						"attack": 39,
+						"defense": 28,
+						"speed": 23,
+						"intellect": 18
+					},
+					"growth": {
+						"hp": 6.7,
+						"attack": 1.3,
+						"defense": 0.9,
+						"speed": 0.4,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_fury",
+						"g_flank"
+					],
+					"reserve_effect": {
+						"name": "만부부당",
+						"description": "출전 장수의 공격 +8%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 8
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "huang_zhong",
+			"name": "황충",
+			"faction": "shu",
+			"role": "warrior",
+			"tiers": {
+				"C": {
+					"title": "장사의 노장",
+					"era": "한현 휘하의 노장 시절",
+					"base_stats": {
+						"hp": 150,
+						"attack": 24,
+						"defense": 17,
+						"speed": 14,
+						"intellect": 11
+					},
+					"growth": {
+						"hp": 4.6,
+						"attack": 0.9,
+						"defense": 0.6,
+						"speed": 0.3,
+						"intellect": 0.3
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_flank"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "토로장군",
+					"era": "유비에게 귀순해 익주 공략에 나선 시기",
+					"base_stats": {
+						"hp": 188,
+						"attack": 30,
+						"defense": 21,
+						"speed": 18,
+						"intellect": 14
+					},
+					"growth": {
+						"hp": 5.4,
+						"attack": 1.1,
+						"defense": 0.7,
+						"speed": 0.4,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_flank"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 6
+						}
+					}
+				},
+				"A": {
+					"title": "정서장군",
+					"era": "정군산에서 하후연을 벤 시기",
+					"base_stats": {
+						"hp": 233,
+						"attack": 37,
+						"defense": 26,
+						"speed": 22,
+						"intellect": 17
+					},
+					"growth": {
+						"hp": 6.3,
+						"attack": 1.2,
+						"defense": 0.8,
+						"speed": 0.4,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_fury",
+						"g_flank"
+					],
+					"reserve_effect": {
+						"name": "만부부당",
+						"description": "출전 장수의 공격 +8%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 8
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "wei_yan",
+			"name": "위연",
+			"faction": "shu",
+			"role": "warrior",
+			"tiers": {
+				"C": {
+					"title": "부곡장",
+					"era": "유비의 부대장으로 익주에 들어간 시기",
+					"base_stats": {
+						"hp": 150,
+						"attack": 24,
+						"defense": 17,
+						"speed": 14,
+						"intellect": 11
+					},
+					"growth": {
+						"hp": 4.6,
+						"attack": 0.9,
+						"defense": 0.6,
+						"speed": 0.3,
+						"intellect": 0.3
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_flank"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "한중 태수",
+					"era": "발탁되어 한중을 맡아 지킨 시기",
+					"base_stats": {
+						"hp": 188,
+						"attack": 30,
+						"defense": 21,
+						"speed": 18,
+						"intellect": 14
+					},
+					"growth": {
+						"hp": 5.4,
+						"attack": 1.1,
+						"defense": 0.7,
+						"speed": 0.4,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_flank"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 6
+						}
+					}
+				},
+				"A": {
+					"title": "정서대장군",
+					"era": "북벌의 선봉을 맡은 시기",
+					"base_stats": {
+						"hp": 233,
+						"attack": 37,
+						"defense": 26,
+						"speed": 22,
+						"intellect": 17
+					},
+					"growth": {
+						"hp": 6.3,
+						"attack": 1.2,
+						"defense": 0.8,
+						"speed": 0.4,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_fury",
+						"g_flank"
+					],
+					"reserve_effect": {
+						"name": "만부부당",
+						"description": "출전 장수의 공격 +8%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 8
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "pang_tong",
+			"name": "방통",
+			"faction": "shu",
+			"role": "strategist",
+			"tiers": {
+				"B": {
+					"title": "봉추",
+					"era": "주유가 죽은 뒤 유비에게 간 시기",
+					"base_stats": {
+						"hp": 169,
+						"attack": 16,
+						"defense": 20,
+						"speed": 18,
+						"intellect": 34
+					},
+					"growth": {
+						"hp": 4.9,
+						"attack": 0.4,
+						"defense": 0.6,
+						"speed": 0.4,
+						"intellect": 1.2
+					},
+					"skill_ids": [
+						"g_rockfall",
+						"g_confuse"
+					],
+					"reserve_effect": {
+						"name": "책략",
+						"description": "출전 장수의 지략 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "intellect",
+							"value": 6
+						}
+					}
+				},
+				"A": {
+					"title": "군사중랑장",
+					"era": "익주 공략을 이끈 시기",
+					"base_stats": {
+						"hp": 210,
+						"attack": 19,
+						"defense": 24,
+						"speed": 23,
+						"intellect": 42
+					},
+					"growth": {
+						"hp": 5.7,
+						"attack": 0.4,
+						"defense": 0.7,
+						"speed": 0.4,
+						"intellect": 1.4
+					},
+					"skill_ids": [
+						"g_grand_plan",
+						"g_confuse"
+					],
+					"reserve_effect": {
+						"name": "신산귀모",
+						"description": "출전 장수의 지략 +8%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "intellect",
+							"value": 8
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "fa_zheng",
+			"name": "법정",
+			"faction": "shu",
+			"role": "strategist",
+			"tiers": {
+				"C": {
+					"title": "군의교위",
+					"era": "유장 아래에서 뜻을 펴지 못하던 시기",
+					"base_stats": {
+						"hp": 130,
+						"attack": 12,
+						"defense": 15,
+						"speed": 14,
+						"intellect": 26
+					},
+					"growth": {
+						"hp": 4,
+						"attack": 0.3,
+						"defense": 0.5,
+						"speed": 0.3,
+						"intellect": 1
+					},
+					"skill_ids": [
+						"g_rockfall",
+						"g_fire_attack"
+					],
+					"reserve_effect": {
+						"name": "책략",
+						"description": "출전 장수의 지략 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "intellect",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "상서령",
+					"era": "정군산 승리를 설계한 시기",
+					"base_stats": {
+						"hp": 163,
+						"attack": 15,
+						"defense": 19,
+						"speed": 18,
+						"intellect": 33
+					},
+					"growth": {
+						"hp": 4.7,
+						"attack": 0.4,
+						"defense": 0.6,
+						"speed": 0.4,
+						"intellect": 1.2
+					},
+					"skill_ids": [
+						"g_rockfall",
+						"g_fire_attack"
+					],
+					"reserve_effect": {
+						"name": "책략",
+						"description": "출전 장수의 지략 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "intellect",
+							"value": 6
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "jiang_wei",
+			"name": "강유",
+			"faction": "shu",
+			"role": "warrior",
+			"tiers": {
+				"C": {
+					"title": "천수의 중랑장",
+					"era": "제갈량에게 귀순한 시기",
+					"base_stats": {
+						"hp": 150,
+						"attack": 24,
+						"defense": 17,
+						"speed": 14,
+						"intellect": 11
+					},
+					"growth": {
+						"hp": 4.6,
+						"attack": 0.9,
+						"defense": 0.6,
+						"speed": 0.3,
+						"intellect": 0.3
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_flank"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "정서장군",
+					"era": "제갈량의 뜻을 이어받은 시기",
+					"base_stats": {
+						"hp": 188,
+						"attack": 30,
+						"defense": 21,
+						"speed": 18,
+						"intellect": 14
+					},
+					"growth": {
+						"hp": 5.4,
+						"attack": 1.1,
+						"defense": 0.7,
+						"speed": 0.4,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_flank"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 6
+						}
+					}
+				},
+				"A": {
+					"title": "대장군",
+					"era": "거듭된 북벌을 이끈 시기",
+					"base_stats": {
+						"hp": 233,
+						"attack": 37,
+						"defense": 26,
+						"speed": 22,
+						"intellect": 17
+					},
+					"growth": {
+						"hp": 6.3,
+						"attack": 1.2,
+						"defense": 0.8,
+						"speed": 0.4,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_fury",
+						"g_flank"
+					],
+					"reserve_effect": {
+						"name": "만부부당",
+						"description": "출전 장수의 공격 +8%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 8
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "sun_jian",
+			"name": "손견",
+			"faction": "wu",
+			"role": "warrior",
+			"tiers": {
+				"C": {
+					"title": "별부사마",
+					"era": "황건적 토벌에 나선 시기",
+					"base_stats": {
+						"hp": 156,
+						"attack": 25,
+						"defense": 18,
+						"speed": 15,
+						"intellect": 11
+					},
+					"growth": {
+						"hp": 4.8,
+						"attack": 0.9,
+						"defense": 0.6,
+						"speed": 0.3,
+						"intellect": 0.3
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_rampage"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "파로장군",
+					"era": "반동탁 연합에서 동탁군을 무찌른 시기",
+					"base_stats": {
+						"hp": 195,
+						"attack": 31,
+						"defense": 22,
+						"speed": 18,
+						"intellect": 14
+					},
+					"growth": {
+						"hp": 5.6,
+						"attack": 1.1,
+						"defense": 0.7,
+						"speed": 0.4,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_rampage"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 6
+						}
+					}
+				},
+				"A": {
+					"title": "강동의 호랑이",
+					"era": "낙양에 먼저 입성한 시기",
+					"base_stats": {
+						"hp": 242,
+						"attack": 39,
+						"defense": 27,
+						"speed": 23,
+						"intellect": 18
+					},
+					"growth": {
+						"hp": 6.6,
+						"attack": 1.3,
+						"defense": 0.9,
+						"speed": 0.4,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_fury",
+						"g_rampage"
+					],
+					"reserve_effect": {
+						"name": "만부부당",
+						"description": "출전 장수의 공격 +8%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 8
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "sun_ce",
+			"name": "손책",
+			"faction": "wu",
+			"role": "warrior",
+			"tiers": {
+				"C": {
+					"title": "원술의 객장",
+					"era": "아버지를 잃고 원술에게 몸을 의탁한 시절",
+					"base_stats": {
+						"hp": 158,
+						"attack": 25,
+						"defense": 18,
+						"speed": 15,
+						"intellect": 12
+					},
+					"growth": {
+						"hp": 4.8,
+						"attack": 0.9,
+						"defense": 0.6,
+						"speed": 0.3,
+						"intellect": 0.3
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_rampage"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "절충교위",
+					"era": "강동 평정에 나선 시기",
+					"base_stats": {
+						"hp": 197,
+						"attack": 32,
+						"defense": 22,
+						"speed": 18,
+						"intellect": 14
+					},
+					"growth": {
+						"hp": 5.7,
+						"attack": 1.1,
+						"defense": 0.7,
+						"speed": 0.4,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_rampage"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 6
+						}
+					}
+				},
+				"A": {
+					"title": "소패왕",
+					"era": "강동을 손에 넣은 시기",
+					"base_stats": {
+						"hp": 244,
+						"attack": 39,
+						"defense": 28,
+						"speed": 23,
+						"intellect": 18
+					},
+					"growth": {
+						"hp": 6.7,
+						"attack": 1.3,
+						"defense": 0.9,
+						"speed": 0.4,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_fury",
+						"g_rampage"
+					],
+					"reserve_effect": {
+						"name": "만부부당",
+						"description": "출전 장수의 공격 +8%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 8
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "zhou_yu",
+			"name": "주유",
+			"faction": "wu",
+			"role": "strategist",
+			"tiers": {
+				"B": {
+					"title": "건위중랑장",
+					"era": "손책과 함께 강동을 평정한 시기",
+					"base_stats": {
+						"hp": 171,
+						"attack": 16,
+						"defense": 20,
+						"speed": 18,
+						"intellect": 34
+					},
+					"growth": {
+						"hp": 5,
+						"attack": 0.4,
+						"defense": 0.6,
+						"speed": 0.4,
+						"intellect": 1.2
+					},
+					"skill_ids": [
+						"g_rockfall",
+						"g_confuse"
+					],
+					"reserve_effect": {
+						"name": "책략",
+						"description": "출전 장수의 지략 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "intellect",
+							"value": 6
+						}
+					}
+				},
+				"A": {
+					"title": "중호군",
+					"era": "손권을 보좌해 강동을 지킨 시기",
+					"base_stats": {
+						"hp": 212,
+						"attack": 20,
+						"defense": 24,
+						"speed": 23,
+						"intellect": 42
+					},
+					"growth": {
+						"hp": 5.8,
+						"attack": 0.4,
+						"defense": 0.7,
+						"speed": 0.4,
+						"intellect": 1.4
+					},
+					"skill_ids": [
+						"g_grand_plan",
+						"g_confuse"
+					],
+					"reserve_effect": {
+						"name": "신산귀모",
+						"description": "출전 장수의 지략 +8%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "intellect",
+							"value": 8
+						}
+					}
+				},
+				"S": {
+					"title": "적벽의 대도독",
+					"era": "적벽에서 조조의 대군을 불태운 정점",
+					"base_stats": {
+						"hp": 259,
+						"attack": 24,
+						"defense": 30,
+						"speed": 28,
+						"intellect": 52
+					},
+					"growth": {
+						"hp": 6.7,
+						"attack": 0.5,
+						"defense": 0.8,
+						"speed": 0.5,
+						"intellect": 1.7
+					},
+					"skill_ids": [
+						"g_grand_plan",
+						"g_confuse"
+					],
+					"reserve_effect": {
+						"name": "신산귀모",
+						"description": "출전 장수의 지략 +10%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "intellect",
+							"value": 10
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "lu_su",
+			"name": "노숙",
+			"faction": "wu",
+			"role": "support",
+			"tiers": {
+				"C": {
+					"title": "주유의 벗",
+					"era": "곳간을 내어 주유를 도운 시절",
+					"base_stats": {
+						"hp": 140,
+						"attack": 15,
+						"defense": 17,
+						"speed": 16,
+						"intellect": 20
+					},
+					"growth": {
+						"hp": 4.2,
+						"attack": 0.4,
+						"defense": 0.6,
+						"speed": 0.4,
+						"intellect": 0.7
+					},
+					"skill_ids": [
+						"g_encourage",
+						"g_hasten"
+					],
+					"reserve_effect": {
+						"name": "기세",
+						"description": "출전 장수의 속도 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "speed",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "찬군교위",
+					"era": "손권에게 강동의 장기 계책을 올린 시기",
+					"base_stats": {
+						"hp": 175,
+						"attack": 19,
+						"defense": 21,
+						"speed": 20,
+						"intellect": 25
+					},
+					"growth": {
+						"hp": 5,
+						"attack": 0.5,
+						"defense": 0.7,
+						"speed": 0.5,
+						"intellect": 0.8
+					},
+					"skill_ids": [
+						"g_encourage",
+						"g_hasten"
+					],
+					"reserve_effect": {
+						"name": "기세",
+						"description": "출전 장수의 속도 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "speed",
+							"value": 6
+						}
+					}
+				},
+				"A": {
+					"title": "편장군",
+					"era": "형주를 놓고 관우와 단도회를 연 시기",
+					"base_stats": {
+						"hp": 217,
+						"attack": 23,
+						"defense": 26,
+						"speed": 25,
+						"intellect": 31
+					},
+					"growth": {
+						"hp": 5.8,
+						"attack": 0.6,
+						"defense": 0.8,
+						"speed": 0.6,
+						"intellect": 1
+					},
+					"skill_ids": [
+						"g_command",
+						"g_hasten"
+					],
+					"reserve_effect": {
+						"name": "천하의 명망",
+						"description": "출전 장수의 속도 +8%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "speed",
+							"value": 8
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "lu_meng",
+			"name": "여몽",
+			"faction": "wu",
+			"role": "warrior",
+			"tiers": {
+				"C": {
+					"title": "별부사마",
+					"era": "글을 모르던 무장 시절",
+					"base_stats": {
+						"hp": 150,
+						"attack": 24,
+						"defense": 17,
+						"speed": 14,
+						"intellect": 11
+					},
+					"growth": {
+						"hp": 4.6,
+						"attack": 0.9,
+						"defense": 0.6,
+						"speed": 0.3,
+						"intellect": 0.3
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_flank"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "편장군",
+					"era": "학문에 힘써 괄목상대의 고사를 남긴 시기",
+					"base_stats": {
+						"hp": 188,
+						"attack": 30,
+						"defense": 21,
+						"speed": 18,
+						"intellect": 14
+					},
+					"growth": {
+						"hp": 5.4,
+						"attack": 1.1,
+						"defense": 0.7,
+						"speed": 0.4,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_flank"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 6
+						}
+					}
+				},
+				"A": {
+					"title": "남군 태수",
+					"era": "형주를 기습해 관우를 사로잡은 시기",
+					"base_stats": {
+						"hp": 233,
+						"attack": 37,
+						"defense": 26,
+						"speed": 22,
+						"intellect": 17
+					},
+					"growth": {
+						"hp": 6.3,
+						"attack": 1.2,
+						"defense": 0.8,
+						"speed": 0.4,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_fury",
+						"g_flank"
+					],
+					"reserve_effect": {
+						"name": "만부부당",
+						"description": "출전 장수의 공격 +8%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 8
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "lu_xun",
+			"name": "육손",
+			"faction": "wu",
+			"role": "strategist",
+			"tiers": {
+				"B": {
+					"title": "우도독",
+					"era": "여몽의 뒤를 이어 형주 공략을 도운 시기",
+					"base_stats": {
+						"hp": 169,
+						"attack": 16,
+						"defense": 20,
+						"speed": 18,
+						"intellect": 34
+					},
+					"growth": {
+						"hp": 4.9,
+						"attack": 0.4,
+						"defense": 0.6,
+						"speed": 0.4,
+						"intellect": 1.2
+					},
+					"skill_ids": [
+						"g_rockfall",
+						"g_fire_attack"
+					],
+					"reserve_effect": {
+						"name": "책략",
+						"description": "출전 장수의 지략 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "intellect",
+							"value": 6
+						}
+					}
+				},
+				"A": {
+					"title": "대도독",
+					"era": "이릉에서 유비의 대군을 화공으로 물리친 시기",
+					"base_stats": {
+						"hp": 210,
+						"attack": 19,
+						"defense": 24,
+						"speed": 23,
+						"intellect": 42
+					},
+					"growth": {
+						"hp": 5.7,
+						"attack": 0.4,
+						"defense": 0.7,
+						"speed": 0.4,
+						"intellect": 1.4
+					},
+					"skill_ids": [
+						"g_grand_plan",
+						"g_fire_attack"
+					],
+					"reserve_effect": {
+						"name": "신산귀모",
+						"description": "출전 장수의 지략 +8%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "intellect",
+							"value": 8
+						}
+					}
+				},
+				"S": {
+					"title": "승상",
+					"era": "오의 승상에 오른 시기",
+					"base_stats": {
+						"hp": 257,
+						"attack": 24,
+						"defense": 30,
+						"speed": 28,
+						"intellect": 51
+					},
+					"growth": {
+						"hp": 6.7,
+						"attack": 0.5,
+						"defense": 0.8,
+						"speed": 0.5,
+						"intellect": 1.7
+					},
+					"skill_ids": [
+						"g_grand_plan",
+						"g_fire_attack"
+					],
+					"reserve_effect": {
+						"name": "신산귀모",
+						"description": "출전 장수의 지략 +10%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "intellect",
+							"value": 10
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "gan_ning",
+			"name": "감녕",
+			"faction": "wu",
+			"role": "warrior",
+			"tiers": {
+				"C": {
+					"title": "금범적",
+					"era": "방울을 단 배로 강을 누비던 시절",
+					"base_stats": {
+						"hp": 150,
+						"attack": 24,
+						"defense": 17,
+						"speed": 14,
+						"intellect": 11
+					},
+					"growth": {
+						"hp": 4.6,
+						"attack": 0.9,
+						"defense": 0.6,
+						"speed": 0.3,
+						"intellect": 0.3
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_rampage"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "서릉 태수",
+					"era": "적벽 전후 형주 전선에서 활약한 시기",
+					"base_stats": {
+						"hp": 188,
+						"attack": 30,
+						"defense": 21,
+						"speed": 18,
+						"intellect": 14
+					},
+					"growth": {
+						"hp": 5.4,
+						"attack": 1.1,
+						"defense": 0.7,
+						"speed": 0.4,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_rampage"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 6
+						}
+					}
+				},
+				"A": {
+					"title": "절충장군",
+					"era": "백여 기로 조조 진영을 야습한 시기",
+					"base_stats": {
+						"hp": 233,
+						"attack": 37,
+						"defense": 26,
+						"speed": 22,
+						"intellect": 17
+					},
+					"growth": {
+						"hp": 6.3,
+						"attack": 1.2,
+						"defense": 0.8,
+						"speed": 0.4,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_fury",
+						"g_rampage"
+					],
+					"reserve_effect": {
+						"name": "만부부당",
+						"description": "출전 장수의 공격 +8%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 8
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "taishi_ci",
+			"name": "태사자",
+			"faction": "wu",
+			"role": "warrior",
+			"tiers": {
+				"C": {
+					"title": "유요의 장수",
+					"era": "신정에서 손책과 일기토를 벌인 시기",
+					"base_stats": {
+						"hp": 150,
+						"attack": 24,
+						"defense": 17,
+						"speed": 14,
+						"intellect": 11
+					},
+					"growth": {
+						"hp": 4.6,
+						"attack": 0.9,
+						"defense": 0.6,
+						"speed": 0.3,
+						"intellect": 0.3
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_flank"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "건창도위",
+					"era": "손책에게 귀순해 남방을 지킨 시기",
+					"base_stats": {
+						"hp": 188,
+						"attack": 30,
+						"defense": 21,
+						"speed": 18,
+						"intellect": 14
+					},
+					"growth": {
+						"hp": 5.4,
+						"attack": 1.1,
+						"defense": 0.7,
+						"speed": 0.4,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_flank"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 6
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "huang_gai",
+			"name": "황개",
+			"faction": "wu",
+			"role": "defender",
+			"tiers": {
+				"C": {
+					"title": "손견의 장수",
+					"era": "손견을 따라 황건과 동탁을 친 시기",
+					"base_stats": {
+						"hp": 160,
+						"attack": 18,
+						"defense": 23,
+						"speed": 12,
+						"intellect": 14
+					},
+					"growth": {
+						"hp": 5,
+						"attack": 0.6,
+						"defense": 0.9,
+						"speed": 0.2,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_bash",
+						"g_shield_wall"
+					],
+					"reserve_effect": {
+						"name": "철벽",
+						"description": "출전 장수의 방어 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "defense",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "고육계의 노장",
+					"era": "적벽에서 화공의 선봉을 맡은 시기",
+					"base_stats": {
+						"hp": 200,
+						"attack": 23,
+						"defense": 29,
+						"speed": 15,
+						"intellect": 18
+					},
+					"growth": {
+						"hp": 5.9,
+						"attack": 0.7,
+						"defense": 1,
+						"speed": 0.2,
+						"intellect": 0.5
+					},
+					"skill_ids": [
+						"g_bash",
+						"g_shield_wall"
+					],
+					"reserve_effect": {
+						"name": "철벽",
+						"description": "출전 장수의 방어 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "defense",
+							"value": 6
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "zhou_tai",
+			"name": "주태",
+			"faction": "wu",
+			"role": "defender",
+			"tiers": {
+				"D": {
+					"title": "수적 출신 장수",
+					"era": "손책 휘하에 들어온 시절",
+					"base_stats": {
+						"hp": 125,
+						"attack": 14,
+						"defense": 18,
+						"speed": 9,
+						"intellect": 11
+					},
+					"growth": {
+						"hp": 4.3,
+						"attack": 0.5,
+						"defense": 0.7,
+						"speed": 0.2,
+						"intellect": 0.3
+					},
+					"skill_ids": [
+						"g_bash"
+					],
+					"reserve_effect": {
+						"name": "버팀목",
+						"description": "출전 장수의 방어 +4%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "defense",
+							"value": 4
+						}
+					}
+				},
+				"C": {
+					"title": "손권의 호위",
+					"era": "몸으로 손권을 지켜 상처투성이가 된 시기",
+					"base_stats": {
+						"hp": 160,
+						"attack": 18,
+						"defense": 23,
+						"speed": 12,
+						"intellect": 14
+					},
+					"growth": {
+						"hp": 5,
+						"attack": 0.6,
+						"defense": 0.9,
+						"speed": 0.2,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_bash",
+						"g_shield_wall"
+					],
+					"reserve_effect": {
+						"name": "철벽",
+						"description": "출전 장수의 방어 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "defense",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "평로장군",
+					"era": "유수구를 지키던 시기",
+					"base_stats": {
+						"hp": 200,
+						"attack": 23,
+						"defense": 29,
+						"speed": 15,
+						"intellect": 18
+					},
+					"growth": {
+						"hp": 5.9,
+						"attack": 0.7,
+						"defense": 1,
+						"speed": 0.2,
+						"intellect": 0.5
+					},
+					"skill_ids": [
+						"g_bash",
+						"g_shield_wall"
+					],
+					"reserve_effect": {
+						"name": "철벽",
+						"description": "출전 장수의 방어 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "defense",
+							"value": 6
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "yuan_shao",
+			"name": "원소",
+			"faction": "yuan",
+			"role": "support",
+			"tiers": {
+				"B": {
+					"title": "발해 태수",
+					"era": "반동탁 연합의 맹주로 추대된 시기",
+					"base_stats": {
+						"hp": 175,
+						"attack": 19,
+						"defense": 21,
+						"speed": 20,
+						"intellect": 25
+					},
+					"growth": {
+						"hp": 5,
+						"attack": 0.5,
+						"defense": 0.7,
+						"speed": 0.5,
+						"intellect": 0.8
+					},
+					"skill_ids": [
+						"g_encourage",
+						"g_hasten"
+					],
+					"reserve_effect": {
+						"name": "기세",
+						"description": "출전 장수의 속도 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "speed",
+							"value": 6
+						}
+					}
+				},
+				"A": {
+					"title": "하북의 패자",
+					"era": "기주를 손에 넣고 하북을 통일한 시기",
+					"base_stats": {
+						"hp": 217,
+						"attack": 23,
+						"defense": 26,
+						"speed": 25,
+						"intellect": 31
+					},
+					"growth": {
+						"hp": 5.8,
+						"attack": 0.6,
+						"defense": 0.8,
+						"speed": 0.6,
+						"intellect": 1
+					},
+					"skill_ids": [
+						"g_command",
+						"g_hasten"
+					],
+					"reserve_effect": {
+						"name": "천하의 명망",
+						"description": "출전 장수의 속도 +8%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "speed",
+							"value": 8
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "yan_liang",
+			"name": "안량",
+			"faction": "yuan",
+			"role": "warrior",
+			"tiers": {
+				"C": {
+					"title": "원소의 장수",
+					"era": "하북에서 용맹을 떨친 시기",
+					"base_stats": {
+						"hp": 150,
+						"attack": 24,
+						"defense": 17,
+						"speed": 14,
+						"intellect": 11
+					},
+					"growth": {
+						"hp": 4.6,
+						"attack": 0.9,
+						"defense": 0.6,
+						"speed": 0.3,
+						"intellect": 0.3
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_flank"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "하북의 명장",
+					"era": "백마 전투에서 쓰러진 최후",
+					"base_stats": {
+						"hp": 188,
+						"attack": 30,
+						"defense": 21,
+						"speed": 18,
+						"intellect": 14
+					},
+					"growth": {
+						"hp": 5.4,
+						"attack": 1.1,
+						"defense": 0.7,
+						"speed": 0.4,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_flank"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 6
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "wen_chou",
+			"name": "문추",
+			"faction": "yuan",
+			"role": "warrior",
+			"tiers": {
+				"C": {
+					"title": "원소의 장수",
+					"era": "안량과 함께 이름난 시기",
+					"base_stats": {
+						"hp": 150,
+						"attack": 24,
+						"defense": 17,
+						"speed": 14,
+						"intellect": 11
+					},
+					"growth": {
+						"hp": 4.6,
+						"attack": 0.9,
+						"defense": 0.6,
+						"speed": 0.3,
+						"intellect": 0.3
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_rampage"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "하북의 맹장",
+					"era": "연진 전투에서 쓰러진 최후",
+					"base_stats": {
+						"hp": 188,
+						"attack": 30,
+						"defense": 21,
+						"speed": 18,
+						"intellect": 14
+					},
+					"growth": {
+						"hp": 5.4,
+						"attack": 1.1,
+						"defense": 0.7,
+						"speed": 0.4,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_rampage"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 6
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "tian_feng",
+			"name": "전풍",
+			"faction": "yuan",
+			"role": "strategist",
+			"tiers": {
+				"C": {
+					"title": "기주 별가",
+					"era": "원소에게 발탁된 시기",
+					"base_stats": {
+						"hp": 130,
+						"attack": 12,
+						"defense": 15,
+						"speed": 14,
+						"intellect": 26
+					},
+					"growth": {
+						"hp": 4,
+						"attack": 0.3,
+						"defense": 0.5,
+						"speed": 0.3,
+						"intellect": 1
+					},
+					"skill_ids": [
+						"g_rockfall",
+						"g_confuse"
+					],
+					"reserve_effect": {
+						"name": "책략",
+						"description": "출전 장수의 지략 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "intellect",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "원소의 모사",
+					"era": "관도 전에 지구전을 간언한 시기",
+					"base_stats": {
+						"hp": 163,
+						"attack": 15,
+						"defense": 19,
+						"speed": 18,
+						"intellect": 33
+					},
+					"growth": {
+						"hp": 4.7,
+						"attack": 0.4,
+						"defense": 0.6,
+						"speed": 0.4,
+						"intellect": 1.2
+					},
+					"skill_ids": [
+						"g_rockfall",
+						"g_confuse"
+					],
+					"reserve_effect": {
+						"name": "책략",
+						"description": "출전 장수의 지략 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "intellect",
+							"value": 6
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "yuan_shu",
+			"name": "원술",
+			"faction": "yuan",
+			"role": "support",
+			"tiers": {
+				"C": {
+					"title": "후장군",
+					"era": "남양을 근거지로 세력을 키운 시기",
+					"base_stats": {
+						"hp": 140,
+						"attack": 15,
+						"defense": 17,
+						"speed": 16,
+						"intellect": 20
+					},
+					"growth": {
+						"hp": 4.2,
+						"attack": 0.4,
+						"defense": 0.6,
+						"speed": 0.4,
+						"intellect": 0.7
+					},
+					"skill_ids": [
+						"g_encourage",
+						"g_hasten"
+					],
+					"reserve_effect": {
+						"name": "기세",
+						"description": "출전 장수의 속도 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "speed",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "중가 황제",
+					"era": "수춘에서 황제를 칭한 시기",
+					"base_stats": {
+						"hp": 175,
+						"attack": 19,
+						"defense": 21,
+						"speed": 20,
+						"intellect": 25
+					},
+					"growth": {
+						"hp": 5,
+						"attack": 0.5,
+						"defense": 0.7,
+						"speed": 0.5,
+						"intellect": 0.8
+					},
+					"skill_ids": [
+						"g_encourage",
+						"g_hasten"
+					],
+					"reserve_effect": {
+						"name": "기세",
+						"description": "출전 장수의 속도 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "speed",
+							"value": 6
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "gongsun_zan",
+			"name": "공손찬",
+			"faction": "gongsun",
+			"role": "warrior",
+			"tiers": {
+				"C": {
+					"title": "중랑장",
+					"era": "백마의종을 이끌고 이민족과 싸운 시기",
+					"base_stats": {
+						"hp": 150,
+						"attack": 24,
+						"defense": 17,
+						"speed": 14,
+						"intellect": 11
+					},
+					"growth": {
+						"hp": 4.6,
+						"attack": 0.9,
+						"defense": 0.6,
+						"speed": 0.3,
+						"intellect": 0.3
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_flank"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "역경의 성주",
+					"era": "역경에 높은 성을 쌓고 원소와 맞선 시기",
+					"base_stats": {
+						"hp": 188,
+						"attack": 30,
+						"defense": 21,
+						"speed": 18,
+						"intellect": 14
+					},
+					"growth": {
+						"hp": 5.4,
+						"attack": 1.1,
+						"defense": 0.7,
+						"speed": 0.4,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_flank"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 6
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "liu_biao",
+			"name": "유표",
+			"faction": "liu_biao",
+			"role": "support",
+			"tiers": {
+				"C": {
+					"title": "형주자사",
+					"era": "혼자 말을 타고 형주에 부임한 시기",
+					"base_stats": {
+						"hp": 140,
+						"attack": 15,
+						"defense": 17,
+						"speed": 16,
+						"intellect": 20
+					},
+					"growth": {
+						"hp": 4.2,
+						"attack": 0.4,
+						"defense": 0.6,
+						"speed": 0.4,
+						"intellect": 0.7
+					},
+					"skill_ids": [
+						"g_encourage",
+						"g_hasten"
+					],
+					"reserve_effect": {
+						"name": "기세",
+						"description": "출전 장수의 속도 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "speed",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "형주목",
+					"era": "형주를 평안히 다스리며 학자를 모은 시기",
+					"base_stats": {
+						"hp": 175,
+						"attack": 19,
+						"defense": 21,
+						"speed": 20,
+						"intellect": 25
+					},
+					"growth": {
+						"hp": 5,
+						"attack": 0.5,
+						"defense": 0.7,
+						"speed": 0.5,
+						"intellect": 0.8
+					},
+					"skill_ids": [
+						"g_encourage",
+						"g_hasten"
+					],
+					"reserve_effect": {
+						"name": "기세",
+						"description": "출전 장수의 속도 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "speed",
+							"value": 6
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "hua_xiong",
+			"name": "화웅",
+			"faction": "dong_zhuo",
+			"role": "warrior",
+			"tiers": {
+				"D": {
+					"title": "서량의 장수",
+					"era": "동탁을 따라 낙양에 들어온 시기",
+					"base_stats": {
+						"hp": 117,
+						"attack": 19,
+						"defense": 13,
+						"speed": 11,
+						"intellect": 9
+					},
+					"growth": {
+						"hp": 4,
+						"attack": 0.8,
+						"defense": 0.5,
+						"speed": 0.3,
+						"intellect": 0.3
+					},
+					"skill_ids": [
+						"g_charge"
+					],
+					"reserve_effect": {
+						"name": "투지",
+						"description": "출전 장수의 공격 +4%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 4
+						}
+					}
+				},
+				"C": {
+					"title": "동탁군의 도독",
+					"era": "사수관에서 연합군 장수들을 벤 시기",
+					"base_stats": {
+						"hp": 150,
+						"attack": 24,
+						"defense": 17,
+						"speed": 14,
+						"intellect": 11
+					},
+					"growth": {
+						"hp": 4.6,
+						"attack": 0.9,
+						"defense": 0.6,
+						"speed": 0.3,
+						"intellect": 0.3
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_flank"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 5
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "li_ru",
+			"name": "이유",
+			"faction": "dong_zhuo",
+			"role": "strategist",
+			"tiers": {
+				"C": {
+					"title": "동탁의 사위",
+					"era": "동탁의 곁에서 계책을 낸 시기",
+					"base_stats": {
+						"hp": 130,
+						"attack": 12,
+						"defense": 15,
+						"speed": 14,
+						"intellect": 26
+					},
+					"growth": {
+						"hp": 4,
+						"attack": 0.3,
+						"defense": 0.5,
+						"speed": 0.3,
+						"intellect": 1
+					},
+					"skill_ids": [
+						"g_rockfall",
+						"g_confuse"
+					],
+					"reserve_effect": {
+						"name": "책략",
+						"description": "출전 장수의 지략 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "intellect",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "동탁의 책사",
+					"era": "장안 천도를 권한 시기",
+					"base_stats": {
+						"hp": 163,
+						"attack": 15,
+						"defense": 19,
+						"speed": 18,
+						"intellect": 33
+					},
+					"growth": {
+						"hp": 4.7,
+						"attack": 0.4,
+						"defense": 0.6,
+						"speed": 0.4,
+						"intellect": 1.2
+					},
+					"skill_ids": [
+						"g_rockfall",
+						"g_confuse"
+					],
+					"reserve_effect": {
+						"name": "책략",
+						"description": "출전 장수의 지략 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "intellect",
+							"value": 6
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "chen_gong",
+			"name": "진궁",
+			"faction": "lu_bu",
+			"role": "strategist",
+			"tiers": {
+				"C": {
+					"title": "조조의 막료",
+					"era": "연주에서 조조를 섬기던 시기",
+					"base_stats": {
+						"hp": 130,
+						"attack": 12,
+						"defense": 15,
+						"speed": 14,
+						"intellect": 26
+					},
+					"growth": {
+						"hp": 4,
+						"attack": 0.3,
+						"defense": 0.5,
+						"speed": 0.3,
+						"intellect": 1
+					},
+					"skill_ids": [
+						"g_rockfall",
+						"g_confuse"
+					],
+					"reserve_effect": {
+						"name": "책략",
+						"description": "출전 장수의 지략 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "intellect",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "여포의 책사",
+					"era": "하비에서 끝까지 여포를 보좌한 시기",
+					"base_stats": {
+						"hp": 163,
+						"attack": 15,
+						"defense": 19,
+						"speed": 18,
+						"intellect": 33
+					},
+					"growth": {
+						"hp": 4.7,
+						"attack": 0.4,
+						"defense": 0.6,
+						"speed": 0.4,
+						"intellect": 1.2
+					},
+					"skill_ids": [
+						"g_rockfall",
+						"g_confuse"
+					],
+					"reserve_effect": {
+						"name": "책략",
+						"description": "출전 장수의 지략 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "intellect",
+							"value": 6
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "gao_shun",
+			"name": "고순",
+			"faction": "lu_bu",
+			"role": "defender",
+			"tiers": {
+				"C": {
+					"title": "여포의 부장",
+					"era": "청렴하고 위엄 있던 장수 시절",
+					"base_stats": {
+						"hp": 160,
+						"attack": 18,
+						"defense": 23,
+						"speed": 12,
+						"intellect": 14
+					},
+					"growth": {
+						"hp": 5,
+						"attack": 0.6,
+						"defense": 0.9,
+						"speed": 0.2,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_bash",
+						"g_shield_wall"
+					],
+					"reserve_effect": {
+						"name": "철벽",
+						"description": "출전 장수의 방어 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "defense",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "함진영 대장",
+					"era": "함진영을 이끌고 성을 함락시킨 시기",
+					"base_stats": {
+						"hp": 200,
+						"attack": 23,
+						"defense": 29,
+						"speed": 15,
+						"intellect": 18
+					},
+					"growth": {
+						"hp": 5.9,
+						"attack": 0.7,
+						"defense": 1,
+						"speed": 0.2,
+						"intellect": 0.5
+					},
+					"skill_ids": [
+						"g_bash",
+						"g_shield_wall"
+					],
+					"reserve_effect": {
+						"name": "철벽",
+						"description": "출전 장수의 방어 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "defense",
+							"value": 6
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "wang_yun",
+			"name": "왕윤",
+			"faction": "han",
+			"role": "support",
+			"tiers": {
+				"C": {
+					"title": "사도",
+					"era": "동탁의 전횡을 참으며 기회를 엿본 시기",
+					"base_stats": {
+						"hp": 140,
+						"attack": 15,
+						"defense": 17,
+						"speed": 16,
+						"intellect": 20
+					},
+					"growth": {
+						"hp": 4.2,
+						"attack": 0.4,
+						"defense": 0.6,
+						"speed": 0.4,
+						"intellect": 0.7
+					},
+					"skill_ids": [
+						"g_encourage",
+						"g_hasten"
+					],
+					"reserve_effect": {
+						"name": "기세",
+						"description": "출전 장수의 속도 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "speed",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "연환계의 주모자",
+					"era": "동탁을 제거하고 조정을 장악한 시기",
+					"base_stats": {
+						"hp": 175,
+						"attack": 19,
+						"defense": 21,
+						"speed": 20,
+						"intellect": 25
+					},
+					"growth": {
+						"hp": 5,
+						"attack": 0.5,
+						"defense": 0.7,
+						"speed": 0.5,
+						"intellect": 0.8
+					},
+					"skill_ids": [
+						"g_encourage",
+						"g_hasten"
+					],
+					"reserve_effect": {
+						"name": "기세",
+						"description": "출전 장수의 속도 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "speed",
+							"value": 6
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "pei_yuanshao",
+			"name": "배원소",
+			"faction": "yellow_turban",
+			"role": "warrior",
+			"tiers": {
+				"F": {
+					"title": "황건 잔당",
+					"era": "황건이 흩어진 뒤 산적이 된 시절",
+					"base_stats": {
+						"hp": 71,
+						"attack": 11,
+						"defense": 8,
+						"speed": 7,
+						"intellect": 5
+					},
+					"growth": {
+						"hp": 3,
+						"attack": 0.6,
+						"defense": 0.4,
+						"speed": 0.2,
+						"intellect": 0.2
+					},
+					"skill_ids": [
+						"g_charge"
+					],
+					"reserve_effect": {
+						"name": "투지",
+						"description": "출전 장수의 공격 +2%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 2
+						}
+					}
+				},
+				"E": {
+					"title": "산채의 두목",
+					"era": "주창과 함께 산채를 지키던 시절",
+					"base_stats": {
+						"hp": 90,
+						"attack": 14,
+						"defense": 10,
+						"speed": 8,
+						"intellect": 7
+					},
+					"growth": {
+						"hp": 3.4,
+						"attack": 0.7,
+						"defense": 0.4,
+						"speed": 0.2,
+						"intellect": 0.2
+					},
+					"skill_ids": [
+						"g_charge"
+					],
+					"reserve_effect": {
+						"name": "투지",
+						"description": "출전 장수의 공격 +3%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 3
+						}
+					}
+				},
+				"D": {
+					"title": "관우를 따르려던 장수",
+					"era": "관우를 따르기를 청하던 시기",
+					"base_stats": {
+						"hp": 117,
+						"attack": 19,
+						"defense": 13,
+						"speed": 11,
+						"intellect": 9
+					},
+					"growth": {
+						"hp": 4,
+						"attack": 0.8,
+						"defense": 0.5,
+						"speed": 0.3,
+						"intellect": 0.3
+					},
+					"skill_ids": [
+						"g_charge"
+					],
+					"reserve_effect": {
+						"name": "투지",
+						"description": "출전 장수의 공격 +4%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 4
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "meng_huo",
+			"name": "맹획",
+			"faction": "nanman",
+			"role": "warrior",
+			"tiers": {
+				"C": {
+					"title": "남만의 대왕",
+					"era": "남중의 부족들을 이끌던 시기",
+					"base_stats": {
+						"hp": 150,
+						"attack": 24,
+						"defense": 17,
+						"speed": 14,
+						"intellect": 11
+					},
+					"growth": {
+						"hp": 4.6,
+						"attack": 0.9,
+						"defense": 0.6,
+						"speed": 0.3,
+						"intellect": 0.3
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_rampage"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "칠종칠금의 맹획",
+					"era": "제갈량에게 일곱 번 사로잡힌 시기",
+					"base_stats": {
+						"hp": 188,
+						"attack": 30,
+						"defense": 21,
+						"speed": 18,
+						"intellect": 14
+					},
+					"growth": {
+						"hp": 5.4,
+						"attack": 1.1,
+						"defense": 0.7,
+						"speed": 0.4,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_rampage"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 6
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "zhu_rong",
+			"name": "축융",
+			"faction": "nanman",
+			"role": "warrior",
+			"tiers": {
+				"C": {
+					"title": "남만의 여장",
+					"era": "비도를 던지며 싸우던 맹획의 부인",
+					"base_stats": {
+						"hp": 150,
+						"attack": 24,
+						"defense": 17,
+						"speed": 14,
+						"intellect": 11
+					},
+					"growth": {
+						"hp": 4.6,
+						"attack": 0.9,
+						"defense": 0.6,
+						"speed": 0.3,
+						"intellect": 0.3
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_rampage"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +5%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 5
+						}
+					}
+				},
+				"B": {
+					"title": "화신의 후예",
+					"era": "촉군 장수들을 사로잡은 시기",
+					"base_stats": {
+						"hp": 188,
+						"attack": 30,
+						"defense": 21,
+						"speed": 18,
+						"intellect": 14
+					},
+					"growth": {
+						"hp": 5.4,
+						"attack": 1.1,
+						"defense": 0.7,
+						"speed": 0.4,
+						"intellect": 0.4
+					},
+					"skill_ids": [
+						"g_charge",
+						"g_rampage"
+					],
+					"reserve_effect": {
+						"name": "무용",
+						"description": "출전 장수의 공격 +6%",
+						"mode": "passive",
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "attack",
+							"value": 6
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "dong_feng",
+			"name": "동봉",
+			"faction": "none",
+			"role": "healer",
+			"tiers": {
+				"E": {
+					"title": "후관의 의원",
+					"era": "고향 후관에서 의술을 닦던 시절",
+					"base_stats": {
+						"hp": 75,
+						"attack": 6,
+						"defense": 9,
+						"speed": 8,
+						"intellect": 14
+					},
+					"growth": {
+						"hp": 3,
+						"attack": 0.2,
+						"defense": 0.4,
+						"speed": 0.2,
+						"intellect": 0.7
+					},
+					"skill_ids": [
+						"g_herb"
+					],
+					"reserve_effect": {
+						"name": "응급 처치",
+						"description": "최후반부에 출전 장수의 방어 +8%",
+						"mode": "conditional",
+						"condition": {
+							"kind": "late_game"
+						},
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "defense",
+							"value": 8
+						}
+					}
+				},
+				"D": {
+					"title": "여산의 의원",
+					"era": "치료비 대신 살구나무를 심게 한 시기",
+					"base_stats": {
+						"hp": 98,
+						"attack": 8,
+						"defense": 12,
+						"speed": 10,
+						"intellect": 19
+					},
+					"growth": {
+						"hp": 3.5,
+						"attack": 0.2,
+						"defense": 0.4,
+						"speed": 0.3,
+						"intellect": 0.8
+					},
+					"skill_ids": [
+						"g_herb"
+					],
+					"reserve_effect": {
+						"name": "응급 처치",
+						"description": "최후반부에 출전 장수의 방어 +10%",
+						"mode": "conditional",
+						"condition": {
+							"kind": "late_game"
+						},
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "defense",
+							"value": 10
+						}
+					}
+				},
+				"C": {
+					"title": "행림의 신의",
+					"era": "살구 숲(행림)을 이룬 시기",
+					"base_stats": {
+						"hp": 125,
+						"attack": 10,
+						"defense": 15,
+						"speed": 13,
+						"intellect": 24
+					},
+					"growth": {
+						"hp": 4,
+						"attack": 0.2,
+						"defense": 0.5,
+						"speed": 0.3,
+						"intellect": 0.9
+					},
+					"skill_ids": [
+						"g_herb",
+						"g_needle"
+					],
+					"reserve_effect": {
+						"name": "의술",
+						"description": "최후반부에 출전 장수의 방어 +13%",
+						"mode": "conditional",
+						"condition": {
+							"kind": "late_game"
+						},
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "defense",
+							"value": 13
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "ji_ping",
+			"name": "길평",
+			"faction": "han",
+			"role": "healer",
+			"tiers": {
+				"E": {
+					"title": "태의",
+					"era": "궁중의 의원이던 시절",
+					"base_stats": {
+						"hp": 75,
+						"attack": 6,
+						"defense": 9,
+						"speed": 8,
+						"intellect": 14
+					},
+					"growth": {
+						"hp": 3,
+						"attack": 0.2,
+						"defense": 0.4,
+						"speed": 0.2,
+						"intellect": 0.7
+					},
+					"skill_ids": [
+						"g_herb"
+					],
+					"reserve_effect": {
+						"name": "응급 처치",
+						"description": "최후반부에 출전 장수의 방어 +8%",
+						"mode": "conditional",
+						"condition": {
+							"kind": "late_game"
+						},
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "defense",
+							"value": 8
+						}
+					}
+				},
+				"D": {
+					"title": "충의의 태의",
+					"era": "의대조에 가담해 조조 독살을 꾀한 시기",
+					"base_stats": {
+						"hp": 98,
+						"attack": 8,
+						"defense": 12,
+						"speed": 10,
+						"intellect": 19
+					},
+					"growth": {
+						"hp": 3.5,
+						"attack": 0.2,
+						"defense": 0.4,
+						"speed": 0.3,
+						"intellect": 0.8
+					},
+					"skill_ids": [
+						"g_herb"
+					],
+					"reserve_effect": {
+						"name": "응급 처치",
+						"description": "최후반부에 출전 장수의 방어 +10%",
+						"mode": "conditional",
+						"condition": {
+							"kind": "late_game"
+						},
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "defense",
+							"value": 10
+						}
+					}
+				}
+			}
+		},
+		{
+			"id": "zhang_zhongjing",
+			"name": "장중경",
+			"faction": "none",
+			"role": "healer",
+			"tiers": {
+				"D": {
+					"title": "남양의 의생",
+					"era": "고향 남양에서 의술을 배우던 시절",
+					"base_stats": {
+						"hp": 98,
+						"attack": 8,
+						"defense": 12,
+						"speed": 10,
+						"intellect": 19
+					},
+					"growth": {
+						"hp": 3.5,
+						"attack": 0.2,
+						"defense": 0.4,
+						"speed": 0.3,
+						"intellect": 0.8
+					},
+					"skill_ids": [
+						"g_herb"
+					],
+					"reserve_effect": {
+						"name": "응급 처치",
+						"description": "최후반부에 출전 장수의 방어 +10%",
+						"mode": "conditional",
+						"condition": {
+							"kind": "late_game"
+						},
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "defense",
+							"value": 10
+						}
+					}
+				},
+				"C": {
+					"title": "역병의 의원",
+					"era": "역병으로 일족을 잃고 의술에 매진한 시기",
+					"base_stats": {
+						"hp": 125,
+						"attack": 10,
+						"defense": 15,
+						"speed": 13,
+						"intellect": 24
+					},
+					"growth": {
+						"hp": 4,
+						"attack": 0.2,
+						"defense": 0.5,
+						"speed": 0.3,
+						"intellect": 0.9
+					},
+					"skill_ids": [
+						"g_herb",
+						"g_needle"
+					],
+					"reserve_effect": {
+						"name": "의술",
+						"description": "최후반부에 출전 장수의 방어 +13%",
+						"mode": "conditional",
+						"condition": {
+							"kind": "late_game"
+						},
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "defense",
+							"value": 13
+						}
+					}
+				},
+				"B": {
+					"title": "의성",
+					"era": "『상한잡병론』을 지은 시기",
+					"base_stats": {
+						"hp": 156,
+						"attack": 13,
+						"defense": 19,
+						"speed": 16,
+						"intellect": 30
+					},
+					"growth": {
+						"hp": 4.7,
+						"attack": 0.2,
+						"defense": 0.6,
+						"speed": 0.4,
+						"intellect": 1.1
+					},
+					"skill_ids": [
+						"g_herb",
+						"g_needle"
+					],
+					"reserve_effect": {
+						"name": "의술",
+						"description": "최후반부에 출전 장수의 방어 +15%",
+						"mode": "conditional",
+						"condition": {
+							"kind": "late_game"
+						},
+						"effect": {
+							"kind": "stat_percent",
+							"stat": "defense",
+							"value": 15
+						}
+					}
+				}
+			}
+		}
+	]
+}

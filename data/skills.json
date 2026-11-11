@@ -1,0 +1,676 @@
+{
+	"skills": [
+		{
+			"id": "bandit_ambush",
+			"name": "산적 매복",
+			"description": "숨어 있다가 적 하나를 덮친다.",
+			"target": "enemy_single",
+			"scaling_stat": "attack",
+			"power": 1.3,
+			"cooldown": 2,
+			"effects": []
+		},
+		{
+			"id": "loyal_guard",
+			"name": "충직한 호위",
+			"description": "자신의 방어를 굳힌다.",
+			"target": "self",
+			"scaling_stat": "attack",
+			"power": 0,
+			"cooldown": 3,
+			"effects": [
+				{
+					"kind": "stat_mod",
+					"stat": "defense",
+					"percent": 25,
+					"duration": 2
+				}
+			]
+		},
+		{
+			"id": "fanatic_fervor",
+			"name": "광신의 열기",
+			"description": "신도들을 부추겨 아군 전체의 공격을 올린다.",
+			"target": "ally_all",
+			"scaling_stat": "intellect",
+			"power": 0,
+			"cooldown": 4,
+			"effects": [
+				{
+					"kind": "stat_mod",
+					"stat": "attack",
+					"percent": 15,
+					"duration": 2
+				}
+			]
+		},
+		{
+			"id": "yellow_sky_thunder",
+			"name": "태평요술",
+			"description": "요술로 벼락을 불러 적 전체를 친다.",
+			"target": "enemy_all",
+			"scaling_stat": "intellect",
+			"power": 0.9,
+			"cooldown": 4,
+			"effects": []
+		},
+		{
+			"id": "rally_volunteers",
+			"name": "의병 규합",
+			"description": "의병을 북돋아 아군 전체의 공격을 올린다.",
+			"target": "ally_all",
+			"scaling_stat": "intellect",
+			"power": 0,
+			"cooldown": 4,
+			"effects": [
+				{
+					"kind": "stat_mod",
+					"stat": "attack",
+					"percent": 10,
+					"duration": 2
+				}
+			]
+		},
+		{
+			"id": "benevolent_command",
+			"name": "인덕의 지휘",
+			"description": "아군 전체의 방어를 올린다.",
+			"target": "ally_all",
+			"scaling_stat": "intellect",
+			"power": 0,
+			"cooldown": 4,
+			"effects": [
+				{
+					"kind": "stat_mod",
+					"stat": "defense",
+					"percent": 15,
+					"duration": 3
+				}
+			]
+		},
+		{
+			"id": "hanzhong_banner",
+			"name": "한중왕의 기치",
+			"description": "아군 전체의 공격과 방어를 함께 올린다.",
+			"target": "ally_all",
+			"scaling_stat": "intellect",
+			"power": 0,
+			"cooldown": 4,
+			"effects": [
+				{
+					"kind": "stat_mod",
+					"stat": "attack",
+					"percent": 15,
+					"duration": 3
+				},
+				{
+					"kind": "stat_mod",
+					"stat": "defense",
+					"percent": 10,
+					"duration": 3
+				}
+			]
+		},
+		{
+			"id": "green_dragon_slash",
+			"name": "청룡언월 베기",
+			"description": "언월도로 적 하나를 크게 벤다.",
+			"target": "enemy_single",
+			"scaling_stat": "attack",
+			"power": 1.6,
+			"cooldown": 2,
+			"effects": []
+		},
+		{
+			"id": "flood_seven_armies",
+			"name": "수엄칠군",
+			"description": "물길을 터 적 전체를 휩쓴다.",
+			"target": "enemy_all",
+			"scaling_stat": "intellect",
+			"power": 1.1,
+			"cooldown": 4,
+			"effects": []
+		},
+		{
+			"id": "serpent_spear",
+			"name": "장팔사모 난무",
+			"description": "사모를 휘둘러 적 전열을 친다.",
+			"target": "enemy_front_row",
+			"scaling_stat": "attack",
+			"power": 1.2,
+			"cooldown": 3,
+			"effects": []
+		},
+		{
+			"id": "changban_roar",
+			"name": "장판교의 포효",
+			"description": "호통으로 적 전체의 공격을 꺾는다.",
+			"target": "enemy_all",
+			"scaling_stat": "attack",
+			"power": 0,
+			"cooldown": 4,
+			"effects": [
+				{
+					"kind": "stat_mod",
+					"stat": "attack",
+					"percent": -20,
+					"duration": 2
+				}
+			]
+		},
+		{
+			"id": "cavalry_raid",
+			"name": "기습 돌격",
+			"description": "기병으로 적 후열을 급습한다.",
+			"target": "enemy_back_row",
+			"scaling_stat": "attack",
+			"power": 1.2,
+			"cooldown": 3,
+			"effects": []
+		},
+		{
+			"id": "burn_supplies",
+			"name": "오소 화공",
+			"description": "군량을 불태워 적 전체에 피해를 준다.",
+			"target": "enemy_all",
+			"scaling_stat": "intellect",
+			"power": 1.2,
+			"cooldown": 4,
+			"effects": []
+		},
+		{
+			"id": "wei_king_decree",
+			"name": "위왕의 호령",
+			"description": "아군 전체의 공격과 속도를 올린다.",
+			"target": "ally_all",
+			"scaling_stat": "intellect",
+			"power": 0,
+			"cooldown": 4,
+			"effects": [
+				{
+					"kind": "stat_mod",
+					"stat": "attack",
+					"percent": 20,
+					"duration": 3
+				},
+				{
+					"kind": "stat_mod",
+					"stat": "speed",
+					"percent": 10,
+					"duration": 3
+				}
+			]
+		},
+		{
+			"id": "jiangdong_defense",
+			"name": "강동 수성",
+			"description": "아군 전체의 방어를 올린다.",
+			"target": "ally_all",
+			"scaling_stat": "intellect",
+			"power": 0,
+			"cooldown": 4,
+			"effects": [
+				{
+					"kind": "stat_mod",
+					"stat": "defense",
+					"percent": 15,
+					"duration": 2
+				}
+			]
+		},
+		{
+			"id": "resolve_for_war",
+			"name": "개전의 결단",
+			"description": "책상을 베어 결의를 보이고 아군 전체의 공격을 올린다.",
+			"target": "ally_all",
+			"scaling_stat": "intellect",
+			"power": 0,
+			"cooldown": 4,
+			"effects": [
+				{
+					"kind": "stat_mod",
+					"stat": "attack",
+					"percent": 20,
+					"duration": 2
+				}
+			]
+		},
+		{
+			"id": "steady_rule",
+			"name": "수성의 치세",
+			"description": "아군 전체의 방어와 속도를 올린다.",
+			"target": "ally_all",
+			"scaling_stat": "intellect",
+			"power": 0,
+			"cooldown": 4,
+			"effects": [
+				{
+					"kind": "stat_mod",
+					"stat": "defense",
+					"percent": 20,
+					"duration": 3
+				},
+				{
+					"kind": "stat_mod",
+					"stat": "speed",
+					"percent": 10,
+					"duration": 3
+				}
+			]
+		},
+		{
+			"id": "halberd_sweep",
+			"name": "방천화극 휩쓸기",
+			"description": "화극을 크게 휘둘러 적 전열을 친다.",
+			"target": "enemy_front_row",
+			"scaling_stat": "attack",
+			"power": 1.4,
+			"cooldown": 3,
+			"effects": []
+		},
+		{
+			"id": "peerless_charge",
+			"name": "비장의 돌파",
+			"description": "적 하나에게 막대한 피해를 준다.",
+			"target": "enemy_single",
+			"scaling_stat": "attack",
+			"power": 2.2,
+			"cooldown": 3,
+			"effects": []
+		},
+		{
+			"id": "charm",
+			"name": "매혹",
+			"description": "적 하나를 홀려 공격을 떨어뜨린다.",
+			"target": "enemy_single",
+			"scaling_stat": "intellect",
+			"power": 0,
+			"cooldown": 2,
+			"effects": [
+				{
+					"kind": "stat_mod",
+					"stat": "attack",
+					"percent": -25,
+					"duration": 2
+				}
+			]
+		},
+		{
+			"id": "sow_discord",
+			"name": "이간",
+			"description": "적진을 이간해 적 전체의 방어를 떨어뜨린다.",
+			"target": "enemy_all",
+			"scaling_stat": "intellect",
+			"power": 0,
+			"cooldown": 4,
+			"effects": [
+				{
+					"kind": "stat_mod",
+					"stat": "defense",
+					"percent": -15,
+					"duration": 2
+				}
+			]
+		},
+		{
+			"id": "herbal_tonic",
+			"name": "약탕 처방",
+			"description": "아군 하나의 방어를 올린다. 체력은 회복하지 않는다.",
+			"target": "ally_single",
+			"scaling_stat": "intellect",
+			"power": 0,
+			"cooldown": 2,
+			"effects": [
+				{
+					"kind": "stat_mod",
+					"stat": "defense",
+					"percent": 20,
+					"duration": 3
+				}
+			]
+		},
+		{
+			"id": "mafeisan",
+			"name": "마비산",
+			"description": "적 하나를 마비시켜 속도를 떨어뜨린다.",
+			"target": "enemy_single",
+			"scaling_stat": "intellect",
+			"power": 0,
+			"cooldown": 3,
+			"effects": [
+				{
+					"kind": "stat_mod",
+					"stat": "speed",
+					"percent": -30,
+					"duration": 2
+				}
+			]
+		},
+		{
+			"id": "tyrant_strike",
+			"name": "폭군의 일격",
+			"description": "적 하나를 힘으로 내리친다.",
+			"target": "enemy_single",
+			"scaling_stat": "attack",
+			"power": 1.5,
+			"cooldown": 2,
+			"effects": []
+		},
+		{
+			"id": "xiliang_cavalry",
+			"name": "서량 철기",
+			"description": "철기대로 적 전열을 짓밟는다.",
+			"target": "enemy_front_row",
+			"scaling_stat": "attack",
+			"power": 1.3,
+			"cooldown": 3,
+			"effects": []
+		},
+		{
+			"id": "reign_of_terror",
+			"name": "공포 정치",
+			"description": "적 전체를 위축시켜 공격을 떨어뜨린다.",
+			"target": "enemy_all",
+			"scaling_stat": "intellect",
+			"power": 0,
+			"cooldown": 4,
+			"effects": [
+				{
+					"kind": "stat_mod",
+					"stat": "attack",
+					"percent": -15,
+					"duration": 3
+				}
+			]
+		},
+		{
+			"id": "longzhong_plan",
+			"name": "융중대",
+			"description": "천하삼분의 계책으로 아군 전체의 지략을 올린다.",
+			"target": "ally_all",
+			"scaling_stat": "intellect",
+			"power": 0,
+			"cooldown": 4,
+			"effects": [
+				{
+					"kind": "stat_mod",
+					"stat": "intellect",
+					"percent": 20,
+					"duration": 3
+				}
+			]
+		},
+		{
+			"id": "southeast_wind",
+			"name": "동남풍",
+			"description": "바람을 빌려 적 전체를 불로 덮는다.",
+			"target": "enemy_all",
+			"scaling_stat": "intellect",
+			"power": 1.4,
+			"cooldown": 4,
+			"effects": []
+		},
+		{
+			"id": "eight_formations",
+			"name": "팔진도",
+			"description": "진법에 가둬 적 전체의 속도와 방어를 떨어뜨린다.",
+			"target": "enemy_all",
+			"scaling_stat": "intellect",
+			"power": 0,
+			"cooldown": 4,
+			"effects": [
+				{
+					"kind": "stat_mod",
+					"stat": "speed",
+					"percent": -25,
+					"duration": 2
+				},
+				{
+					"kind": "stat_mod",
+					"stat": "defense",
+					"percent": -10,
+					"duration": 2
+				}
+			]
+		},
+		{
+			"id": "g_charge",
+			"name": "돌격",
+			"description": "적 하나에게 달려들어 벤다.",
+			"target": "enemy_single",
+			"scaling_stat": "attack",
+			"power": 1.4,
+			"cooldown": 2,
+			"effects": []
+		},
+		{
+			"id": "g_rampage",
+			"name": "난전",
+			"description": "적 전열에 뛰어들어 휘젓는다.",
+			"target": "enemy_front_row",
+			"scaling_stat": "attack",
+			"power": 1.15,
+			"cooldown": 3,
+			"effects": []
+		},
+		{
+			"id": "g_flank",
+			"name": "측면 기습",
+			"description": "돌아 들어가 적 후열을 친다.",
+			"target": "enemy_back_row",
+			"scaling_stat": "attack",
+			"power": 1.15,
+			"cooldown": 3,
+			"effects": []
+		},
+		{
+			"id": "g_fury",
+			"name": "필살의 일격",
+			"description": "적 하나에게 온 힘을 실은 일격.",
+			"target": "enemy_single",
+			"scaling_stat": "attack",
+			"power": 2,
+			"cooldown": 3,
+			"effects": []
+		},
+		{
+			"id": "g_bash",
+			"name": "방패 치기",
+			"description": "방패로 적 하나를 밀쳐 친다.",
+			"target": "enemy_single",
+			"scaling_stat": "attack",
+			"power": 1.1,
+			"cooldown": 2,
+			"effects": []
+		},
+		{
+			"id": "g_shield_wall",
+			"name": "방진",
+			"description": "방패를 세워 자신의 방어를 크게 올린다.",
+			"target": "self",
+			"scaling_stat": "attack",
+			"power": 0,
+			"cooldown": 3,
+			"effects": [
+				{
+					"kind": "stat_mod",
+					"stat": "defense",
+					"percent": 30,
+					"duration": 2
+				}
+			]
+		},
+		{
+			"id": "g_hold_line",
+			"name": "견수",
+			"description": "진을 굳혀 아군 전체의 방어를 올린다.",
+			"target": "ally_all",
+			"scaling_stat": "intellect",
+			"power": 0,
+			"cooldown": 4,
+			"effects": [
+				{
+					"kind": "stat_mod",
+					"stat": "defense",
+					"percent": 20,
+					"duration": 3
+				}
+			]
+		},
+		{
+			"id": "g_rockfall",
+			"name": "낙석계",
+			"description": "돌을 굴려 적 전열을 덮친다.",
+			"target": "enemy_front_row",
+			"scaling_stat": "intellect",
+			"power": 1.2,
+			"cooldown": 3,
+			"effects": []
+		},
+		{
+			"id": "g_fire_attack",
+			"name": "화계",
+			"description": "불을 놓아 적 전체를 태운다.",
+			"target": "enemy_all",
+			"scaling_stat": "intellect",
+			"power": 0.9,
+			"cooldown": 4,
+			"effects": []
+		},
+		{
+			"id": "g_confuse",
+			"name": "혼란계",
+			"description": "적진을 어지럽혀 적 전체의 속도를 떨어뜨린다.",
+			"target": "enemy_all",
+			"scaling_stat": "intellect",
+			"power": 0,
+			"cooldown": 4,
+			"effects": [
+				{
+					"kind": "stat_mod",
+					"stat": "speed",
+					"percent": -20,
+					"duration": 2
+				}
+			]
+		},
+		{
+			"id": "g_grand_plan",
+			"name": "대계",
+			"description": "치밀한 계책으로 적 전체에 큰 피해를 준다.",
+			"target": "enemy_all",
+			"scaling_stat": "intellect",
+			"power": 1.3,
+			"cooldown": 4,
+			"effects": []
+		},
+		{
+			"id": "g_encourage",
+			"name": "격려",
+			"description": "아군 전체의 공격을 올린다.",
+			"target": "ally_all",
+			"scaling_stat": "intellect",
+			"power": 0,
+			"cooldown": 4,
+			"effects": [
+				{
+					"kind": "stat_mod",
+					"stat": "attack",
+					"percent": 10,
+					"duration": 2
+				}
+			]
+		},
+		{
+			"id": "g_hasten",
+			"name": "독려",
+			"description": "아군 전체의 속도를 올린다.",
+			"target": "ally_all",
+			"scaling_stat": "intellect",
+			"power": 0,
+			"cooldown": 4,
+			"effects": [
+				{
+					"kind": "stat_mod",
+					"stat": "speed",
+					"percent": 15,
+					"duration": 2
+				}
+			]
+		},
+		{
+			"id": "g_command",
+			"name": "대호령",
+			"description": "아군 전체의 공격과 방어를 올린다.",
+			"target": "ally_all",
+			"scaling_stat": "intellect",
+			"power": 0,
+			"cooldown": 4,
+			"effects": [
+				{
+					"kind": "stat_mod",
+					"stat": "attack",
+					"percent": 15,
+					"duration": 3
+				},
+				{
+					"kind": "stat_mod",
+					"stat": "defense",
+					"percent": 10,
+					"duration": 3
+				}
+			]
+		},
+		{
+			"id": "g_herb",
+			"name": "약초 처방",
+			"description": "아군 하나의 방어를 올린다. 체력은 회복하지 않는다.",
+			"target": "ally_single",
+			"scaling_stat": "intellect",
+			"power": 0,
+			"cooldown": 2,
+			"effects": [
+				{
+					"kind": "stat_mod",
+					"stat": "defense",
+					"percent": 20,
+					"duration": 3
+				}
+			]
+		},
+		{
+			"id": "g_needle",
+			"name": "침술",
+			"description": "적 하나의 혈을 짚어 속도를 떨어뜨린다.",
+			"target": "enemy_single",
+			"scaling_stat": "intellect",
+			"power": 0,
+			"cooldown": 3,
+			"effects": [
+				{
+					"kind": "stat_mod",
+					"stat": "speed",
+					"percent": -25,
+					"duration": 2
+				}
+			]
+		},
+		{
+			"id": "g_vitality",
+			"name": "기혈 조화",
+			"description": "아군 전체의 기혈을 다스려 방어를 올린다.",
+			"target": "ally_all",
+			"scaling_stat": "intellect",
+			"power": 0,
+			"cooldown": 4,
+			"effects": [
+				{
+					"kind": "stat_mod",
+					"stat": "defense",
+					"percent": 12,
+					"duration": 3
+				}
+			]
+		}
+	]
+}
