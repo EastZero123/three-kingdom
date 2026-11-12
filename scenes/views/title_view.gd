@@ -6,6 +6,7 @@ signal continue_run
 signal new_run
 signal show_records
 signal show_codex
+signal show_online
 
 
 func setup(db: GameDatabase) -> void:
@@ -29,6 +30,8 @@ func setup(db: GameDatabase) -> void:
 	else:
 		_add_button("새 원정", func() -> void: new_run.emit())
 	_add_button("기록", func() -> void: show_records.emit())
+	if OnlineService.enabled:
+		_add_button("온라인 순위", func() -> void: show_online.emit())
 	_add_button("도감", func() -> void: show_codex.emit())
 
 

@@ -17,22 +17,15 @@ func setup(db: GameDatabase, run: ExpeditionRun) -> void:
 	for i: int in offer.size():
 		var general: GeneralDef = db.get_general(String(offer[i]["general_id"]))
 		var tier: String = offer[i]["tier"]
-		var tier_def: GeneralTierDef = general.get_tier(tier)
-		var stats: Stats = tier_def.stats_at_level(db.draft_level)
-		var skill_names: Array[String] = []
-		for skill_id: String in tier_def.skill_ids:
-			skill_names.append(db.get_skill(skill_id).name)
+		# 드래프트 장수의 레벨업 포인트는 영입 뒤 직접 배분하므로, 여기서는 기본 능력치를 보여 준다.
+		var info: Array[String] = GeneralInfo.summary_lines(db, general.id, tier)
 
 		var button: Button = Button.new()
 		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		button.custom_minimum_size = Vector2(0, 88)
 		button.add_theme_font_size_override("font_size", 16)
-		button.text = "%d) %s  [%s]  %s · %s\n     체력 %d · 공격 %d · 방어 %d · 속도 %d · 지략 %d   스킬: %s\n     보유효과: %s — %s" % [
-			i + 1, general.name, tier, tier_def.title, _role_label(general.role),
-			stats.hp, stats.attack, stats.defense, stats.speed, stats.intellect, ", ".join(skill_names),
-			tier_def.reserve_effect.name, tier_def.reserve_effect.description,
-		]
-		button.tooltip_text = tier_def.era
+		button.text = "%d) %s  [%s]  %s\n     %s\n     %s   %s" % [i + 1, general.name, tier, info[0], info[1], info[2], info[3]]
+		button.tooltip_text = GeneralInfo.tooltip(db, general.id, tier)
 		button.add_theme_color_override("font_color", UiStyle.HEAL if general.is_healer() else UiStyle.tier_color(tier).lightened(0.35))
 		button.pressed.connect(func() -> void: chosen.emit(i))
 		add_child(button)
@@ -44,17 +37,3 @@ func setup(db: GameDatabase, run: ExpeditionRun) -> void:
 	restart.pressed.connect(func() -> void: reroll.emit())
 	add_child(restart)
 
-
-func _role_label(role: String) -> String:
-	match role:
-		"warrior":
-			return "무장"
-		"defender":
-			return "수비"
-		"strategist":
-			return "책사"
-		"healer":
-			return "힐러"
-		"support":
-			return "보조"
-	return role

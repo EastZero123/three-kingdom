@@ -1,0 +1,659 @@
+{
+	"actions": [
+		{
+			"index": 0,
+			"type": "draft"
+		},
+		{
+			"index": 1,
+			"type": "draft"
+		},
+		{
+			"index": 2,
+			"type": "draft"
+		},
+		{
+			"index": 0,
+			"type": "draft"
+		},
+		{
+			"index": 1,
+			"type": "draft"
+		},
+		{
+			"index": 2,
+			"type": "draft"
+		},
+		{
+			"index": 0,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"amount": 5,
+			"slot": 0,
+			"stat": "speed",
+			"type": "allocate"
+		},
+		{
+			"amount": 5,
+			"slot": 0,
+			"stat": "hp",
+			"type": "allocate"
+		},
+		{
+			"index": 0,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"amount": 5,
+			"slot": 0,
+			"stat": "defense",
+			"type": "allocate"
+		},
+		{
+			"index": 1,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"amount": 5,
+			"slot": 0,
+			"stat": "hp",
+			"type": "allocate"
+		},
+		{
+			"index": 1,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"index": 1,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"amount": 5,
+			"slot": 0,
+			"stat": "hp",
+			"type": "allocate"
+		},
+		{
+			"index": 1,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"index": 0,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"amount": 5,
+			"slot": 0,
+			"stat": "hp",
+			"type": "allocate"
+		},
+		{
+			"index": 1,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"index": 2,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"amount": 5,
+			"slot": 0,
+			"stat": "hp",
+			"type": "allocate"
+		},
+		{
+			"index": 0,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"index": 1,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"amount": 5,
+			"slot": 0,
+			"stat": "hp",
+			"type": "allocate"
+		},
+		{
+			"index": 2,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"index": 1,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"index": 0,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"amount": 5,
+			"slot": 0,
+			"stat": "defense",
+			"type": "allocate"
+		},
+		{
+			"amount": 5,
+			"slot": 0,
+			"stat": "intellect",
+			"type": "allocate"
+		},
+		{
+			"index": 2,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"index": 2,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"amount": 5,
+			"slot": 0,
+			"stat": "speed",
+			"type": "allocate"
+		},
+		{
+			"index": 2,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"amount": 5,
+			"slot": 0,
+			"stat": "attack",
+			"type": "allocate"
+		},
+		{
+			"index": 2,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"index": 1,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"amount": 5,
+			"slot": 0,
+			"stat": "attack",
+			"type": "allocate"
+		},
+		{
+			"index": 1,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"amount": 5,
+			"slot": 0,
+			"stat": "intellect",
+			"type": "allocate"
+		},
+		{
+			"index": 0,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"index": 0,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"amount": 5,
+			"slot": 0,
+			"stat": "intellect",
+			"type": "allocate"
+		},
+		{
+			"index": 1,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"amount": 5,
+			"slot": 0,
+			"stat": "defense",
+			"type": "allocate"
+		},
+		{
+			"index": 0,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"amount": 5,
+			"slot": 0,
+			"stat": "hp",
+			"type": "allocate"
+		},
+		{
+			"index": 1,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"index": 2,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"amount": 5,
+			"slot": 0,
+			"stat": "hp",
+			"type": "allocate"
+		},
+		{
+			"index": 1,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"amount": 5,
+			"slot": 0,
+			"stat": "speed",
+			"type": "allocate"
+		},
+		{
+			"index": 0,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"index": 0,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"amount": 5,
+			"slot": 0,
+			"stat": "speed",
+			"type": "allocate"
+		},
+		{
+			"index": 1,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"amount": 5,
+			"slot": 0,
+			"stat": "attack",
+			"type": "allocate"
+		},
+		{
+			"index": 1,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"amount": 5,
+			"slot": 0,
+			"stat": "intellect",
+			"type": "allocate"
+		},
+		{
+			"index": 1,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"amount": 5,
+			"slot": 0,
+			"stat": "defense",
+			"type": "allocate"
+		},
+		{
+			"index": 1,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"amount": 5,
+			"slot": 0,
+			"stat": "hp",
+			"type": "allocate"
+		},
+		{
+			"index": 0,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"index": 1,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"amount": 5,
+			"slot": 0,
+			"stat": "hp",
+			"type": "allocate"
+		},
+		{
+			"index": 1,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"index": 2,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"amount": 5,
+			"slot": 0,
+			"stat": "hp",
+			"type": "allocate"
+		},
+		{
+			"index": 2,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"amount": 5,
+			"slot": 0,
+			"stat": "speed",
+			"type": "allocate"
+		},
+		{
+			"index": 0,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"index": 0,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"amount": 5,
+			"slot": 0,
+			"stat": "speed",
+			"type": "allocate"
+		},
+		{
+			"index": 1,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"index": 1,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"amount": 5,
+			"slot": 0,
+			"stat": "speed",
+			"type": "allocate"
+		},
+		{
+			"index": 0,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"amount": 5,
+			"slot": 0,
+			"stat": "attack",
+			"type": "allocate"
+		},
+		{
+			"index": 1,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"amount": 5,
+			"slot": 0,
+			"stat": "intellect",
+			"type": "allocate"
+		},
+		{
+			"index": 2,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"index": 2,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"amount": 5,
+			"slot": 0,
+			"stat": "intellect",
+			"type": "allocate"
+		},
+		{
+			"index": 2,
+			"type": "expedition"
+		},
+		{
+			"index": 0,
+			"target": 0,
+			"type": "reward"
+		},
+		{
+			"amount": 5,
+			"slot": 0,
+			"stat": "defense",
+			"type": "allocate"
+		},
+		{
+			"index": 0,
+			"type": "expedition"
+		}
+	],
+	"gameVersion": "0.3.0",
+	"playerName": "표본 기록",
+	"round": 8,
+	"seed": 12345,
+	"year": 188,
+	"years": 4
+}

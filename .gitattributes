@@ -1,0 +1,4 @@
+# Linux에서 실행하는 파일은 Windows에서 저장소를 받아도 줄바꿈을 LF로 유지한다.
+*.sh text eol=lf
+*.service text eol=lf
+*.env.example text eol=lf

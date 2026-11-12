@@ -6,7 +6,7 @@ extends RefCounted
 ## 장점: 저장 형식이 작고 단순하며, 2차의 서버 검증(같은 기록으로 다시 실행)과 같은 방식이다.
 
 ## 저장 형식 버전. 형식이 바뀌면 올리고, 다른 버전의 저장은 불러오지 않는다.
-const VERSION: int = 1
+const VERSION: int = 2  # 2: 능력치 0~100과 레벨업 포인트 배분(allocate 행동) 도입
 
 
 static func to_dict(run: ExpeditionRun) -> Dictionary:

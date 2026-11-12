@@ -12,6 +12,7 @@ var _content: PanelContainer
 var _log: RichTextLabel
 var _roster_view: RosterView
 var _overlay: MergeOverlay
+var _allocation: AllocationPanel
 var _log_box: VBoxContainer
 var _log_shown: int = 0
 var _pending_reward: int = -1
@@ -70,10 +71,17 @@ func _build_layout() -> void:
 	_roster_view.custom_minimum_size = Vector2(0, 236)
 	_roster_view.slot_picked.connect(_on_slot_picked)
 	_roster_view.changed.connect(_on_roster_changed)
+	_roster_view.allocate_requested.connect(func(slot: int) -> void: _allocation.open(GameState.db, GameState.run, slot))
 	column.add_child(_roster_view)
 
 	_overlay = MergeOverlay.new()
 	add_child(_overlay)
+	# 능력치 배분 창: 확정하면 로스터가 바뀐 것과 같게 처리한다 (화면 갱신 + 자동 저장).
+	_allocation = AllocationPanel.new()
+	_allocation.applied.connect(func() -> void:
+		_roster_view.refresh(GameState.db, GameState.run)
+		_on_roster_changed())
+	add_child(_allocation)
 
 
 func _set_content(view: Control) -> void:
@@ -109,8 +117,24 @@ func _show_title() -> void:
 	view.new_run.connect(_start_new_run)
 	view.show_records.connect(_show_records)
 	view.show_codex.connect(_show_codex)
+	view.show_online.connect(_show_online)
 	_set_content(view)
 	_set_game_chrome(false)
+
+
+func _show_online() -> void:
+	var view: OnlineLeaderboardView = OnlineLeaderboardView.new()
+	view.setup()
+	view.back.connect(_show_title)
+	_set_content(view)
+	_set_game_chrome(false)
+	var result: Dictionary = await OnlineService.fetch_leaderboard(30)
+	if not is_instance_valid(view) or not view.is_inside_tree():
+		return  # 기다리는 동안 다른 화면으로 갔다
+	if result["ok"]:
+		view.show_entries(result["body"], SaveManager.player_name)
+	else:
+		view.show_error(String(result["error"]))
 
 
 func _show_records() -> void:
@@ -241,14 +265,58 @@ func _on_expedition_chosen(index: int) -> void:
 func _after_battle() -> void:
 	if GameState.run.is_over():
 		var view: GameOverView = GameOverView.new()
-		view.setup(GameState.db, GameState.run, _last_rank)
+		view.setup(GameState.db, GameState.run, _last_rank, OnlineService.enabled, SaveManager.player_name)
 		view.restart.connect(_start_new_run)
 		view.to_title.connect(_show_title)
+		view.submit_online.connect(_on_submit_online.bind(view))
 		_set_content(view)
 		_roster_view.set_mode("locked", "원정이 끝났습니다.")
 		_refresh_side()
 		return
 	_show_reward()
+
+
+## 방금 끝난 기록을 온라인 랭킹에 보낸다. 접수되면 잠시 뒤 검증 결과를 한 번 물어본다.
+func _on_submit_online(player_name: String, view: GameOverView) -> void:
+	SaveManager.set_player_name(player_name)
+	var record: Dictionary = SaveManager.last_record
+	var result: Dictionary = await OnlineService.submit_run(record, player_name)
+	if not is_instance_valid(view):
+		return
+	if not result["ok"]:
+		view.show_online_status("등록 실패: %s" % result["error"], UiStyle.DANGER)
+		return
+	var body: Dictionary = result["body"] if typeof(result["body"]) == TYPE_DICTIONARY else {}
+	var run_id: int = int(body.get("id", 0))
+	if result["code"] == 409:
+		view.show_online_status("이미 등록한 기록입니다 (기록 #%d, %s)." % [run_id, _status_label(String(body.get("status", "")))], UiStyle.TEXT_DIM, true)
+		return
+	SaveManager.mark_record_online(record, run_id, "PENDING")
+	view.show_online_status("접수됨 — 서버가 기록을 다시 실행해 검증하는 중입니다 (기록 #%d)" % run_id, UiStyle.MERGE, true)
+
+	# 검증은 보통 몇 초 안에 끝난다. 3초 뒤 한 번 물어본다.
+	await get_tree().create_timer(3.0).timeout
+	var check: Dictionary = await OnlineService.fetch_run(run_id)
+	if not is_instance_valid(view) or not check["ok"]:
+		return
+	var status: String = String((check["body"] as Dictionary).get("status", ""))
+	SaveManager.mark_record_online(record, run_id, status)
+	match status:
+		"VERIFIED":
+			view.show_online_status("검증 통과! 온라인 순위에 올랐습니다 (기록 #%d)" % run_id, UiStyle.GOLD, true)
+		"REJECTED":
+			view.show_online_status("검증에서 거부됐습니다: %s" % (check["body"] as Dictionary).get("rejectReason", ""), UiStyle.DANGER, true)
+		_:
+			view.show_online_status("검증이 아직 끝나지 않았습니다. 잠시 뒤 온라인 순위에서 확인하세요 (기록 #%d)" % run_id, UiStyle.MERGE, true)
+
+
+func _status_label(status: String) -> String:
+	match status:
+		"VERIFIED":
+			return "검증 통과"
+		"REJECTED":
+			return "거부됨"
+	return "검증 중"
 
 
 func _show_reward() -> void:

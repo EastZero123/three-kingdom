@@ -1,0 +1,11 @@
+# Windows 개발 PC용 설정 (프로필: windows).
+# IntelliJ 실행 구성의 Active profiles에 windows를 넣으면 이 값이 기본값이 된다. 환경 변수를 넣으면 그 값이 우선한다.
+# DB 접속 정보는 application.yml을 그대로 쓴다.
+
+server:
+  port: ${PORT:9090}
+
+verifier:
+  # 출력을 읽어야 하므로 *_console.exe를 쓴다.
+  godot-path: ${GODOT_PATH:C:\Users\CHOIDONGYOUNG\AppData\Local\Microsoft\WinGet\Packages\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\Godot_v4.7.2-stable_win64_console.exe}
+  project-path: ${GAME_PROJECT_PATH:D:\study\vibecoding\game}

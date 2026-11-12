@@ -1,6 +1,7 @@
 ﻿# Windows 배포 묶음을 만든다.
 # 실행: 프로젝트 폴더에서  powershell -ExecutionPolicy Bypass -File build_windows.ps1
-#       버전 지정:          powershell -ExecutionPolicy Bypass -File build_windows.ps1 -Version 0.2.0
+#       버전 지정:          powershell -ExecutionPolicy Bypass -File build_windows.ps1 -Version 0.3.0
+#                           (지정하지 않으면 project.godot의 config/version을 쓴다)
 #       exe 다시 만들기:    powershell -ExecutionPolicy Bypass -File build_windows.ps1 -RebuildExe
 # 결과:
 #   build\dist\                        배포 폴더 (samgukji.exe + samgukji.pck + README.txt + licenses\)
@@ -22,7 +23,7 @@
 #     5.1은 이것을 오류로 취급하므로 ErrorActionPreference를 Stop으로 두지 않고, 종료 코드로 성공 여부를 판단한다.
 
 param(
-    [string]$Version = "0.1.0",
+    [string]$Version = "",
     [switch]$RebuildExe
 )
 
@@ -135,6 +136,10 @@ $stage = Join-Path $build 'exe_stage'
 $exe = Join-Path $dist 'samgukji.exe'
 $pck = Join-Path $dist 'samgukji.pck'
 $marker = Join-Path $dist 'runtime.txt'
+# 버전을 지정하지 않으면 게임 버전(project.godot)을 그대로 쓴다. 서버 검증도 이 값을 비교한다.
+if (-not $Version) {
+    $Version = (Select-String -Path (Join-Path $project 'project.godot') -Pattern '^config/version="(.+)"').Matches[0].Groups[1].Value
+}
 $zip = Join-Path $build "samgukji-$Version-windows.zip"
 
 Write-Host "1/6 테스트 실행"

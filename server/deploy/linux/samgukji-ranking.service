@@ -1,0 +1,27 @@
+# 삼국지 원정 로그라이트 — 온라인 랭킹 API 서버 (systemd 서비스)
+# install.sh가 /etc/systemd/system/samgukji-ranking.service 로 복사한다.
+#   상태 보기:   sudo systemctl status samgukji-ranking
+#   로그 보기:   sudo journalctl -u samgukji-ranking -f
+#   다시 켜기:   sudo systemctl restart samgukji-ranking
+
+[Unit]
+Description=Samgukji roguelite ranking API server
+After=network-online.target mysql.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=samgukji
+Group=samgukji
+WorkingDirectory=/opt/samgukji
+# DB 비밀번호 등은 이 파일에 둔다 (root만 읽을 수 있음).
+EnvironmentFile=/etc/samgukji-ranking.env
+Environment=SPRING_PROFILES_ACTIVE=linux
+# 검증할 때 실행하는 Godot가 사용자 데이터 폴더(~/.local/share/godot)를 쓰므로 HOME이 필요하다.
+Environment=HOME=/opt/samgukji
+ExecStart=/usr/bin/java -Xms128m -Xmx512m -jar /opt/samgukji/ranking-server.jar
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,5 @@
+{
+	"enabled": true,
+	"api_base_url": "http://115.68.179.150:9090",
+	"timeout_seconds": 10
+}

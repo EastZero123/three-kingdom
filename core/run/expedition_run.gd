@@ -93,6 +93,8 @@ static func replay(db: GameDatabase, seed_value: int, actions: Array[Dictionary]
 				run.swap_slots(int(action["a"]), int(action["b"]))
 			"release":
 				run.release_member(int(action["slot"]))
+			"allocate":
+				run.allocate_points(int(action["slot"]), String(action["stat"]), int(action["amount"]))
 	return run
 
 
@@ -189,7 +191,7 @@ func choose(choice_index: int) -> BattleEngine:
 		var member: RosterMember = roster.get_member(slot)
 		if member == null:
 			continue
-		var unit: BattleUnit = BattleUnit.create(_db, member.general_id, member.tier, member.level, member.hp)
+		var unit: BattleUnit = BattleUnit.create_from_stats(_db, member.general_id, member.tier, member.level, member.combat_stats(_db), member.hp)
 		unit.slot = slot
 		var bonus: int = roundi(float(unit.max_hp) * hp_bonus_percent / 100.0)
 		unit.max_hp += bonus
@@ -199,8 +201,9 @@ func choose(choice_index: int) -> BattleEngine:
 		hp_bonuses.append(bonus)
 
 	var enemies: Array[BattleUnit] = []
+	var enemy_points: float = AbilityBuild.enemy_points_per_level(_db.balance, year - _db.balance.get_int("run.start_year"))
 	for enemy: Dictionary in expedition.enemies:
-		enemies.append(BattleUnit.create(_db, String(enemy["general_id"]), String(enemy["tier"]), int(enemy["level"]), -1, expedition.formation.enemy_stat_multiplier))
+		enemies.append(BattleUnit.create(_db, String(enemy["general_id"]), String(enemy["tier"]), int(enemy["level"]), -1, expedition.formation.enemy_stat_multiplier, enemy_points))
 
 	var battle: BattleEngine = BattleEngine.new(_db.balance, allies, enemies, expedition.battle_seed)
 	_apply_reserve_auras(battle, hp_bonus_percent)
@@ -503,6 +506,8 @@ func apply_merge(slot: int) -> bool:
 		return false
 	var old_tier: String = member.tier
 	member.tier = new_tier
+	# 기본 능력치가 바뀌므로 배분한 포인트를 새 티어에 맞춰 다시 놓는다 (총량은 그대로).
+	member.refit_build(_db)
 	member.refresh_max_hp(_db)
 	member.hp = member.max_hp
 	last_merge_events.append({"kind": "promotion", "general_id": member.general_id, "from": old_tier, "to": new_tier})
@@ -539,6 +544,18 @@ func swap_slots(slot_a: int, slot_b: int) -> bool:
 	history.append({"type": "swap", "a": slot_a, "b": slot_b})
 	# 슬롯 확장 장수가 출전 슬롯으로 나가면 보유효과 슬롯이 줄어들 수 있다.
 	_update_reserve_capacity()
+	return true
+
+
+## 레벨업 포인트를 장수의 능력치에 배분한다. 드래프트 중이거나 런이 끝났으면 할 수 없다.
+## 기록에 남으므로 저장·서버 검증에서 똑같이 재현된다.
+func allocate_points(slot: int, stat: String, amount: int) -> bool:
+	var member: RosterMember = roster.get_member(slot) if roster.is_valid_slot(slot) else null
+	if is_over() or phase == PHASE_DRAFT or member == null:
+		return false
+	if not member.invest(_db, stat, amount):
+		return false
+	history.append({"type": "allocate", "slot": slot, "stat": stat, "amount": amount})
 	return true
 
 

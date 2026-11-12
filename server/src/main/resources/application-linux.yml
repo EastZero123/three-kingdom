@@ -1,0 +1,16 @@
+# Linux 서버용 설정 (프로필: linux). systemd 서비스가 SPRING_PROFILES_ACTIVE=linux로 켠다.
+# 실제 값은 /etc/samgukji-ranking.env(환경 변수 파일)에서 넣고, 여기 값은 그 파일에 없을 때의 기본값이다.
+# 경로는 deploy/linux/install.sh가 설치하는 위치와 같다.
+
+server:
+  port: ${PORT:9090}
+
+spring:
+  datasource:
+    # API 서버와 MySQL이 같은 서버에 있다고 본다.
+    url: ${DB_URL:jdbc:mysql://localhost:3306/samgukji_ranking?serverTimezone=UTC&characterEncoding=UTF-8}
+
+verifier:
+  godot-path: ${GODOT_PATH:/opt/samgukji/godot/godot}
+  project-path: ${GAME_PROJECT_PATH:/opt/samgukji/game}
+  timeout-seconds: 60

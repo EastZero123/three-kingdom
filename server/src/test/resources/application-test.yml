@@ -1,0 +1,16 @@
+# 테스트용: MySQL 대신 메모리 DB(H2)를 쓰고, 표는 Hibernate가 엔티티를 보고 만든다.
+spring:
+  datasource:
+    url: jdbc:h2:mem:ranking;MODE=MySQL;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+  flyway:
+    enabled: false
+
+verifier:
+  godot-path: ${GODOT_PATH:}
+  project-path: ${GAME_PROJECT_PATH:}
+  timeout-seconds: 60

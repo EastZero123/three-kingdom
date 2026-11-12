@@ -1,0 +1,127 @@
+삼국지 원정 로그라이트 — 빌드·배포 따라 하기
+==============================================
+이 파일은 프로젝트 폴더(D:\study\vibecoding\game)에 있습니다. 위에서부터 순서대로 따라 하면 됩니다.
+명령은 한 줄씩 복사해서 터미널에 붙여 넣고 Enter를 누릅니다.
+
+전체 그림
+  [A] 게임 exe 만들기 (Windows)      → build\samgukji-<버전>-windows.zip  (플레이어에게 주는 파일)
+  [B] 랭킹 서버 묶음 만들기 (Windows) → build\linux\samgukji-ranking-linux.tar.gz
+  [C] 서버에 올려서 설치 (Linux)      → /opt/samgukji 에 설치되고 서비스가 다시 켜짐
+  게임 버전이 바뀌었으면 반드시 B → C 를 먼저 하고, 그다음 A의 zip을 배포합니다.
+  (서버가 옛 버전이면 새 버전 기록이 전부 game_version 으로 거부됩니다.)
+
+
+──────────────────────────────────────────────
+[0] 터미널 여는 법 (Rider)
+──────────────────────────────────────────────
+  1. Rider에서 이 프로젝트를 연다.
+  2. 아래쪽 Terminal 탭을 누른다 (단축키 Alt+F12).
+     Rider 기본 터미널은 Windows PowerShell 입니다. 프롬프트가 "PS D:\...>" 로 시작하면 맞습니다.
+  3. 프로젝트 폴더로 이동한다 (이미 그 폴더면 생략):
+       cd D:\study\vibecoding\game
+
+
+──────────────────────────────────────────────
+[A] 게임 exe 만들기
+──────────────────────────────────────────────
+  1. 빌드 실행:
+       powershell -ExecutionPolicy Bypass -File build_windows.ps1
+
+     스크립트가 알아서 하는 일 (1/6 ~ 6/6 으로 진행 상황이 나옴)
+       1/6 테스트 실행 — 하나라도 실패하면 여기서 멈춤 (빌드가 깨진 게임이 나가지 않게)
+       2/6 리소스 가져오기
+       3/6 exe 준비 — 처음 한 번만 만들고 다음부터는 재사용
+       4/6 게임 데이터(samgukji.pck) 내보내기
+       5/6 라이선스·안내문
+       6/6 zip 묶기
+
+  2. 끝에 "완료" 가 초록색으로 나오면 성공. 결과물:
+       build\dist\samgukji.exe          바로 실행해 볼 수 있음 (같은 폴더의 samgukji.pck가 꼭 있어야 함)
+       build\samgukji-0.3.0-windows.zip 남에게 줄 파일 (버전은 project.godot 의 config/version)
+
+  3. 실행해 보기:
+       .\build\dist\samgukji.exe
+
+  가끔 쓰는 옵션
+       exe를 새로 만들기 (Godot 버전·아이콘을 바꿨을 때):
+         powershell -ExecutionPolicy Bypass -File build_windows.ps1 -RebuildExe
+
+  처음 빌드할 때
+       exe의 바탕이 되는 "내보내기 템플릿"이 없으면 스크립트가 공식 GitHub에서 받습니다 (약 1.2GB, 체크섬 확인).
+       몇 분 걸릴 수 있으니 기다리면 됩니다. 두 번째부터는 받지 않습니다.
+
+  실패했을 때
+       "실패: ..." 빨간 줄의 내용을 그대로 복사해서 알려 주세요.
+       테스트 실패면 [Failed] 줄이 함께 나옵니다.
+
+
+──────────────────────────────────────────────
+[B] 랭킹 서버 묶음 만들기 (Windows)
+──────────────────────────────────────────────
+  게임 로직(core/, data/)이나 서버 코드(server/)를 바꿨을 때, 또는 게임 버전을 올렸을 때만 하면 됩니다.
+  화면(scenes/, ui/)만 바꿨으면 서버는 그대로 둬도 됩니다.
+
+  1. 묶음 만들기:
+       powershell -ExecutionPolicy Bypass -File server\deploy\package_linux.ps1
+
+     하는 일: 서버 jar 빌드(서버 테스트 포함) → 검증용 게임 파일 복사 → 표본 기록 준비 → tar.gz 묶기
+     JDK 17이 필요합니다 (C:\Program Files\Java\jdk-17 등 흔한 위치에서 자동으로 찾음).
+
+  2. "완료 (게임 버전 0.3.0)" 가 나오면 성공. 결과물:
+       build\linux\samgukji-ranking-linux.tar.gz   (약 54MB)
+
+  주의: "표본 기록의 게임 버전이 현재 버전과 다릅니다" 가 나오면 표본을 다시 만든 뒤 1번을 다시 합니다:
+       & (Get-ChildItem "$env:LOCALAPPDATA\Microsoft\WinGet\Packages\GodotEngine.GodotEngine_*\Godot_v*_win64_console.exe")[0].FullName --headless --path . -s tests/tools/make_sample_run.gd
+
+
+──────────────────────────────────────────────
+[C] 서버에 올려서 설치 (Linux)
+──────────────────────────────────────────────
+  아래 "사용자" 는 서버 로그인 계정 이름으로 바꿔서 씁니다.
+
+  1. 파일 올리기 — Windows 터미널(Rider)에서:
+       scp build\linux\samgukji-ranking-linux.tar.gz 사용자@115.68.179.150:~/
+     (scp는 Windows 10 이상에 기본으로 있습니다. 비밀번호를 물으면 서버 계정 비밀번호를 입력.
+      WinSCP·FileZilla 같은 프로그램으로 홈 폴더에 올려도 똑같습니다.)
+
+  2. 서버 접속 — 같은 터미널에서:
+       ssh 사용자@115.68.179.150
+
+  3. 서버에서 풀고 설치 (한 줄씩):
+       rm -rf samgukji-deploy
+       mkdir samgukji-deploy
+       tar -xzf samgukji-ranking-linux.tar.gz -C samgukji-deploy
+       cd samgukji-deploy
+       sudo bash install.sh
+
+     install.sh 는 여러 번 실행해도 됩니다. 이미 있는 환경 변수 파일(DB 비밀번호)은 건드리지 않고,
+     서버 jar·게임 파일만 바꾼 뒤 서비스를 다시 켭니다.
+
+  4. 확인:
+       6/6 단계에 "→ 통과" 가 나와야 합니다 (Windows와 같은 결과로 기록이 재현된다는 뜻).
+       마지막에 서비스 상태가 "active (running)" 이면 정상.
+       순위 응답 확인:   curl http://localhost:9090/leaderboard
+
+  5. 접속 끊기:
+       exit
+
+
+──────────────────────────────────────────────
+[D] 서버 운영 명령어
+──────────────────────────────────────────────
+  서비스 켜기·끄기, 로그 보기, DB 조회, 문제 생겼을 때 볼 순서는 따로 정리해 두었습니다.
+    지금 바로 보기 (이 PC):   server\deploy\linux\COMMANDS.txt
+    서버에 설치된 뒤:          less /opt/samgukji/COMMANDS.txt    (나가기: q)
+
+  자주 쓰는 것만:
+    상태      sudo systemctl status samgukji-ranking
+    재시작    sudo systemctl restart samgukji-ranking
+    로그      sudo journalctl -u samgukji-ranking -n 100 --no-pager
+
+
+──────────────────────────────────────────────
+[E] 테스트만 돌려 보기 (선택)
+──────────────────────────────────────────────
+  빌드 없이 게임 테스트만:
+    & (Get-ChildItem "$env:LOCALAPPDATA\Microsoft\WinGet\Packages\GodotEngine.GodotEngine_*\Godot_v*_win64_console.exe")[0].FullName --headless --path . -s addons/gut/gut_cmdln.gd -gexit
+  끝에 "Passing Tests" 수가 나오고 "Failing Tests" 가 없으면 통과입니다.

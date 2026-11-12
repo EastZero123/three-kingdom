@@ -44,6 +44,13 @@ func _build_choices() -> void:
 		button.text = "%d) %s\n     %s" % [i + 1, reward.summary(_db, _run.roster.is_full()), _describe(i, reward)]
 		if reward.is_chest():
 			button.add_theme_color_override("font_color", UiStyle.CHEST)
+		elif reward.is_card():
+			# 장수 카드는 고르기 전에 어떤 장수인지(능력치·스킬·보유효과) 미리 보여 준다. 자세한 설명은 마우스를 올리면 보인다.
+			var info: Array[String] = GeneralInfo.summary_lines(_db, reward.general_id, reward.tier)
+			button.add_theme_font_size_override("font_size", 16)
+			button.text += "\n     %s   %s\n     %s   %s" % [info[0], info[1], info[2], info[3]]
+			button.tooltip_text = GeneralInfo.tooltip(_db, reward.general_id, reward.tier)
+			button.add_theme_color_override("font_color", UiStyle.tier_color(reward.tier).lightened(0.45))
 		button.pressed.connect(func() -> void: chosen.emit(i))
 		add_child(button)
 
@@ -58,12 +65,11 @@ func _describe(index: int, reward: Reward) -> String:
 			return "고른 장수 1명에게 카드 %d장 (받을 장수 선택)" % chest.card_count
 		return "%s에게 카드 %d장을 나눠 줍니다 → 연쇄 합성" % [chest.scope_label(), chest.card_count]
 	if _run.roster.has_general(reward.general_id):
-		var body: RosterMember = _run.roster.get_member(_run.roster.find_general(reward.general_id))
-		return "이미 있는 장수(%s) → 합성 진행도 적립 (지금 %s %d장)" % [
-			body.tier, reward.tier, _run.merge_card_count(reward.general_id, reward.tier)]
+		return GeneralInfo.merge_preview(_db, _run, reward.general_id, reward.tier)
 	if _run.reward_needs_target(index):
-		return "로스터가 가득 참 → 교체할 장수 선택 (Lv.%d와 경험치 75%% 계승 중 높은 쪽)" % reward.recruit_level(_db)
-	return "빈 칸에 Lv.%d로 영입합니다" % reward.recruit_level(_db)
+		return "로스터가 가득 참 → 교체할 장수 선택 (Lv.%d와 경험치 75%% 계승 중 높은 쪽, 레벨 포인트는 새로 배분)" % reward.recruit_level(_db)
+	return "빈 칸에 Lv.%d로 영입합니다 (배분할 포인트 %d)" % [
+		reward.recruit_level(_db), AbilityBuild.earned_points(_db.balance, reward.recruit_level(_db))]
 
 
 func _clear() -> void:

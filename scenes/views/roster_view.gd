@@ -9,6 +9,8 @@ extends PanelContainer
 signal slot_picked(slot: int)
 ## 자리 이동이나 방출로 로스터가 바뀌었다.
 signal changed
+## 고른 장수의 능력치 배분 창을 열어 달라는 요청 (창은 화면 전체를 덮어야 해서 메인 화면이 띄운다).
+signal allocate_requested(slot: int)
 
 var _db: GameDatabase
 var _run: ExpeditionRun
@@ -66,6 +68,13 @@ func refresh(db: GameDatabase, run: ExpeditionRun) -> void:
 	hint.custom_minimum_size = Vector2(160, 0)
 	side.add_child(hint)
 	if _mode == "manage" and _selected >= 0:
+		var selected_member: RosterMember = _run.roster.get_member(_selected)
+		var unspent: int = selected_member.unspent_points(_db)
+		var allocate: Button = Button.new()
+		allocate.text = "능력치 배분 (남은 %d)" % unspent if unspent > 0 else "능력치 보기"
+		allocate.disabled = _run.phase == ExpeditionRun.PHASE_DRAFT
+		allocate.pressed.connect(func() -> void: allocate_requested.emit(_selected))
+		side.add_child(allocate)
 		var release: Button = Button.new()
 		release.text = "방출 (계승 없음)"
 		release.pressed.connect(_on_release)
@@ -88,7 +97,7 @@ func _make_card(slot: int) -> UnitCard:
 	if member == null:
 		card.show_empty()
 	else:
-		card.show_general(member.display_name(_db), member.tier, member.level, member.hp, member.max_hp)
+		card.show_general(member.display_name(_db), member.tier, member.level, member.hp, member.max_hp, member.unspent_points(_db))
 		card.tooltip_text = _tooltip(member)
 	card.set_selected(slot == _selected)
 	card.pressed.connect(_on_card_pressed)
@@ -120,8 +129,19 @@ func _current_hint() -> String:
 		"manage":
 			if _selected >= 0:
 				return "%s 선택됨 — 옮길 칸을 누르세요." % _run.roster.slot_label(_selected)
+			if _has_unspent_points():
+				return "★ 배분할 포인트가 있는 장수가 있습니다. 장수를 누르고 [능력치 배분]을 고르세요."
 			return "장수를 누른 뒤 다른 칸을 누르면 자리를 바꿉니다. 마우스를 올리면 정보가 보입니다."
 	return ""
+
+
+func _has_unspent_points() -> bool:
+	if _run.phase == ExpeditionRun.PHASE_DRAFT:
+		return false
+	for member: RosterMember in _run.roster.members():
+		if member.unspent_points(_db) > 0:
+			return true
+	return false
 
 
 func _on_card_pressed(card: UnitCard) -> void:

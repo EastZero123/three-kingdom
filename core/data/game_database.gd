@@ -297,6 +297,12 @@ func _check_references() -> void:
 			for skill_id: String in tier_def.skill_ids:
 				if not skills.has(skill_id):
 					errors.append("장수 %s %s티어: 없는 스킬 '%s'를 쓴다" % [general_id, tier_name, skill_id])
+			# 기본 능력치는 능력치 최대(보통 100)를 넘을 수 없다. 밸런스 값이 잘못됐으면 검사를 건너뛴다.
+			if balance.has_key("ability.max"):
+				var cap: int = balance.get_int("ability.max")
+				for key: String in Stats.KEYS:
+					if tier_def.base_stats.get_value(key) > cap:
+						errors.append("장수 %s %s티어: 기본 %s %d이 최대 %d를 넘는다" % [general_id, tier_name, key, tier_def.base_stats.get_value(key), cap])
 
 
 ## JSON 파일 하나를 읽어 Dictionary로 돌려준다. 실패하면 빈 Dictionary와 오류 메시지.

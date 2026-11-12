@@ -61,8 +61,12 @@ func test_experience_levels_up_and_keeps_damage_taken() -> void:
 	assert_eq(member.add_experience(_db, 65), 2)
 	assert_eq(member.level, 3)
 	assert_eq(member.experience, 5)
-	assert_eq(member.max_hp, 159, "150 + 내림(4.6 × 2)")
-	assert_eq(member.hp, 109, "최대 체력이 늘어난 만큼만 오른다 (잃은 체력 50은 그대로)")
+	assert_eq(member.max_hp, 150, "레벨업만으로는 능력치가 오르지 않는다 (포인트를 배분해야 한다)")
+	assert_eq(member.unspent_points(_db), 10, "2레벨 × 5포인트")
+	# 체력에 2포인트 → 최대 체력 +10. 현재 체력도 늘어난 만큼만 오른다 (잃은 체력 50은 그대로).
+	assert_true(member.invest(_db, "hp", 2))
+	assert_eq(member.max_hp, 160)
+	assert_eq(member.hp, 110)
 	assert_eq(member.total_experience(_db), 65)
 
 
@@ -160,7 +164,8 @@ func test_full_roster_replaces_and_inherits() -> void:
 	assert_eq(newcomer.experience, 115)
 	assert_eq(newcomer.total_experience(_db), 675)
 	assert_eq(newcomer.hp, newcomer.max_hp, "교체로 들어온 장수는 체력이 가득")
-	assert_eq(newcomer.max_hp, _db.get_general("lu_bu").get_tier("B").stats_at_level(8).hp, "스탯은 새 장수 고유의 성장을 따른다")
+	assert_eq(newcomer.max_hp, _db.get_general("lu_bu").get_tier("B").base_stats.hp * 5, "배분 전이라 기본 능력치 그대로")
+	assert_eq(newcomer.unspent_points(_db), 35, "Lv.8 → 7레벨 × 5포인트를 새로 배분한다")
 	assert_false(run.roster.has_general("zhang_fei"), "교체된 장수는 나간다")
 	assert_eq(run.roster.member_count(), 8)
 	assert_eq(run.merge_card_count("zhang_fei", "C"), 1, "나간 장수의 합성 진행도는 남는다")
@@ -197,7 +202,8 @@ func test_recruit_into_empty_slot_uses_card_level() -> void:
 	var newcomer: RosterMember = run.roster.get_member(FIRST_RESERVE_SLOT)
 	assert_eq(newcomer.level, 8)
 	assert_eq(newcomer.hp, newcomer.max_hp)
-	assert_eq(newcomer.max_hp, _db.get_general("lu_bu").get_tier("B").stats_at_level(8).hp)
+	assert_eq(newcomer.max_hp, _db.get_general("lu_bu").get_tier("B").base_stats.hp * 5)
+	assert_eq(newcomer.unspent_points(_db), 35)
 
 
 func test_replacement_uses_higher_of_card_level_and_inheritance() -> void:

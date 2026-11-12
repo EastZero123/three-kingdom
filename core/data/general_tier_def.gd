@@ -7,22 +7,13 @@ var tier: String = ""
 var title: String = ""
 ## 어떤 시기의 모습인지 설명.
 var era: String = ""
-## 레벨 1일 때의 스탯.
+## 기본 능력치 (0~100, 레벨 1·배분 전). 체력도 능력치 단위다 (실제 체력은 AbilityBuild가 변환).
 var base_stats: Stats = Stats.new()
-## 레벨이 1 오를 때마다 늘어나는 스탯 (소수 가능).
-var growth: Dictionary[String, float] = {}
+## 성향: 컴퓨터가 레벨업 포인트를 나누는 비율 (적 장수용, 소수 가능). 플레이어 장수는 직접 배분한다.
+## 화면에서 "이 장수는 무엇이 잘 크는가"를 보여 줄 때도 쓸 수 있다.
+var tendency: Dictionary[String, float] = {}
 var skill_ids: Array[String] = []
 var reserve_effect: ReserveEffectDef = null
-
-
-## 주어진 레벨에서의 스탯. 레벨 1이면 기본 스탯 그대로다.
-## 계산식: 기본 스탯 + 내림(성장률 × (레벨 - 1))
-func stats_at_level(level: int) -> Stats:
-	var result: Stats = Stats.new()
-	for key: String in Stats.KEYS:
-		var gained: int = floori(growth.get(key, 0.0) * float(level - 1))
-		result.set_value(key, base_stats.get_value(key) + gained)
-	return result
 
 
 static func parse(tier_name: String, data: Dictionary, context: String, errors: Array[String]) -> GeneralTierDef:
@@ -32,16 +23,16 @@ static func parse(tier_name: String, data: Dictionary, context: String, errors: 
 	def.era = DataReader.read_string(data, "era", context, errors)
 
 	var raw_stats: Dictionary = DataReader.read_dict(data, "base_stats", context, errors)
-	var raw_growth: Dictionary = DataReader.read_dict(data, "growth", context, errors)
+	var raw_tendency: Dictionary = DataReader.read_dict(data, "tendency", context, errors)
 	for key: String in Stats.KEYS:
 		var base_value: int = DataReader.read_int(raw_stats, key, "%s.base_stats" % context, errors)
 		if base_value < 1:
 			errors.append("%s.base_stats: '%s'는 1 이상이어야 한다" % [context, key])
 		def.base_stats.set_value(key, base_value)
-		var growth_value: float = DataReader.read_float(raw_growth, key, "%s.growth" % context, errors)
-		if growth_value < 0.0:
-			errors.append("%s.growth: '%s'는 0 이상이어야 한다" % [context, key])
-		def.growth[key] = growth_value
+		var tendency_value: float = DataReader.read_float(raw_tendency, key, "%s.tendency" % context, errors)
+		if tendency_value < 0.0:
+			errors.append("%s.tendency: '%s'는 0 이상이어야 한다" % [context, key])
+		def.tendency[key] = tendency_value
 
 	var raw_skills: Array = DataReader.read_array(data, "skill_ids", context, errors)
 	if raw_skills.is_empty():

@@ -1,7 +1,7 @@
 extends SceneTree
 ## 화면 흐름 캡처 도구: 메인 화면을 띄워 한 라운드를 진행하며 단계마다 PNG를 저장한다.
 ## 실행: godot --path . -s tests/tools/capture_flow.gd -- <저장 폴더>
-## 01_expedition / 02_battle / 03_reward / 04_overlay / 05_next_round
+## 01_expedition / 02_battle / 03_reward / 04_overlay / 05_next_round / 05b_roster_points / 05c_allocation
 
 const SEED: int = 12345
 
@@ -72,6 +72,24 @@ func _run() -> void:
 		await create_timer(4.0).timeout
 	await _frames(3)
 	await _shot("05_next_round")
+
+	# 능력치 배분: 화면 확인용으로 첫 장수에게 경험치를 직접 주고(레벨 6 → 25포인트) 배분 창을 연다.
+	var run: Object = game_state.get("run")
+	var first: Object = run.get("roster").call("get_member", 0)
+	first.call("add_experience", game_state.get("db"), 300)
+	var roster: RosterView = _main.get("_roster_view")
+	roster.refresh(game_state.get("db"), run)
+	roster._on_card_pressed(roster._cards[0])
+	await _frames(3)
+	await _shot("05b_roster_points")
+	var allocation: AllocationPanel = _main.get("_allocation")
+	allocation.open(game_state.get("db"), run, 0)
+	allocation._on_step("attack", 5)
+	allocation._on_step("hp", 5)
+	allocation._on_step("hp", 1)
+	await _frames(3)
+	await _shot("05c_allocation")
+	allocation.close()
 
 	# 껐다 켠 것처럼 처음 화면을 다시 띄워 이어하기 버튼과 도감을 본다.
 	_main.call("_show_title")

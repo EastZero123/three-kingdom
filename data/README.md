@@ -7,6 +7,18 @@
 
 기획서의 확정값과 미확정 항목의 기본값. 필수 키 목록은 `core/data/balance.gd`의 `REQUIRED`.
 
+능력치와 레벨업 포인트 (`core/data/ability_build.gd`):
+
+| 키 | 내용 |
+| --- | --- |
+| `level.points_per_level` | 플레이어 장수가 레벨 1당 받는 포인트 (직접 배분) |
+| `ability.max` | 능력치 최대값 (100) |
+| `ability.hp_per_point` | 체력 능력치 1 = 실제 최대 체력 몇. 공격·방어·속도·지략은 능력치 그대로 전투에 쓴다 |
+| `ability.overflow_hp_per_point` | 다섯 능력치가 모두 최대일 때 남는 포인트 1 = 실제 최대 체력 몇 |
+| `ability.enemy_points_per_level` / `enemy_points_per_year` | 적의 레벨당 포인트 = 기준 + 지난 연수 × 연 증가량. 적은 장수 성향(`tendency`) 비율대로 자동 배분 |
+
+승급하면 기본 능력치가 새 티어 값으로 바뀌고, 배분한 포인트는 총량 그대로 다시 맞춘다. 100을 넘는 몫은 많이 투자한 능력치부터 옮기고, 둘 곳이 없으면 체력 보너스가 된다.
+
 ## skills.json — 스킬
 
 | 키 | 내용 |
@@ -24,7 +36,7 @@
 
 1. `tests/tools/general_roster_src.json`에 장수를 적는다: id, 이름, 세력, 역할, 활동 연도(`span`), 스탯 배율(`grade`), 티어별 [칭호, 시기 설명].
 2. `godot --headless --path . -s tests/tools/expand_generals.gd` 를 실행한다.
-   - 스탯·성장률은 역할 기준 × 티어 배율 × grade로 계산되고, 스킬·보유효과는 역할과 티어로 정해진다.
+   - 능력치·성향은 역할 기준 × 티어 배율 × grade로 계산되고, 스킬·보유효과는 역할과 티어로 정해진다.
    - 시대별 적 후보에는 활동 연도가 겹치는 장수가 들어간다. 초반 시대는 티어 상한이 있다 (황건적의 난 D, 잔당 C, 군웅할거 B, 관도~한중 A).
    - 이미 있는 장수는 건드리지 않으므로, 개성을 살리고 싶은 장수는 실행 뒤 `generals.json`에서 직접 고친다.
 
@@ -41,8 +53,8 @@
 | 키 | 내용 |
 | --- | --- |
 | `title` / `era` | 그 시기의 칭호와 설명 |
-| `base_stats` | 레벨 1 스탯: `hp`, `attack`, `defense`, `speed`, `intellect` |
-| `growth` | 레벨당 증가량 (소수 가능). 스탯 = 기본 + 내림(성장 × (레벨 - 1)) |
+| `base_stats` | 기본 능력치 1~100: `hp`, `attack`, `defense`, `speed`, `intellect`. 실제 체력 = `hp` × `ability.hp_per_point` |
+| `tendency` | 성향 (소수 가능). 적이 레벨업 포인트를 나누는 비율. 플레이어 장수는 직접 배분한다 |
 | `skill_ids` | 쓰는 스킬 id 목록 (1개 이상) |
 | `reserve_effect` | 보유효과. 아래 참조 |
 

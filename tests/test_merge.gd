@@ -83,7 +83,7 @@ func test_promotion_heals_fully_and_keeps_level() -> void:
 	_give_card(run, "guan_yu", "C")
 	assert_eq(guan_yu.tier, "B", "본체 + 2장 → 승급")
 	assert_eq(guan_yu.level, 10, "레벨은 그대로")
-	assert_eq(guan_yu.max_hp, _db.get_general("guan_yu").get_tier("B").stats_at_level(10).hp, "새 티어의 스탯으로 다시 계산")
+	assert_eq(guan_yu.max_hp, _db.get_general("guan_yu").get_tier("B").base_stats.hp * 5, "새 티어의 기본 능력치로 다시 계산")
 	assert_eq(guan_yu.hp, guan_yu.max_hp, "승급하면 체력이 전부 회복된다")
 	assert_eq(run.merge_card_count("guan_yu", "C"), 0)
 	assert_eq(run.last_merge_events, [
@@ -195,3 +195,13 @@ func _give_card(run: ExpeditionRun, general_id: String, tier: String) -> void:
 	run._rewards = [Reward.make_card(general_id, tier)]
 	run.phase = ExpeditionRun.PHASE_REWARD
 	assert_true(run.choose_reward(0))
+
+
+func test_merge_preview_text() -> void:
+	# 보상 화면 미리보기: 실제 합성 계산을 사본으로 돌려 본 결과를 보여 준다 (진행도는 바뀌지 않는다).
+	var run: ExpeditionRun = ExpeditionRun.start(_db, SEED)
+	assert_string_contains(GeneralInfo.merge_preview(_db, run, "guan_yu", "C"), "적립 후: C 1장")
+	run.add_merge_card("guan_yu", "C")
+	assert_string_contains(GeneralInfo.merge_preview(_db, run, "guan_yu", "C"), "B 승급!")
+	assert_eq(run.merge_card_count("guan_yu", "C"), 1, "미리보기는 진행도를 건드리지 않는다")
+	assert_eq(GeneralInfo.merge_preview(_db, run, "lu_bu", "B"), "", "없는 장수는 미리보기 없음")

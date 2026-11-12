@@ -52,11 +52,16 @@ func set_compact() -> void:
 	_title.add_theme_font_size_override("font_size", 14)
 
 
-## 장수를 보여 준다.
-func show_general(general_name: String, tier: String, level: int, hp: int, max_hp: int) -> void:
+## 장수를 보여 준다. unspent_points가 0보다 크면 레벨 옆에 배분하지 않은 포인트를 금색으로 표시한다.
+func show_general(general_name: String, tier: String, level: int, hp: int, max_hp: int, unspent_points: int = 0) -> void:
 	_title.text = "%s  %s" % [general_name, tier]
 	_title.add_theme_color_override("font_color", Color.WHITE)
 	_sub.text = "Lv.%d" % level
+	if unspent_points > 0:
+		_sub.text += "  ★포인트 %d" % unspent_points
+		_sub.add_theme_color_override("font_color", UiStyle.GOLD)
+	else:
+		_sub.add_theme_color_override("font_color", UiStyle.TEXT_DIM)
 	_border_color = UiStyle.tier_color(tier)
 	_hp_bar.visible = true
 	set_hp(hp, max_hp)

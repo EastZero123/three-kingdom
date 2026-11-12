@@ -1,0 +1,37 @@
+# 온라인 랭킹 서버 설정.
+# 비밀번호 같은 값은 여기에 쓰지 않고 환경 변수로 넘긴다 (IntelliJ 실행 구성의 Environment variables, 또는 서버의 systemd 설정).
+#   DB_URL, DB_USERNAME, DB_PASSWORD   MySQL 접속 정보
+#   GODOT_PATH                          Godot 실행 파일 (Windows는 *_console.exe)
+#   GAME_PROJECT_PATH                   게임 프로젝트 폴더 (project.godot가 있는 곳)
+#   PORT                                서버 포트 (기본 8080)
+
+server:
+  port: ${PORT:8080}
+
+spring:
+  application:
+    name: ranking-server
+  datasource:
+    url: ${DB_URL:jdbc:mysql://115.68.179.150:3306/samgukji_ranking?serverTimezone=UTC&characterEncoding=UTF-8}
+    username: ${DB_USERNAME:cdy}
+    password: ${DB_PASSWORD:cdy}
+  jpa:
+    # 표는 Flyway(db/migration의 SQL)가 만든다. Hibernate는 표를 만들거나 바꾸지 않는다.
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+  flyway:
+    enabled: true
+  task:
+    execution:
+      # 검증(Godot 실행)은 동시에 2건까지만 돌린다.
+      pool:
+        core-size: 2
+        max-size: 2
+        queue-capacity: 1000
+      thread-name-prefix: verify-
+
+verifier:
+  godot-path: ${GODOT_PATH:}
+  project-path: ${GAME_PROJECT_PATH:}
+  timeout-seconds: 60

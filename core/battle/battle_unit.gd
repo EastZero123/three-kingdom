@@ -26,10 +26,23 @@ var cooldowns: Dictionary[String, int] = {}
 var mods: Array[Dictionary] = []
 
 
-## 데이터에서 전투 유닛을 만든다. current_hp가 0 미만이면 가득 찬 체력으로 시작한다.
-## (체력은 라운드가 지나도 유지되므로, 원정 중에는 이전 전투의 남은 체력을 넘긴다.)
+## 데이터에서 전투 유닛을 만든다 (적·시험용). 레벨업 포인트는 적 규칙대로 성향에 따라 자동 배분한다.
+## current_hp가 0 미만이면 가득 찬 체력으로 시작한다.
 ## stat_multiplier는 모든 스탯에 곱하는 배율로, 토벌 난이도에 따라 적을 약하게 하거나 강하게 할 때 쓴다.
-static func create(db: GameDatabase, p_general_id: String, p_tier: String, p_level: int, current_hp: int = -1, stat_multiplier: float = 1.0) -> BattleUnit:
+## points_per_level은 적의 레벨당 포인트 (AbilityBuild.enemy_points_per_level). 0이면 첫해 기준.
+static func create(db: GameDatabase, p_general_id: String, p_tier: String, p_level: int, current_hp: int = -1, stat_multiplier: float = 1.0, points_per_level: float = 0.0) -> BattleUnit:
+	var general: GeneralDef = db.get_general(p_general_id)
+	if general == null:
+		return null
+	var tier_def: GeneralTierDef = general.get_tier(p_tier)
+	if tier_def == null:
+		return null
+	return create_from_stats(db, p_general_id, p_tier, p_level, AbilityBuild.enemy_combat_stats(db.balance, tier_def, p_level, points_per_level), current_hp, stat_multiplier)
+
+
+## 이미 계산한 전투 수치로 전투 유닛을 만든다. 플레이어 장수는 직접 배분한 능력치로 이 함수를 쓴다.
+## (체력은 라운드가 지나도 유지되므로, 원정 중에는 이전 전투의 남은 체력을 current_hp로 넘긴다.)
+static func create_from_stats(db: GameDatabase, p_general_id: String, p_tier: String, p_level: int, stats: Stats, current_hp: int = -1, stat_multiplier: float = 1.0) -> BattleUnit:
 	var general: GeneralDef = db.get_general(p_general_id)
 	if general == null:
 		return null
@@ -43,10 +56,12 @@ static func create(db: GameDatabase, p_general_id: String, p_tier: String, p_lev
 	unit.tier = p_tier
 	unit.level = p_level
 	unit.role = general.role
-	unit.base_stats = tier_def.stats_at_level(p_level)
-	if stat_multiplier != 1.0:
-		for key: String in Stats.KEYS:
-			unit.base_stats.set_value(key, maxi(1, roundi(float(unit.base_stats.get_value(key)) * stat_multiplier)))
+	unit.base_stats = Stats.new()
+	for key: String in Stats.KEYS:
+		var value: int = stats.get_value(key)
+		if stat_multiplier != 1.0:
+			value = maxi(1, roundi(float(value) * stat_multiplier))
+		unit.base_stats.set_value(key, value)
 	unit.max_hp = unit.base_stats.hp
 	unit.hp = unit.max_hp if current_hp < 0 else mini(current_hp, unit.max_hp)
 	for skill_id: String in tier_def.skill_ids:

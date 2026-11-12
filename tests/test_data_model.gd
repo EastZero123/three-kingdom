@@ -50,17 +50,37 @@ func test_higher_tier_is_stronger_for_every_general() -> void:
 				assert_gt(higher.get_value(key), lower.get_value(key), "%s %s→%s %s" % [general_id, tiers[i - 1], tiers[i], key])
 
 
-func test_stats_at_level() -> void:
+func test_base_abilities_are_within_scale() -> void:
+	# 모든 장수의 기본 능력치는 1~100 (데이터 검사가 이미 막지만, 데이터 자체도 한 번 더 확인).
+	for general_id: String in _db.generals:
+		var general: GeneralDef = _db.generals[general_id]
+		for tier: String in general.tiers:
+			for key: String in Stats.KEYS:
+				var value: int = general.get_tier(tier).base_stats.get_value(key)
+				assert_between(value, 1, 100, "%s %s %s" % [general_id, tier, key])
+
+
+func test_auto_invest_follows_tendency() -> void:
 	var tier_def: GeneralTierDef = _db.get_general("guan_yu").get_tier("C")
-	# 레벨 1은 기본 스탯 그대로.
-	assert_eq(tier_def.stats_at_level(1).to_dict(), tier_def.base_stats.to_dict())
-	# 레벨 11: 공격 25 + 내림(0.9 × 10) = 34, 체력 150 + 내림(4.6 × 10) = 196
-	var level_11: Stats = tier_def.stats_at_level(11)
-	assert_eq(level_11.attack, 34)
-	assert_eq(level_11.hp, 196)
-	# 만렙에서도 계산된다.
+	# 레벨 1은 포인트가 없어 기본 능력치 그대로. 실제 체력 = 체력 능력치 × 5.
+	var level_1: Stats = AbilityBuild.enemy_combat_stats(_db.balance, tier_def, 1)
+	assert_eq(level_1.attack, tier_def.base_stats.attack)
+	assert_eq(level_1.hp, tier_def.base_stats.hp * 5)
+	# 레벨 11: 50포인트가 성향 비율대로 나뉘고, 합은 정확히 50.
+	var build: Dictionary = AbilityBuild.auto_invest(_db.balance, tier_def, 11)
+	var total: int = int(build["overflow"])
+	for key: String in Stats.KEYS:
+		total += int(build["invested"][key])
+	assert_eq(total, 50)
+	assert_gt(int(build["invested"]["attack"]), int(build["invested"]["intellect"]), "무장은 공격이 지략보다 잘 큰다")
+	# 같은 입력이면 항상 같은 결과 (난수 없음).
+	assert_eq(AbilityBuild.auto_invest(_db.balance, tier_def, 11), build)
+	# 만렙에서도 능력치는 100을 넘지 않는다.
 	var max_level: int = _db.balance.get_int("level.max_level")
-	assert_gt(tier_def.stats_at_level(max_level).attack, level_11.attack)
+	var top: Dictionary = AbilityBuild.auto_invest(_db.balance, _db.get_general("lu_bu").get_tier("S"), max_level)
+	var ability: Stats = AbilityBuild.abilities(_db.get_general("lu_bu").get_tier("S").base_stats, top["invested"])
+	for key: String in Stats.KEYS:
+		assert_lte(ability.get_value(key), 100, key)
 
 
 func test_healer_and_roles() -> void:
@@ -250,8 +270,8 @@ func _valid_skill() -> Dictionary:
 func _valid_tier() -> Dictionary:
 	return {
 		"title": "시험 칭호", "era": "시험 시기",
-		"base_stats": {"hp": 100, "attack": 10, "defense": 10, "speed": 10, "intellect": 10},
-		"growth": {"hp": 3.0, "attack": 0.5, "defense": 0.5, "speed": 0.2, "intellect": 0.2},
+		"base_stats": {"hp": 20, "attack": 10, "defense": 10, "speed": 10, "intellect": 10},
+		"tendency": {"hp": 0.6, "attack": 0.5, "defense": 0.5, "speed": 0.2, "intellect": 0.2},
 		"skill_ids": ["test_skill"],
 		"reserve_effect": {
 			"name": "시험 효과", "description": "시험용", "mode": "passive",

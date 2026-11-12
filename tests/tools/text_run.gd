@@ -9,6 +9,7 @@ extends SceneTree
 ##   - 전투 전 배치: 힐러를 우선 출전시키고, 나머지는 남은 체력이 많은 순으로 출전. 출전 장수 중 체력이 많은 3명이 전열.
 ##   - 보상: 보물상자 > 승급이 되는 카드 > 빈 칸을 채울 새 장수 > 진행도 적립 카드 > 레벨이 가장 낮은 출전 장수에게 경험치.
 ##     집중 상자는 체력 비율이 가장 낮은 출전 장수에게 쓴다.
+##   - 레벨업 포인트: 장수 성향(tendency) 비율대로 배분한다 (적과 같은 방식).
 
 const DEFAULT_SEED: int = 12345
 
@@ -56,6 +57,7 @@ func _initialize() -> void:
 					texts.append(reward.summary(db, run.roster.is_full()))
 				print("  보상 선택지: " + " / ".join(texts))
 			_take_reward(db, run)
+			_allocate(db, run)
 		if not quiet:
 			for i: int in range(logged, run.log_lines.size()):
 				print(run.log_lines[i])
@@ -64,6 +66,30 @@ func _initialize() -> void:
 	if quiet:
 		print(run.log_lines[run.log_lines.size() - 1])
 	quit(0)
+
+
+## 배분하지 않은 포인트를 성향대로 나눈다. 목표 = 같은 레벨의 적이 받는 자동 배분.
+func _allocate(db: GameDatabase, run: ExpeditionRun) -> void:
+	for slot: int in run.roster.size():
+		var member: RosterMember = run.roster.get_member(slot)
+		if member == null or member.unspent_points(db) <= 0:
+			continue
+		var goal: Dictionary = AbilityBuild.auto_invest(db.balance, member.tier_def(db), member.level)["invested"]
+		for key: String in Stats.KEYS:
+			var need: int = mini(int(goal[key]) - int(member.invested[key]), member.unspent_points(db))
+			if need > 0:
+				run.allocate_points(slot, key, need)
+		# 목표와 어긋나 남은 포인트(승급 재배분 등)는 넣을 수 있는 곳에 하나씩 넣는다.
+		var guard: int = 0
+		while member.unspent_points(db) > 0 and guard < 500:
+			guard += 1
+			var placed: bool = false
+			for key: String in Stats.KEYS:
+				if run.allocate_points(slot, key, 1):
+					placed = true
+					break
+			if not placed:
+				break
 
 
 ## 선택지 중 하나를 고른다.

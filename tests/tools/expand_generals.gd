@@ -5,24 +5,25 @@ extends SceneTree
 ## 하는 일
 ##   1. 역할별 공용 스킬을 data/skills.json에 추가한다 (이미 있으면 그대로 둔다).
 ##   2. 원본표의 장수를 data/generals.json에 추가한다. 이미 있는 id는 건드리지 않는다.
-##      스탯 = 역할 기준(C티어 Lv.1) × 티어 배율 × grade, 성장률 = 역할 기준 × 티어 성장 배율 × grade
+##      능력치 = 역할 기준(C티어 Lv.1) × 티어 배율 × grade, 성향 = 역할 기준 × 티어 성장 배율 × grade
+##      체력은 능력치 단위(실제 체력 ÷ ability.hp_per_point 5)로 적는다.
 ##   3. data/enemies.json의 시대별 적 후보에 활동 연도(span)가 겹치는 장수를 넣는다.
 ##      시대마다 티어 상한이 있어 초반 시대에는 낮은 티어만 나온다.
 ## 결과 JSON이 기준 데이터다. 이 도구는 다음에 장수를 또 늘릴 때 다시 쓰면 된다.
 
 const ROLE_BASE: Dictionary = {
-	"warrior": {"hp": 150, "attack": 24, "defense": 17, "speed": 14, "intellect": 11},
-	"defender": {"hp": 160, "attack": 18, "defense": 23, "speed": 12, "intellect": 14},
-	"strategist": {"hp": 130, "attack": 12, "defense": 15, "speed": 14, "intellect": 26},
-	"support": {"hp": 140, "attack": 15, "defense": 17, "speed": 16, "intellect": 20},
-	"healer": {"hp": 125, "attack": 10, "defense": 15, "speed": 13, "intellect": 24},
+	"warrior": {"hp": 30, "attack": 24, "defense": 17, "speed": 14, "intellect": 11},
+	"defender": {"hp": 32, "attack": 18, "defense": 23, "speed": 12, "intellect": 14},
+	"strategist": {"hp": 26, "attack": 12, "defense": 15, "speed": 14, "intellect": 26},
+	"support": {"hp": 28, "attack": 15, "defense": 17, "speed": 16, "intellect": 20},
+	"healer": {"hp": 25, "attack": 10, "defense": 15, "speed": 13, "intellect": 24},
 }
 const ROLE_GROWTH: Dictionary = {
-	"warrior": {"hp": 4.6, "attack": 0.9, "defense": 0.6, "speed": 0.3, "intellect": 0.3},
-	"defender": {"hp": 5.0, "attack": 0.6, "defense": 0.85, "speed": 0.2, "intellect": 0.4},
-	"strategist": {"hp": 4.0, "attack": 0.3, "defense": 0.5, "speed": 0.3, "intellect": 1.0},
-	"support": {"hp": 4.2, "attack": 0.4, "defense": 0.6, "speed": 0.4, "intellect": 0.7},
-	"healer": {"hp": 4.0, "attack": 0.2, "defense": 0.5, "speed": 0.3, "intellect": 0.9},
+	"warrior": {"hp": 0.92, "attack": 0.9, "defense": 0.6, "speed": 0.3, "intellect": 0.3},
+	"defender": {"hp": 1.0, "attack": 0.6, "defense": 0.85, "speed": 0.2, "intellect": 0.4},
+	"strategist": {"hp": 0.8, "attack": 0.3, "defense": 0.5, "speed": 0.3, "intellect": 1.0},
+	"support": {"hp": 0.84, "attack": 0.4, "defense": 0.6, "speed": 0.4, "intellect": 0.7},
+	"healer": {"hp": 0.8, "attack": 0.2, "defense": 0.5, "speed": 0.3, "intellect": 0.9},
 }
 const TIER_STAT: Dictionary = {"F": 0.47, "E": 0.6, "D": 0.78, "C": 1.0, "B": 1.25, "A": 1.55, "S": 1.9}
 const TIER_GROWTH: Dictionary = {"F": 0.65, "E": 0.75, "D": 0.87, "C": 1.0, "B": 1.18, "A": 1.38, "S": 1.6}
@@ -136,15 +137,15 @@ func _build_general(entry: Dictionary) -> Dictionary:
 			continue
 		var texts: Array = raw_tiers[tier]
 		var base_stats: Dictionary = {}
-		var growth: Dictionary = {}
+		var tendency: Dictionary = {}
 		for key: String in Stats.KEYS:
 			base_stats[key] = maxi(1, roundi(float(ROLE_BASE[role][key]) * float(TIER_STAT[tier]) * grade))
-			growth[key] = snappedf(float(ROLE_GROWTH[role][key]) * float(TIER_GROWTH[tier]) * grade, 0.1)
+			tendency[key] = snappedf(float(ROLE_GROWTH[role][key]) * float(TIER_GROWTH[tier]) * grade, 0.01)
 		tiers[tier] = {
 			"title": texts[0],
 			"era": texts[1],
 			"base_stats": base_stats,
-			"growth": growth,
+			"tendency": tendency,
 			"skill_ids": _skills_for(entry, tier),
 			"reserve_effect": _reserve_for(entry, tier),
 		}

@@ -7,6 +7,7 @@ extends Node
 const RUN_FILE: String = "run.json"
 const RECORDS_FILE: String = "records.json"
 const CODEX_FILE: String = "codex.json"
+const PROFILE_FILE: String = "profile.json"
 ## 기록은 상위 몇 개까지 남길지.
 const RECORD_LIMIT: int = 50
 
@@ -14,6 +15,8 @@ const RECORD_LIMIT: int = 50
 var base_dir: String = "user://save"
 var records: Array[Dictionary] = []
 var codex: Dictionary = {}
+## 온라인 랭킹에 쓰는 이름 (마지막으로 쓴 이름을 기억한다).
+var player_name: String = ""
 
 
 func _ready() -> void:
@@ -28,6 +31,7 @@ func load_all() -> void:
 		if typeof(item) == TYPE_DICTIONARY:
 			records.append(item as Dictionary)
 	codex = _read(CODEX_FILE).get("codex", {})
+	player_name = String(_read(PROFILE_FILE).get("player_name", ""))
 
 
 # ---------- 진행 중인 런 ----------
@@ -66,13 +70,32 @@ func delete_run() -> void:
 
 # ---------- 기록 ----------
 
+## 방금 끝난 런의 기록 (온라인 제출용. 순위에 못 들어 파일에 남지 않은 기록도 여기에는 있다).
+var last_record: Dictionary = {}
+
+
 ## 끝난 런을 기록에 넣고 진행 중 저장을 지운다. 기록의 순위(1부터, 남지 못했으면 0)를 돌려준다.
 func finish_run(run: ExpeditionRun) -> int:
 	var record: Dictionary = RunRecords.make(run, Time.get_datetime_string_from_system(false, true))
+	last_record = record
 	var rank: int = RunRecords.insert(records, record, RECORD_LIMIT)
 	_write(RECORDS_FILE, {"records": records})
 	delete_run()
 	return rank
+
+
+## 온라인 제출 결과를 기록에 적어 둔다 (seed와 행동 수가 같은 기록을 찾는다).
+func mark_record_online(record: Dictionary, run_id: int, status: String) -> void:
+	for item: Dictionary in records:
+		if int(item["seed"]) == int(record["seed"]) and (item["actions"] as Array).size() == (record["actions"] as Array).size():
+			item["online_id"] = run_id
+			item["online_status"] = status
+	_write(RECORDS_FILE, {"records": records})
+
+
+func set_player_name(name: String) -> void:
+	player_name = name.strip_edges().left(20)
+	_write(PROFILE_FILE, {"player_name": player_name})
 
 
 func best_years() -> int:
@@ -91,11 +114,12 @@ func update_codex(run: ExpeditionRun) -> int:
 
 ## 테스트용: 저장 폴더의 파일을 모두 지우고 메모리의 내용도 비운다.
 func clear_all() -> void:
-	for file_name: String in [RUN_FILE, RECORDS_FILE, CODEX_FILE]:
+	for file_name: String in [RUN_FILE, RECORDS_FILE, CODEX_FILE, PROFILE_FILE]:
 		if FileAccess.file_exists(_path(file_name)):
 			DirAccess.remove_absolute(_path(file_name))
 	records = []
 	codex = {}
+	player_name = ""
 
 
 # ---------- 파일 ----------
